@@ -38,12 +38,12 @@ class HomeView extends StatelessWidget {
               'Welcome',
               style: textTheme.bodyMedium,
             ),
-            SizedBox(height: 4.0),
+            const SizedBox(height: 4.0),
             Text(
               'Massimo D',
               style: textTheme.bodyLarge!.copyWith(fontWeight: FontWeight.bold),
             ),
-            SizedBox(height: 4.0),
+            const SizedBox(height: 4.0),
             Row(
               children: [
                 Icon(
