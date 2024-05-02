@@ -66,8 +66,8 @@ document.getElementById("registerForm").addEventListener("submit", function(even
         return;
     }
 
-    // If validation passes, you can proceed with form submission
-    alert("Form submitted successfully!");
+    alert("Registration successful! Redirecting to sign-in page...");
+    window.location.href = 'Signin.html'; // Redirect to sign-in page
 });
 
 document.getElementById("signInForm").addEventListener("submit", function(event) {
@@ -89,7 +89,7 @@ document.getElementById("signInForm").addEventListener("submit", function(event)
         return;
     }
 
-    // If validation passes, you can proceed with backend authentication
+    
     alert("Attempting to sign in...");
-    // Typically, you would send a request to your server here
+    
 });
