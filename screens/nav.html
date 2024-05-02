@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bottom Navigation</title>
+    <link rel="stylesheet" href="../assets/css/global.css"> <!-- Link to your CSS file -->
+
+</head>
+<body>
+    <!-- Pages -->
+    <div id="home" style="display: none;">
+        <h2>Home Page</h2>
+        <p>Welcome to the Home Page</p>
+    </div>
+    <div id="search" style="display: none;">
+        <h2>Search Page</h2>
+        <p>Welcome to the Search Page</p>
+    </div>
+    <div id="notifications" style="display: none;">
+        <h2>Notifications Page</h2>
+        <p>Welcome to the Notifications Page</p>
+    </div>
+    <div id="profile" style="display: none;">
+        <h2>Profile Page</h2>
+        <p>Welcome to the Profile Page</p>
+    </div>
+
+    <!-- Bottom Navigation -->
+    <div class="bottom-navigation">
+        <a href="#" onclick="showPage('home')">
+            <img src="home_icon.png" alt="Home">
+            Home
+        </a>
+        <a href="#" onclick="showPage('search')">
+            <img src="consult_icon.png" alt="Search">
+            Consult
+        </a>
+        <a href="#" onclick="showPage('notifications')">
+            <img src="Forum_icom.png" alt="Notifications">
+            Forum
+        </a>
+        <a href="#" onclick="showPage('profile')">
+            <img src="Settings_icon.png" alt="Profile">
+            Settings
+        </a>
+    </div>
+
+    <script src="../assets/js/nav.js"></script> <!-- Link to your JavaScript file --></body>
+</html>
