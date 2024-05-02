@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings</title>
+    <link rel="stylesheet" href="../assets/css/settings.css"> <!-- Assuming the same CSS file -->
+</head>
+<body>
+    <div class="container">
+        <div class="profile">
+            <img src="profile_picture.jpg" alt="Profile Picture">
+            <h2>John Doe</h2>
+        </div>
+        <div class="settings-item">
+            <label for="email">Email:</label>
+            <input type="text" id="email" value="john.doe@example.com">
+        </div>
+        <div class="settings-item">
+            <label for="notif">Notifications:</label>
+            <input type="text" id="notif" value="On">
+        </div>
+        <div class="settings-item">
+            <label for="password">Password:</label>
+            <input type="password" id="password" value="********">
+        </div>
+        <button class="settings-button" onclick="logout()">Logout</button>
+    </div>
+
+    <script>
+        function logout() {
+            // Perform logout actions here
+            alert("Logout successful!");
+        }
+    </script>
+</body>
+</html>
