@@ -1,36 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Register</title>
-    <link rel="stylesheet" href="../assets/css/styles.css"> <!-- Link to your CSS file -->
-</head>     
-<body>
+    <link rel="stylesheet" href="../assets/css/styles.css" />
+  </head>
+  <body>
     <div class="container">
-        <header>
-            <img src="../images/healthy.png" alt="Logo/Banner">
-        </header>
-        <main>
-            <h1>Register</h1>
-            <form id="registerForm">
-                <div class="form-group">
-                    <label for="email">Email:</label>
-                    <input type="email" id="email" name="email" required>
-                </div>
-                <div class="form-group">
-                    <label for="password">Password:</label>
-                    <input type="password" id="password" name="password" required>
-                </div>
-                <div class="form-group">
-                    <label for="confirmPassword">Confirm Password:</label>
-                    <input type="password" id="confirmPassword" name="confirmPassword" required>
-                </div>
-                <button type="submit">Sign Up</button>
-            </form>
-            <p>Already have an account? <a href="../screens/signin.html">Login</a></p>
-        </main>
+      <header>
+        <img src="../images/healthy.png" alt="Logo/Banner" id="logo" />
+      </header>
+      <main>
+        <form id="registerForm">
+          <h3>Register</h3>
+          <label>
+            <span>Email</span>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="Enter your email"
+              required
+            />
+          </label>
+
+          <label>
+            <span>Password</span>
+            <div class="passwd-wrap">
+              <input
+                type="password"
+                id="password"
+                name="password"
+                placeholder="Enter your password"
+                required
+              />
+              <button type="button" id="show-passwd">
+                <img
+                  src="../images/eye_open.svg"
+                  class="toggle-password"
+                  onclick="togglePassword()"
+                />
+              </button>
+            </div>
+          </label>
+
+          <label>
+            <span>Confirm Password</span>
+            <div class="passwd-wrap">
+              <input
+                type="password"
+                id="c-password"
+                name="c-password"
+                placeholder="Confirm your password"
+                required
+              />
+              <button type="button" id="show-passwd">
+                <img
+                  src="../images/eye_open.svg"
+                  class="c-toggle-password"
+                  onclick="c_togglePassword()"
+                />
+              </button>
+            </div>
+          </label>
+
+          <button class="button" type="submit">Sign Up</button>
+
+          <p id="go-to-signin">
+            Already have an account?
+            <a href="../screens/signin.html">Login</a>
+          </p>
+        </form>
+      </main>
     </div>
-    <script src="../assets/js/script.js"></script> <!-- Link to your JavaScript file -->
-</body>
+    <script src="../assets/js/script.js"></script>
+    <!-- Link to your JavaScript file -->
+  </body>
 </html>

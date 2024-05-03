@@ -1,72 +1,132 @@
-
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0px;
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "montserrat", sans-serif;
 }
 
 .container {
-    max-width: 600px;
-    margin: 50px auto;
-    padding: 20px;
-    
-    border-radius: 5px;
+  display: flex;
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+  padding-top: 50px;
 }
 
 header img {
-    width: 100px;
-    display: block;
-    margin: 0 auto;
+  display: block;
+  position: absolute;
+  height: 200px;
+  width: 200px;
+  left: 110px;
+  top: 50px;
 }
 
 main {
-    text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-h1 {
-    font-weight: bold;
-    text-align: left;
+form {
+  display: block;
+  width: 100%;
+  margin: auto;
+  color: #2b2d2f;
+  padding: 1.5rem;
 }
 
-.form-group {
-    margin-bottom: 20px;
+h3 {
+  font-size: 2rem;
+  color: blue;
+  margin-bottom: 1.5rem;
 }
 
 label {
-    display: flex;
-    margin-bottom: 5px;
+  display: block;
+  margin-bottom: 1rem;
 }
 
+label span {
+  display: block;
+  color: #aaa;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  transition: 0.3s ease-out;
+}
+
+label:focus-within span {
+  color: #2b2d2f;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+button {
+  appearance: none;
+  outline: none;
+  border: none;
+  background: none;
+}
+
+input[type="text"],
 input[type="email"],
 input[type="password"] {
-    width: 95%;
-    padding : 10px ;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+  display: block;
+  width: 330px;
+  padding: 1rem;
+  border: 1px solid #bbb;
+  border-radius: 0.5rem;
+  transition: border-color 0.3s ease-out;
 }
 
-button {
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus {
+  border-color: #2b2d2f;
 }
 
-button:hover {
-    background-color: #0056b3;
+.button {
+  display: block;
+  width: 100%;
+  cursor: pointer;
+  background-color: blue;
+  color: #fff;
+  margin-top: 30px;
+  border-radius: 0.45rem;
+  padding: 1rem;
+  text-transform: uppercase;
+  font-size: 1rem;
+  font-weight: 700;
+  transition: background-color 0.3s ease-out;
 }
 
-p {
-    margin-top: 20px;
+.button:hover {
+  background-color: crimson;
 }
 
-a {
-    color: #007bff;
-    text-decoration: none;
+.passwd-wrap {
+  position: relative;
 }
 
-a:hover {
-    text-decoration: underline;
+#show-passwd, #show-passwd2 {
+  position: absolute;
+  top: 50%;
+  right: 1rem;
+  transform: translateY(-50%);
+  cursor: pointer;
+  width: 1.5rem;
+  display: flex;
+  align-items: center;
+}
+
+#show-passwd img, #show-passwd2 img {
+  width: 100%;
+  height: auto;
+}
+
+#go-to-register, #go-to-signin {
+  display: block;
+  text-align: center;
+  justify-content: center;
+  margin-top: 30px;
 }

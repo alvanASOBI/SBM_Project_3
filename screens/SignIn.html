@@ -1,32 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sign In</title>
-    <link rel="stylesheet" href="../assets/css/styles.css"> <!-- Assuming the same CSS file -->
-</head>
-<body>
+    <link rel="stylesheet" href="../assets/css/styles.css" />
+    <script src="../assets/js/script.js"></script>
+  </head>
+  <body>
     <div class="container">
-        <header>
-            <img src="../images/healthy.png" alt="Logo/Banner" />
-        </header>
-        <main>
-            <h1>Sign In</h1>
-            <form id="signInForm">
-                <div class="form-group">
-                    <label for="email">Email:</label>
-                    <input type="email" id="email" name="email" required>
-                </div>
-                <div class="form-group">
-                    <label for="password">Password:</label>
-                    <input type="password" id="password" name="password" required>
-                </div>
-                <button type="submit">Sign In</button>
-            </form>
-            <p>Don't have an account? <a href="../screens/register.html">Register</a></p>
-        </main>
+      <header>
+        <img src="../images/healthy.png" alt="Logo/Banner" id="logo" />
+      </header>
+      <main>
+        <form id="signInForm">
+          <h3>Log In</h3>
+          <label>
+            <span>Email</span>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="Enter your email"
+              required
+            />
+          </label>
+
+          <label>
+            <span>Password</span>
+            <div class="passwd-wrap">
+              <input
+                type="password"
+                id="password"
+                name="username"
+                placeholder="Enter your password"
+                required
+              />
+              <button type="button" id="show-passwd">
+                <img
+                  src="../images/eye_open.svg"
+                  class="toggle-password"
+                  onclick="togglePassword()"
+                />
+              </button>
+            </div>
+          </label>
+
+          <button class="button" type="submit">Sign In</button>
+
+          <p id="go-to-register">
+            Don't have an account?
+            <a href="../screens/register.html">Register</a>
+          </p>
+        </form>
+      </main>
     </div>
-    <script src="../assets/js/script.js"></script> 
-</body>
+  </body>
 </html>

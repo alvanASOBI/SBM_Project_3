@@ -1,6 +1,4 @@
-
-
-document.getElementById("registerForm").addEventListener("submit", function(event) {
+document.getElementById("registerForm").addEventListener("submit", function (event) {
     event.preventDefault(); // Prevent form submission
     var email = document.getElementById("email").value;
     var password = document.getElementById("password").value;
@@ -26,10 +24,10 @@ document.getElementById("registerForm").addEventListener("submit", function(even
     }
 
     alert("Registration successful! Redirecting to sign-in page...");
-    window.location.href = 'Signin.html'; 
+    window.location.href = 'Signin.html';
 });
 
-document.getElementById("signInForm").addEventListener("submit", function(event) {
+document.getElementById("signInForm").addEventListener("submit", function (event) {
     event.preventDefault(); // Prevent form submission
     var email = document.getElementById("email").value;
     var password = document.getElementById("password").value;
@@ -47,8 +45,31 @@ document.getElementById("signInForm").addEventListener("submit", function(event)
         alert("Password must be between " + passwordMinLength + " and " + passwordMaxLength + " characters.");
         return;
     }
-
-    
     alert("Attempting to sign in...");
-    
 });
+
+function togglePassword() {
+    var passwordInput = document.getElementById("password");
+    var toggleImg = document.querySelector(".toggle-password");
+
+    if (passwordInput.type === "password") {
+        passwordInput.type = "text";
+        toggleImg.src = "../images/eye_closed.svg";
+    } else {
+        passwordInput.type = "password";
+        toggleImg.src = "../images/eye_open.svg";
+    }
+}
+
+function c_togglePassword() {
+    var passwordInput = document.getElementById("c-password");
+    var toggleImg = document.querySelector(".c-toggle-password");
+
+    if (passwordInput.type === "password") {
+        passwordInput.type = "text";
+        toggleImg.src = "../images/eye_closed.svg";
+    } else {
+        passwordInput.type = "password";
+        toggleImg.src = "../images/eye_open.svg";
+    }
+}
