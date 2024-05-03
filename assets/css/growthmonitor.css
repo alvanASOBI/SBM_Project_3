@@ -8,7 +8,6 @@
   body {
     place-items: center;
     font-family: var(--font-family);
-    background:linear-gradient(to right, #9796f0, #fbc7d4);
     overflow: hidden;
   }
   .contianer {
@@ -24,14 +23,15 @@
   }
 
   .add-event-button {
-    display: flex;
+   
+     display: flex;  
     justify-content: center;
     align-items: center;
-    margin: 20px auto;
-    width: 30px;
-    height: 30px;
+    margin: 35px auto;
+    width: 50px;
+    height:50px;
     border-radius: 50%;
-    background-color: #fbc7d4;  /* A soft pink background */
+    background-color: blue;  /* A soft pink background */
     color: white;
     font-size: 30px;  /* Larger font size for the + sign */
     font-weight: bold;
@@ -39,6 +39,9 @@
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);  /* Adding some shadow for depth */
     transition: transform 0.3s, background-color 0.3s;  /* Smooth transition for interaction */
   }
+
+
+
   
   .add-event-button:hover {
     transform: scale(1.1);  /* Slightly enlarges on hover */
@@ -58,7 +61,7 @@
     box-shadow: var(--shadow);
   }
   .calendar-header {
-    background: #9796f0;
+    background: blue;
     display: flex;
     justify-content: space-between;
     align-items: center;
