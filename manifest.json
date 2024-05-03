@@ -1,0 +1,15 @@
+{
+  "name": "BabySync",
+  "short_name": "BabySync",
+  "start_url": ".",
+  "background_color": "#FFFFFF",
+  "theme_color": "0000FF",
+  "display": "standalone",
+  "icon": [
+    {
+        "src": "images/healthy.png",
+        "sizes": "100x100",
+        "type": "image/png"
+    }
+  ]
+}
