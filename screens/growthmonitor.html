@@ -51,7 +51,7 @@
     <input type="text" id="height" name="height" required><br><br>
     <label for="food">Food Intake:</label>
     <select id="food" name="food" required>
-      <option value="breastmilk">Milk</option>
+      <option value="Milk">Milk</option>
       <option value="formula">Formula</option>
       <option value="solid">Solid Food</option>
     </select><br><br>
@@ -73,9 +73,11 @@
     </div>
 
     <script>
-      document.addEventListener("DOMContentLoaded", function() {
+
+document.addEventListener("DOMContentLoaded", function() {
     const calendarDays = document.querySelectorAll(".calendar-days > div");
     const addEventButton = document.querySelector(".add-event-button");
+    const eventForm = document.getElementById("eventForm");
 
     // Initially hide the plus button
     addEventButton.style.display = "none";
@@ -87,6 +89,7 @@
             if (day.textContent.trim() !== "") {
                 // If yes, show the plus button
                 addEventButton.style.display = "block";
+                // Center the plus symbol within the button
                 addEventButton.style.lineHeight = addEventButton.offsetHeight + "px";
             } else {
                 // If not, hide the plus button
@@ -94,8 +97,33 @@
             }
         });
     });
+
+    // Add submit event listener to the form
+    eventForm.addEventListener("submit", function(event) {
+        event.preventDefault(); // Prevent the default form submission
+        
+        // Gather form data
+        const weight = document.getElementById("weight").value;
+        const height = document.getElementById("height").value;
+        const food = document.getElementById("food").value;
+        const diaperChanges = document.getElementById("diaperChanges").value;
+        
+        // Create a div to display the form data
+        const eventDataDiv = document.createElement("div");
+        eventDataDiv.textContent = `Weight: ${weight}, Height: ${height}, Food Intake: ${food}, Diaper Changes: ${diaperChanges}`;
+        
+        // Append the form data below the calendar
+        document.querySelector(".calendar").appendChild(eventDataDiv);
+        
+        // Hide the plus button
+        addEventButton.style.display = "none";
+        
+        // Reset the form
+        eventForm.reset();
+    });
 });
 
+      
 
     </script>
     

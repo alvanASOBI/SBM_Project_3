@@ -116,6 +116,36 @@ document.querySelector('#next-year').onclick = () => {
   generateCalendar(currentMonth.value, currentYear.value);
 };
 
+
+document.addEventListener("DOMContentLoaded", function() {
+  const calendarDays = document.querySelectorAll(".calendar-days > div");
+  const addEventButton = document.querySelector(".add-event-button");
+
+  // Initially hide the plus button
+  addEventButton.style.display = "none";
+
+  // Add click event listener to each calendar day
+  calendarDays.forEach(day => {
+      day.addEventListener("click", function() {
+          // Check if the selected day has a number
+          if (day.textContent.trim() !== "") {
+              // If yes, show the plus button
+              addEventButton.style.display = "block";
+              addEventButton.style.lineHeight = addEventButton.offsetHeight + "px";
+          } else {
+              // If not, hide the plus button
+              addEventButton.style.display = "none";
+          }
+      });
+  });
+});
+
+
+
+
+
+
+
 document.addEventListener("DOMContentLoaded", function() {
   const addEventButton = document.querySelector('.add-event-button');
   const eventFormPopup = document.getElementById('eventFormPopup');
