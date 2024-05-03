@@ -116,6 +116,36 @@ document.querySelector('#next-year').onclick = () => {
   generateCalendar(currentMonth.value, currentYear.value);
 };
 
+document.addEventListener("DOMContentLoaded", function() {
+  const addEventButton = document.querySelector('.add-event-button');
+  const eventFormPopup = document.getElementById('eventFormPopup');
+  const eventForm = document.getElementById('eventForm');
+
+  addEventButton.addEventListener('click', function() {
+    eventFormPopup.style.display = 'block';
+  });
+
+  eventForm.addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent the form from submitting and reloading the page
+
+    // Collect form data
+    const weight = document.getElementById('weight').value;
+    const height = document.getElementById('height').value;
+    const food = document.getElementById('food').value;
+    const diaperChanges = document.getElementById('diaperChanges').value;
+
+    // You can perform further actions with this data, like sending it to a server or storing it locally
+
+    // For demonstration, let's log the data to the console
+    console.log("Weight:", weight);
+    console.log("Height:", height);
+    console.log("Food Intake:", food);
+    console.log("Diaper Changes:", diaperChanges);
+
+    // Close the popup
+    eventFormPopup.style.display = 'none';
+  });
+});
 
 
 
