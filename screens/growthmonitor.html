@@ -40,6 +40,27 @@
           <div class="add-event-button">+</div>
 
         </div>
+
+        <!-- Add this form within the <body> tag of your HTML -->
+<div class="event-form-popup" id="eventFormPopup" style="display: none;">
+  <form id="eventForm" class="event-form">
+    <h2>Add Details</h2>
+    <label for="weight">Weight:</label>
+    <input type="text" id="weight" name="weight" required><br><br>
+    <label for="height">Height:</label>
+    <input type="text" id="height" name="height" required><br><br>
+    <label for="food">Food Intake:</label>
+    <select id="food" name="food" required>
+      <option value="breastmilk">Milk</option>
+      <option value="formula">Formula</option>
+      <option value="solid">Solid Food</option>
+    </select><br><br>
+    <label for="diaperChanges">Diaper Changes:</label>
+    <input type="number" id="diaperChanges" name="diaperChanges" required><br><br>
+    <button type="submit">Save</button>
+  </form>
+</div>
+
         <!-- <div class="date-time-formate">
           <div class="day-text-formate">TODAY</div>
           <div class="date-time-value">
@@ -50,5 +71,37 @@
         <div class="month-list"></div>
       </div>
     </div>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+  const addEventButton = document.querySelector('.add-event-button');
+  const eventFormPopup = document.getElementById('eventFormPopup');
+  const eventForm = document.getElementById('eventForm');
+
+  addEventButton.addEventListener('click', function() {
+    eventFormPopup.style.display = 'block';
+  });
+
+  eventForm.addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent the form from submitting and reloading the page
+
+    // Collect form data
+    const weight = document.getElementById('weight').value;
+    const height = document.getElementById('height').value;
+    const food = document.getElementById('food').value;
+    const diaperChanges = document.getElementById('diaperChanges').value;
+
+    // You can perform further actions with this data, like sending it to a server or storing it locally
+
+    // For demonstration, let's log the data to the console
+    console.log("Weight:", weight);
+    console.log("Height:", height);
+    console.log("Food Intake:", food);
+    console.log("Diaper Changes:", diaperChanges);
+
+    // Close the popup
+    eventFormPopup.style.display = 'none';
+  });
+});
+    </script>
   </body>
 </html>

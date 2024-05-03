@@ -116,6 +116,10 @@ document.querySelector('#next-year').onclick = () => {
   generateCalendar(currentMonth.value, currentYear.value);
 };
 
+
+
+
+
 let currentDate = new Date();
 let currentMonth = { value: currentDate.getMonth() };
 let currentYear = { value: currentDate.getFullYear() };
