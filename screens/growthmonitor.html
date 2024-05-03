@@ -71,37 +71,33 @@
         <div class="month-list"></div>
       </div>
     </div>
-    <!-- <script>
+
+    <script>
       document.addEventListener("DOMContentLoaded", function() {
-  const addEventButton = document.querySelector('.add-event-button');
-  const eventFormPopup = document.getElementById('eventFormPopup');
-  const eventForm = document.getElementById('eventForm');
+    const calendarDays = document.querySelectorAll(".calendar-days > div");
+    const addEventButton = document.querySelector(".add-event-button");
 
-  addEventButton.addEventListener('click', function() {
-    eventFormPopup.style.display = 'block';
-  });
+    // Initially hide the plus button
+    addEventButton.style.display = "none";
 
-  eventForm.addEventListener('submit', function(event) {
-    event.preventDefault(); // Prevent the form from submitting and reloading the page
-
-    // Collect form data
-    const weight = document.getElementById('weight').value;
-    const height = document.getElementById('height').value;
-    const food = document.getElementById('food').value;
-    const diaperChanges = document.getElementById('diaperChanges').value;
-
-    // You can perform further actions with this data, like sending it to a server or storing it locally
-
-    // For demonstration, let's log the data to the console
-    console.log("Weight:", weight);
-    console.log("Height:", height);
-    console.log("Food Intake:", food);
-    console.log("Diaper Changes:", diaperChanges);
-
-    // Close the popup
-    eventFormPopup.style.display = 'none';
-  });
+    // Add click event listener to each calendar day
+    calendarDays.forEach(day => {
+        day.addEventListener("click", function() {
+            // Check if the selected day has a number
+            if (day.textContent.trim() !== "") {
+                // If yes, show the plus button
+                addEventButton.style.display = "block";
+                addEventButton.style.lineHeight = addEventButton.offsetHeight + "px";
+            } else {
+                // If not, hide the plus button
+                addEventButton.style.display = "none";
+            }
+        });
+    });
 });
-    </script> -->
+
+
+    </script>
+    
   </body>
 </html>
