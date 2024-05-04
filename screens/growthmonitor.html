@@ -1,30 +1,34 @@
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>CALENDAR</title>
-    <link rel="stylesheet" href="../assets/css/growthmonitor.css">
-    <script src="../assets/js/growthmonitor.js" defer></script>
+    <meta
+      name="description"
+      content="Stay organized with our user-friendly Calendar featuring events, reminders, and a customizable interface. Built with HTML, CSS, and JavaScript. Start scheduling today!"
+    />
+    <meta
+      name="keywords"
+      content="calendar, events, reminders, javascript, html, css, open source coding"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="../assets/css/growthmonitor.css" />
+    <title>Calendar with Events</title>
   </head>
   <body>
-    <div class="contianer">
-      <div class="calendar">
-        <div class="calendar-header">
-          <span class="month-picker" id="month-picker"> May </span>
-          <div class="year-picker" id="year-picker">
-            <span class="year-change" id="pre-year">
-              <pre><</pre>
-            </span>
-            <span id="year">2020 </span>
-            <span class="year-change" id="next-year">
-              <pre>></pre>
-            </span>
+    <div class="container">
+      <div class="left">
+        <div class="calendar">
+          <div class="month">
+            <i class="fas fa-angle-left prev"></i>
+            <div class="date">december 2015</div>
+            <i class="fas fa-angle-right next"></i>
           </div>
-        </div>
- 
-        <div class="calendar-body">
-          <div class="calendar-week-days">
+          <div class="weekdays">
             <div>Sun</div>
             <div>Mon</div>
             <div>Tue</div>
@@ -33,99 +37,70 @@
             <div>Fri</div>
             <div>Sat</div>
           </div>
-          <div class="calendar-days">
+          <div class="days"></div>
+          <div class="goto-today">
+            <div class="goto">
+              <input type="text" placeholder="mm/yyyy" class="date-input" />
+              <button class="goto-btn">Go</button>
+            </div>
+            <button class="today-btn">Today</button>
           </div>
         </div>
-        <div class="calendar-footer">
-          <div class="add-event-button">+</div>
-
-        </div>
-
-        <!-- Add this form within the <body> tag of your HTML -->
-<div class="event-form-popup" id="eventFormPopup" style="display: none;">
-  <form id="eventForm" class="event-form">
-    <h2>Add Details</h2>
-    <label for="weight">Weight:</label>
-    <input type="text" id="weight" name="weight" required><br><br>
-    <label for="height">Height:</label>
-    <input type="text" id="height" name="height" required><br><br>
-    <label for="food">Food Intake:</label>
-    <select id="food" name="food" required>
-      <option value="Milk">Milk</option>
-      <option value="formula">Formula</option>
-      <option value="solid">Solid Food</option>
-    </select><br><br>
-    <label for="diaperChanges">Diaper Changes:</label>
-    <input type="number" id="diaperChanges" name="diaperChanges" required><br><br>
-    <button type="submit">Save</button>
-  </form>
-</div>
-
-        <!-- <div class="date-time-formate">
-          <div class="day-text-formate">TODAY</div>
-          <div class="date-time-value">
-            <div class="time-formate">02:51:20</div>
-            <div class="date-formate">23 - july - 2022</div>
-          </div>
-        </div> -->
-        <div class="month-list"></div>
       </div>
+      <div class="right">
+        <div class="today-date">
+          <div class="event-day">wed</div>
+          <div class="event-date">12th december 2022</div>
+        </div>
+        <div class="events"></div>
+        <div class="add-event-wrapper">
+          <div class="add-event-header">
+            <div class="title">Baby's log</div>
+            <i class="fas fa-times close"></i>
+          </div>
+          <div class="add-event-body">
+            <div class="add-event-input">
+              <input type="text" placeholder="Add Event" class="event-name" />
+            </div>
+
+              <div class="add-event-input">
+                <input type="text" placeholder="Add baby's weight" class="event-weight" />
+              </div>
+              <div class="add-event-input">
+                <input type="text" placeholder="Add baby's height" class="event-height" />
+              </div>
+              <div class="add-event-input">
+                <input type="text" placeholder="Add food intake" class="event-food" />
+              </div>
+              <div class="add-event-input">
+                <input type="text" placeholder="No. of times changed diaper" class="event-diaper" />
+              </div>
+            
+            <div class="add-event-input">
+              <input
+                type="text"
+                placeholder="Event Time From"
+                class="event-time-from"
+              />
+            </div>
+            <div class="add-event-input">
+              <input
+                type="text"
+                placeholder="Event Time To"
+                class="event-time-to"
+              />
+            </div>
+          </div>
+          <div class="add-event-footer">
+            <button class="add-event-btn">Add Event</button>
+          </div>
+        </div>
+      </div>
+      <button class="add-event">
+        <i class="fas fa-plus"></i>
+      </button>
     </div>
 
-    <script>
-
-document.addEventListener("DOMContentLoaded", function() {
-    const calendarDays = document.querySelectorAll(".calendar-days > div");
-    const addEventButton = document.querySelector(".add-event-button");
-    const eventForm = document.getElementById("eventForm");
-
-    // Initially hide the plus button
-    addEventButton.style.display = "none";
-
-    // Add click event listener to each calendar day
-    calendarDays.forEach(day => {
-        day.addEventListener("click", function() {
-            // Check if the selected day has a number
-            if (day.textContent.trim() !== "") {
-                // If yes, show the plus button
-                addEventButton.style.display = "block";
-                // Center the plus symbol within the button
-                addEventButton.style.lineHeight = addEventButton.offsetHeight + "px";
-            } else {
-                // If not, hide the plus button
-                addEventButton.style.display = "none";
-            }
-        });
-    });
-
-    // Add submit event listener to the form
-    eventForm.addEventListener("submit", function(event) {
-        event.preventDefault(); // Prevent the default form submission
-        
-        // Gather form data
-        const weight = document.getElementById("weight").value;
-        const height = document.getElementById("height").value;
-        const food = document.getElementById("food").value;
-        const diaperChanges = document.getElementById("diaperChanges").value;
-        
-        // Create a div to display the form data
-        const eventDataDiv = document.createElement("div");
-        eventDataDiv.textContent = `Weight: ${weight}, Height: ${height}, Food Intake: ${food}, Diaper Changes: ${diaperChanges}`;
-        
-        // Append the form data below the calendar
-        document.querySelector(".calendar").appendChild(eventDataDiv);
-        
-        // Hide the plus button
-        addEventButton.style.display = "none";
-        
-        // Reset the form
-        eventForm.reset();
-    });
-});
-
-      
-
-    </script>
-    
+    <script src="../assets/js/growthmonitor.js"></script>
   </body>
 </html>
