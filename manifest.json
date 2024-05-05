@@ -6,7 +6,7 @@
   "display": "standalone",
   "orientation": "portrait",
   "background_color": "#ffffff",
-  "theme_color": "#4caf50",
+  "theme_color": "#0000ff",
   "icons": [
     {
       "src": "images/healthy.png",
@@ -14,17 +14,5 @@
       "type": "image/png",
       "density": "1.0"
     }
-  ],
-  "splash_pages": null,
-  "prefer_related_applications": false,
-  "related_applications": [],
-  "scope": "/",
-  "permissions": [],
-  "service_worker": {
-    "src": "/service-worker.js",
-    "scope": "/"
-  },
-  "shortcuts": [],
-  "share_target": null,
-  "navigation_color": "#000000"
+  ]
 }
