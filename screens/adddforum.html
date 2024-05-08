@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forum Page</title>
+    <link rel="stylesheet" href="../assets/css/addforum.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Forum Page</h1>
+        <form id="postForm">
+            <label for="username">Username:</label>
+            <input type="text" id="username" required><br><br>
+            <label for="postContent">Post:</label><br>
+            <textarea id="postContent" rows="4" cols="50" required></textarea><br><br>
+            <button type="submit">Submit</button>
+        </form>
+        <div id="posts"></div>
+    </div>
+    <script src="../assets/js/addforum.js"></script>
+</body>
+</html>
