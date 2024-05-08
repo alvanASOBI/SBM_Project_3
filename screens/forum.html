@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forum</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+        .header {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+        }
+        .search-bar {
+            padding: 20px;
+            text-align: center;
+        }
+        .question-list {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .question {
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 10px;
+            margin-bottom: 10px;
+        }
+        .question-title {
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .question-time {
+            color: #666;
+            font-size: 14px;
+        }
+        .question-description {
+            margin-top: 5px;
+            color: #333;
+        }
+        .question-icons {
+            margin-top: 10px;
+        }
+        .question-icons img {
+            width: 30px;
+            height: 30px;
+            margin-right: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Forum</h1>
+    </div>
+    <div class="search-bar">
+        <input type="text" placeholder="Search...">
+        <button>Search</button>
+    </div>
+    <div class="question-list">
+        <div class="question">
+            <div class="question-title">How to code a chat application using JavaScript?</div>
+            <div class="question-time">Posted 2 hours ago</div>
+            <div class="question-description">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis justo vel massa dapibus varius vel vitae odio.
+            </div>
+            <div class="question-icons">
+                <img src="like_icon.png" alt="Like">
+                <img src="comment_icon.png" alt="Comment">
+            </div>
+        </div>
+        <div class="question">
+            <div class="question-title">What are the best practices for responsive web design?</div>
+            <div class="question-time">Posted 1 day ago</div>
+            <div class="question-description">
+                Fusce consequat eleifend diam, eget feugiat odio volutpat a. Integer nec vehicula est, et maximus odio.
+            </div>
+            <div class="question-icons">
+                <img src="like_icon.png" alt="Like">
+                <img src="comment_icon.png" alt="Comment">
+            </div>
+        </div>
+        <!-- More questions go here -->
+    </div>
+</body>
+</html>
