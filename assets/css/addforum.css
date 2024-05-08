@@ -4,6 +4,13 @@
     padding: 20px;
 }
 
+.header {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+}
+
 form {
     margin-bottom: 20px;
 }
