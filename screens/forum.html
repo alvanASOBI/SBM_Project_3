@@ -89,5 +89,38 @@
         </div>
         <!-- More questions go here -->
     </div>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+    // Retrieve post data from local storage
+    var newPostData = JSON.parse(localStorage.getItem('newPost'));
+
+    if (newPostData) {
+        // Create a new question div
+        var questionDiv = document.createElement('div');
+        questionDiv.className = 'question';
+
+        // Populate the question div with the retrieved post data
+        questionDiv.innerHTML = `
+            <div class="question-title">${newPostData.postTitle}</div>
+            <div class="question-time">Posted just now</div>
+            <div class="question-description">${newPostData.postContent}</div>
+            <div class="question-icons">
+                <img src="like_icon.png" alt="Like">
+                <img src="comment_icon.png" alt="Comment">
+            </div>
+        `;
+
+        // Append the question div to the question list container
+        var questionListContainer = document.querySelector('.question-list');
+        questionListContainer.appendChild(questionDiv);
+
+        // Clear the saved post data from local storage
+        localStorage.removeItem('newPost');
+    }
+});
+
+    </script>
 </body>
 </html>

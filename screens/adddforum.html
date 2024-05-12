@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Forum Page</title>
     <link rel="stylesheet" href="../assets/css/addforum.css">
+
 </head>
 <body>
     <div class="header">
@@ -22,6 +23,41 @@
         </form>
         <div id="posts"></div>
     </div>
-    <script src="../assets/js/addforum.js"></script>
+
+
+    <script>
+        document.getElementById('postForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    var username = document.getElementById('username').value;
+    var postContent = document.getElementById('postContent').value;
+    var postTitle = document.getElementById('postTitle').value;
+
+    if (username && postContent && postTitle) {
+        // Create an object to hold post data
+        var postData = {
+            username: username,
+            postTitle: postTitle,
+            postContent: postContent
+        };
+
+        // Convert post data to JSON and store in local storage
+        localStorage.setItem('newPost', JSON.stringify(postData));
+
+        // Redirect to the forum page
+        window.location.href = 'forum.html';
+    } else {
+        alert('Please fill in all fields.');
+    }
+});
+
+
+
+    </script>
+
+
+
+
+    <!-- <script src="../assets/js/addforum.js"></script> -->
 </body>
 </html>
