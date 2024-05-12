@@ -15,7 +15,14 @@ const calendar = document.querySelector(".calendar"),
   addEventTitle = document.querySelector(".event-name "),
   addEventFrom = document.querySelector(".event-time-from "),
   addEventTo = document.querySelector(".event-time-to "),
+  //addded the following
+  addEventWeight= document.querySelector(".event-weight "),
+  addEventHeight = document.querySelector(".event-height "),
+  addEventFood = document.querySelector(".event-food "),
+  addEventDiaper = document.querySelector(".event-diaper "),  
+  //end
   addEventSubmit = document.querySelector(".add-event-btn ");
+
 
 let today = new Date();
 let activeDay;
@@ -303,9 +310,15 @@ addEventTo.addEventListener("input", (e) => {
 //function to add event to eventsArr
 addEventSubmit.addEventListener("click", () => {
   const eventTitle = addEventTitle.value;
+  //added below :
+const eventWeight = addEventDiaper.value;
+const eventHeight = addEventHeight.value;
+const eventFood = addEventFood.value;
+const eventDiaper = addEventDiaper.value;
+  //end
   const eventTimeFrom = addEventFrom.value;
   const eventTimeTo = addEventTo.value;
-  if (eventTitle === "" || eventTimeFrom === "" || eventTimeTo === "") {
+  if ( eventTitle === "" ||eventWeight === "" ||eventHeight === "" ||eventFood === "" ||eventDiaper === "" || eventTimeFrom === "" || eventTimeTo === "") {
     alert("Please fill all the fields");
     return;
   }
