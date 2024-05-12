@@ -161,7 +161,7 @@ function addListner() {
         }, 100);
       } else if (e.target.classList.contains("next-date")) {
         nextMonth();
-        //add active to clicked day afte month is changed
+        //add active to clicked day after month is changed
         setTimeout(() => {
           const days = document.querySelectorAll(".day");
           days.forEach((day) => {
@@ -363,6 +363,12 @@ const eventDiaper = addEventDiaper.value;
   const newEvent = {
     title: eventTitle,
     time: timeFrom + " - " + timeTo,
+     // added
+     weight: eventWeight,
+     height: eventHeight,
+     food: eventFood,
+     diaper: eventDiaper,
+     //end
   };
   console.log(newEvent);
   console.log(activeDay);
@@ -392,6 +398,12 @@ const eventDiaper = addEventDiaper.value;
   console.log(eventsArr);
   addEventWrapper.classList.remove("active");
   addEventTitle.value = "";
+  //add following
+addEventWeight.value = "";
+addEventHeight.value ="";
+addEventFood.value ="";
+addEventDiaper.value="";
+  //end
   addEventFrom.value = "";
   addEventTo.value = "";
   updateEvents(activeDay);
