@@ -70,7 +70,7 @@ input[type="text"],
 input[type="email"],
 input[type="password"] {
   display: block;
-  width: 330px;
+  width: 300px;
   padding: 1rem;
   border: 1px solid #bbb;
   border-radius: 0.5rem;
@@ -95,7 +95,7 @@ input[type="password"] {
 
 .button {
   display: block;
-  width: 95%; /* Adjust width as desired */
+  width: 100%;
   margin: 10px auto 0; /* Center the button horizontally with top margin */
   cursor: pointer;
   background-color: blue;
