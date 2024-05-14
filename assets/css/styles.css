@@ -9,6 +9,8 @@ header img {
   width: 170px;
 }
 
+
+
 .container {
   display: flex;
   align-items: center;
@@ -21,6 +23,7 @@ main {
   justify-content: center;
 }
 
+
 form {
   display: block;
   width: 100%;
@@ -30,6 +33,7 @@ form {
 }
 
 h3 {
+  text-align: center;
   font-size: 2rem;
   color: blue;
   margin-bottom: 20px;
@@ -79,17 +83,27 @@ input[type="password"]:focus {
   border-color: #2b2d2f;
 }
 
+input[type="email"],
+input[type="password"] {
+  display: block;
+  width: 300px; /* Adjust width as desired */
+  padding: 1rem;
+  border: 1px solid #bbb;
+  border-radius: 0.5rem;
+  transition: border-color 0.3s ease-out;
+}
+
 .button {
   display: block;
-  width: 100%;
+  width: 95%; /* Adjust width as desired */
+  margin: 10px auto 0; /* Center the button horizontally with top margin */
   cursor: pointer;
   background-color: blue;
   color: #fff;
-  margin-top: 20px;
   border-radius: 0.45rem;
-  padding: 1rem;
+  padding: 0.9rem;
   text-transform: uppercase;
-  font-size: 1rem;
+  font-size: 0.9rem;
   font-weight: 700;
   transition: background-color 0.3s ease-out;
 }
