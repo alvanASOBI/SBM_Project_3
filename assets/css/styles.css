@@ -4,9 +4,9 @@
 
 header img {
   display: flex;
-  margin: 70px auto 0px auto;
-  height: 170px;
-  width: 170px;
+  margin: 50px auto 0px auto;
+  height: 90px;
+  width: 90px;
 }
 
 
@@ -29,12 +29,12 @@ form {
   width: 100%;
   margin: auto;
   color: #2b2d2f;
-  padding: 1.5rem;
+  padding: 0.9rem;
 }
 
 h3 {
   text-align: center;
-  font-size: 2rem;
+  font-size: 1.8rem;
   color: blue;
   margin-bottom: 20px;
 }
@@ -87,7 +87,7 @@ input[type="email"],
 input[type="password"] {
   display: block;
   width: 300px; /* Adjust width as desired */
-  padding: 1rem;
+  padding: 10px;
   border: 1px solid #bbb;
   border-radius: 0.5rem;
   transition: border-color 0.3s ease-out;
@@ -139,5 +139,5 @@ input[type="password"] {
   display: block;
   text-align: center;
   justify-content: center;
-  margin-top: 40px;
+  margin-top: 20px;
 }
