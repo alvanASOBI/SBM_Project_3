@@ -54,6 +54,24 @@
             margin-right: 10px;
             cursor: pointer;
         }
+        .comments-section {
+            margin-top: 10px;
+        }
+        .comment-form input[type="text"] {
+            width: 80%;
+            padding: 5px;
+            margin-right: 10px;
+        }
+        .comment-form button {
+            padding: 5px 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .comments {
+            margin-top: 10px;
+        }
     </style>
 </head>
 <body>
@@ -72,8 +90,15 @@
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis justo vel massa dapibus varius vel vitae odio.
             </div>
             <div class="question-icons">
-                <img src="like_icon.png" alt="Like">
-                <img src="comment_icon.png" alt="Comment">
+                <img class="like-icon" src="like_icon.png" alt="Like">
+                <img class="comment-icon" src="comment_icon.png" alt="Comment">
+            </div>
+            <div class="comments-section" style="display: none;">
+                <form class="comment-form">
+                    <input type="text" placeholder="Your comment...">
+                    <button type="submit">Add Comment</button>
+                </form>
+                <div class="comments"></div>
             </div>
         </div>
         <div class="question">
@@ -83,44 +108,47 @@
                 Fusce consequat eleifend diam, eget feugiat odio volutpat a. Integer nec vehicula est, et maximus odio.
             </div>
             <div class="question-icons">
-                <img src="like_icon.png" alt="Like">
-                <img src="comment_icon.png" alt="Comment">
+                <img class="like-icon" src="like_icon.png" alt="Like">
+                <img class="comment-icon" src="comment_icon.png" alt="Comment">
+            </div>
+            <div class="comments-section" style="display: none;">
+                <form class="comment-form">
+                    <input type="text" placeholder="Your comment...">
+                    <button type="submit">Add Comment</button>
+                </form>
+                <div class="comments"></div>
             </div>
         </div>
         <!-- More questions go here -->
     </div>
 
-
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-    // Retrieve post data from local storage
-    var newPostData = JSON.parse(localStorage.getItem('newPost'));
+            var questionIcons = document.querySelectorAll('.question-icons');
 
-    if (newPostData) {
-        // Create a new question div
-        var questionDiv = document.createElement('div');
-        questionDiv.className = 'question';
+            questionIcons.forEach(function(icon) {
+                icon.querySelector('.comment-icon').addEventListener('click', function() {
+                    var commentsSection = icon.parentNode.querySelector('.comments-section');
+                    commentsSection.style.display = commentsSection.style.display === 'none' ? 'block' : 'none';
+                });
+            });
 
-        // Populate the question div with the retrieved post data
-        questionDiv.innerHTML = `
-            <div class="question-title">${newPostData.postTitle}</div>
-            <div class="question-time">Posted just now</div>
-            <div class="question-description">${newPostData.postContent}</div>
-            <div class="question-icons">
-                <img src="like_icon.png" alt="Like">
-                <img src="comment_icon.png" alt="Comment">
-            </div>
-        `;
-
-        // Append the question div to the question list container
-        var questionListContainer = document.querySelector('.question-list');
-        questionListContainer.appendChild(questionDiv);
-
-        // Clear the saved post data from local storage
-        localStorage.removeItem('newPost');
-    }
-});
-
+            var commentForms = document.querySelectorAll('.comment-form');
+            commentForms.forEach(function(form) {
+                form.addEventListener('submit', function(event) {
+                    event.preventDefault();
+                    var commentInput = this.querySelector('input[type="text"]');
+                    var commentText = commentInput.value.trim();
+                    if (commentText !== '') {
+                        var commentsContainer = this.parentNode.querySelector('.comments');
+                        var commentDiv = document.createElement('div');
+                        commentDiv.textContent = commentText;
+                        commentsContainer.appendChild(commentDiv);
+                        commentInput.value = '';
+                    }
+                });
+            });
+        });
     </script>
 </body>
 </html>
