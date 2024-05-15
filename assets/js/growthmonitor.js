@@ -19,7 +19,8 @@ const calendar = document.querySelector(".calendar"),
   addEventWeight= document.querySelector(".event-weight "),
   addEventHeight = document.querySelector(".event-height "),
   addEventFood = document.querySelector(".event-food "),
-  addEventDiaper = document.querySelector(".event-diaper "),  
+  addEventDiaper = document.querySelector(".event-diaper "), 
+  addEventPhoto =  document.querySelector(".event-photo "),
   //end
   addEventSubmit = document.querySelector(".add-event-btn ");
 
@@ -246,6 +247,7 @@ function updateEvents(date) {
               <p>Height: ${event.height}</p>
               <p>Food Intake: ${event.food}</p>
               <p>No of times diaper changed: ${event.diaper}</p>
+              <p>Photo: <img src="${event.photo}" alt="Event Photo"></p>
             </div>
             <div class="event-time">
               <span class="event-time">${event.time}</span>
@@ -315,6 +317,7 @@ const eventWeight = addEventDiaper.value;
 const eventHeight = addEventHeight.value;
 const eventFood = addEventFood.value;
 const eventDiaper = addEventDiaper.value;
+const eventPhoto = addEventPhoto.value;
   //end
   const eventTimeFrom = addEventFrom.value;
   const eventTimeTo = addEventTo.value;
@@ -368,6 +371,7 @@ const eventDiaper = addEventDiaper.value;
      height: eventHeight,
      food: eventFood,
      diaper: eventDiaper,
+     photo: eventPhoto,
      //end
   };
   console.log(newEvent);
@@ -403,6 +407,7 @@ addEventWeight.value = "";
 addEventHeight.value ="";
 addEventFood.value ="";
 addEventDiaper.value="";
+addEventPhoto.value =null;
   //end
   addEventFrom.value = "";
   addEventTo.value = "";
