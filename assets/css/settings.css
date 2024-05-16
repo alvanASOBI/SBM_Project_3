@@ -17,7 +17,7 @@ body {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  margin-top: 100px;
+  margin-top: 120px;
   margin-bottom: 20px;
 }
 
@@ -196,5 +196,5 @@ input[type="password"] {
   display: block;
   text-align: center;
   justify-content: center;
-  margin-top: 20px;
+  padding-bottom: 50px;
 }

@@ -2,76 +2,112 @@ body {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
 }
+
 .container {
     max-width: 600px;
-    margin: 0 auto;
+    margin: 20px auto;
     padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
 }
 
 .header {
-    background-color: #007bff;
-    color: white;
-    padding: 5px 5px;
+    color: black;
+    padding: 10px 0;
     text-align: center;
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 8px 8px 0 0;
 }
 
 form {
     margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
 }
 
 label {
-    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+textarea,
+button {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+input[type="text"]:focus,
+textarea:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
 }
 
 textarea {
-    width: 100%;
+    resize: vertical;
 }
 
 button {
-    padding: 10px 20px;
     background-color: #007bff;
     color: #fff;
     border: none;
     cursor: pointer;
+    transition: background-color 0.3s;
 }
 
 button:hover {
     background-color: #0056b3;
 }
 
-
-
-
-
 .question-list {
     max-width: 600px;
     margin: 20px auto;
     padding: 20px;
     border: 1px solid #ccc;
-    border-radius: 5px;
+    border-radius: 8px;
+    background-color: #fff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
+
 .question {
     border-bottom: 1px solid #ccc;
     padding-bottom: 10px;
     margin-bottom: 10px;
 }
+
+.question:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+
 .question-title {
     font-size: 18px;
     font-weight: bold;
 }
+
 .question-time {
     color: #666;
     font-size: 14px;
 }
+
 .question-description {
     margin-top: 5px;
     color: #333;
 }
+
 .question-icons {
     margin-top: 10px;
 }
+
 .question-icons img {
     width: 30px;
     height: 30px;
