@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Forum</title>
+    <link rel="stylesheet" href="../assets/css/global.css">
+
     <style>
         body {
             margin: 0;
@@ -122,6 +124,25 @@
         <!-- More questions go here -->
     </div>
 
+      <!-- Bottom Navigation -->
+      <div class="bottom-navigation">
+        <a href="home.html" onclick="showPage('home')">
+          <img src="../images/home.png" alt="Home" />
+          Home
+        </a>
+        <a href="growthmonitor.html" onclick="showPage('growthmonitor')">
+          <img src="../images/calendar.png" alt="Calendar" />
+          Calendar
+        </a>
+        <a href="#" onclick="showPage('bookings')">
+          <img src="../images/users.png" alt="Bookings" />
+          Booking
+        </a>
+        <a href="settings.html" onclick="showPage('settings')">
+          <img src="../images/settings.png" alt="Settings" />
+          Settings
+        </a>
+      </div>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             var questionIcons = document.querySelectorAll('.question-icons');
