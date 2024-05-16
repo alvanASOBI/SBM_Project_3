@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PWA App</title>
+  <link rel="stylesheet" href="../assets/css/styletest.css">
+  <link rel="stylesheet" href="../assets/css/global.css">
+
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#007bff">
+</head>
+<body>
+  <header>
+    <h1>Customer Service Booking</h1>
+  </header>
+
+  <div class="container">
+    <div class="box">
+      <a href="forum.html" onclick="showPage('forum')">
+        <h2>Forum</h2>
+        <img src="../images/users.png" alt="Image 1" />
+      </a>
+    </div>
+    <div class="box">
+      <a href="calendar.html" onclick="showPage('calendar')">
+        <h2>Calendar</h2>
+        <img src="../images/calendar.png" alt="Image 2" />
+      </a>
+    </div>
+    <div class="box">
+      <a href="booking.html" onclick="showPage('booking')">
+        <h2>Booking</h2>
+        <img src="../images/pluscircle.png" alt="Image 3" />
+      </a>
+    </div>
+    <div class="box">
+      <a href="settings.html" onclick="showPage('settings')">
+        <h2>Settings</h2>
+        <img src="../images/settings.png" alt="Image 4" />
+      </a>
+    </div>
+  </div>
+
+  <main>
+    <section class="services">
+      <h2>Services</h2>
+      <ul>
+        <li>Service 1</li>
+        <li>Service 2</li>
+        <li>Service 3</li>
+      </ul>
+    </section>
+    <section class="actions">
+      <h2>Actions</h2>
+      <a href="#">Booking</a>
+      <a href="#">Calendar</a>
+      <a href="#">Settings</a>
+    </section>
+  </main>
+
+
+     <!-- Bottom Navigation -->
+     <div class="bottom-navigation">
+        <a href="home.html" onclick="showPage('home')">
+          <img src="../images/home.png" alt="Home" />
+          Home
+        </a>
+        <a href="growthmonitor.html" onclick="showPage('growthmonitor')">
+          <img src="../images/calendar.png" alt="Calendar" />
+          Calendar
+        </a>
+        <a href="#" onclick="showPage('bookings')">
+          <img src="../images/users.png" alt="Bookings" />
+          Booking
+        </a>
+        <a href="settings.html" onclick="showPage('settings')">
+          <img src="../images/settings.png" alt="Settings" />
+          Settings
+        </a>
+      </div>
+</body>
+</html>
