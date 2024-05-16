@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../assets/css/global.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&display=swap">
     <title>Home</title>
     <style>
       body {
@@ -45,9 +46,10 @@
         width: 100%;
         margin: 0 auto; /* size of banner, also centers the color background*/
         height: 80px;
-        text-align: center; /*centers-text for all child elements!*/
+        text-align: left; /*centers-text for all child elements!*/
         padding: 0;
-        font-weight: normal;
+        font-weight: bold;
+        color: white;
         font-size: 20px;
         background: blue;
         padding: 0.5em 0;
@@ -57,6 +59,8 @@
         display: block; /* see you dont really need the br*/
         font-family: Arial, sans-serif;
         font-size: 30px;
+        font-weight: bold;
+        color: white;
         margin: 0.125ex 0 0 0; /* determines space from site name, 1st # is the value for the space left at the top... 1ex=same space as the height of the  letter'x' ( might as well use good typography!)  */
       }
 
@@ -76,11 +80,11 @@
       <div class="box">
         <a href="forum.html" onclick="showPage('forum')">
           <h2>Customer Service</h2>
-          <img src="../images/users.png" alt="Image 1" />
+          <img src="../images/home.png" alt="Image 1" />
         </a>
       </div>
       <div class="box">
-        <a href="calendar.html" onclick="showPage('calendar')">
+        <a href="growthmonitor.html" onclick="showPage('calendar')">
           <h2>Calendar</h2>
           <img src="../images/calendar.png" alt="Image 2" />
         </a>
@@ -105,7 +109,7 @@
         <img src="../images/home.png" alt="Home" />
         Home
       </a>
-      <a href="calendar.html" onclick="showPage('search')">
+      <a href="growthmonitor.html" onclick="showPage('search')">
         <img src="../images/calendar.png" alt="Calendar" />
         Calendar
       </a>
