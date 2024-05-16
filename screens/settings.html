@@ -8,15 +8,15 @@
     <script src="../assets/js/script.js"></script>
   </head>
   <body>
-    <class="container">
+    <div class="container">
       <main>
         <form id="settingsForm">
-
           <div class="profile">
             <img src="profile_picture.jpg" alt="Profile Picture" />
             <h2>[ Name ] <b>Points: 60</b></h2>
           </div>
 
+       
           <label>
             <input
               type="email"
@@ -46,14 +46,20 @@
             </div>
           </label>
 
-          <button class="button" onclick="">Edit Details</button>
-          <button class="button" onclick="logout()">Logout</button>
-    
+          <label class="notification-toggle">
+            <span>Notifications:</span>
+            <input type="checkbox" id="notifications" name="notifications" />
+            <span class="slider"></span>
+          </label>
+
+
+          <button type="button" class="button" onclick="editDetails()">Edit Details</button>
+          <button type="button" class="button" onclick="logout()">Logout</button>
+
           <p id="go-to-customer-service">
             Need help?
             <a href="">Customer service</a>
           </p>
-
         </form>
       </main>
     </div>
