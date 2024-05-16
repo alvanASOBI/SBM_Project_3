@@ -324,7 +324,7 @@ body {
 .events .event:hover .event-time {
   color: blue;
 }
-/* add tick in event after */
+/* add cross in event after */
 .events .event::after {
   content: "❌";
   position: absolute;
@@ -335,7 +335,7 @@ body {
   display: none;
   align-items: center;
   justify-content: center;
-  opacity: 0.3;
+  opacity: 1;
   color: var(--primary-clr);
   transform: translateY(-50%);
 }

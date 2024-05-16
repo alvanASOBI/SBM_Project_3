@@ -246,7 +246,7 @@ function updateEvents(date) {
               <p>Weight: ${event.weight}</p>
               <p>Height: ${event.height}</p>
               <p>Food Intake: ${event.food}</p>
-              <p>No of times diaper changed: ${event.diaper}</p>
+              <p>Diaper changes: ${event.diaper}</p>
             </div>
             <div class="event-time">
               <span class="event-time">${event.time}</span>
