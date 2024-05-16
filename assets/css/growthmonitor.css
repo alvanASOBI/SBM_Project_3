@@ -466,6 +466,7 @@ body {
   background-color: transparent;
   color: var(--primary-clr);
 }
+
 @media screen and (max-width: 1000px) {
   body {
     align-items: flex-start;
