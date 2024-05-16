@@ -4,19 +4,19 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Settings</title>
+    <link rel="stylesheet" href="../assets/css/global.css" />
     <link rel="stylesheet" href="../assets/css/settings.css" />
-    <script src="../assets/js/script.js"></script>
   </head>
   <body>
-    <class="container">
+    <div class="container">
       <main>
         <form id="settingsForm">
-
           <div class="profile">
             <img src="profile_picture.jpg" alt="Profile Picture" />
             <h2>[ Name ] <b>Points: 60</b></h2>
           </div>
 
+       
           <label>
             <input
               type="email"
@@ -46,18 +46,47 @@
             </div>
           </label>
 
-          <button class="button" onclick="">Edit Details</button>
-          <button class="button" onclick="logout()">Logout</button>
-    
+          <label class="notification-toggle">
+            <span>Notifications:</span>
+            <input type="checkbox" id="notifications" name="notifications" />
+            <span class="slider"></span>
+          </label>
+
+
+          <button type="button" class="button" onclick="editDetails()">Edit Details</button>
+          <button type="button" class="button" onclick="logout()">Logout</button>
+
           <p id="go-to-customer-service">
             Need help?
             <a href="">Customer service</a>
           </p>
-
         </form>
+
+
       </main>
     </div>
 
+       <!-- Bottom Navigation -->
+       <div class="bottom-navigation">
+        <a href="home.html" onclick="showPage('home')">
+          <img src="../images/home.png" alt="Home" />
+          Home
+        </a>
+        <a href="growthmonitor.html" onclick="showPage('growthmonitor')">
+          <img src="../images/calendar.png" alt="Calendar" />
+          Calendar
+        </a>
+        <a href="#" onclick="showPage('bookings')">
+          <img src="../images/users.png" alt="Bookings" />
+          Booking
+        </a>
+        <a href="settings.html" onclick="showPage('settings')">
+          <img src="../images/settings.png" alt="Settings" />
+          Settings
+        </a>
+      </div>
+
     <script src="../assets/js/settings.js"></script>
+
   </body>
 </html>
