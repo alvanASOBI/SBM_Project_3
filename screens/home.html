@@ -14,6 +14,7 @@
         margin: 0;
         padding: 0;
         font-family: Arial, sans-serif;
+        overflow: hidden;
       }
 
       .container {
@@ -23,6 +24,33 @@
         flex-wrap: wrap;
         justify-content: center;
         gap: 20px;
+      }
+
+      .banner {
+        width: 100%;
+        margin: 0 auto;
+        height: 80px;
+        text-align: left;
+        padding: 0;
+        font-weight: bold;
+        color: white;
+        font-size: 20px;
+        background: blue;
+        padding: 0.5em 0;
+      }
+
+      .banner small {
+        display: block;
+        font-family: Arial, sans-serif;
+        font-size: 30px;
+        font-weight: bold;
+        color: white;
+        margin: 0.125ex 0 0 0;
+      }
+
+      .banner h1 + div {
+        font-weight: bold;
+        font-family: Arial, sans-serif;
       }
 
       .box {
@@ -45,98 +73,118 @@
         margin-top: 10px;
       }
 
-      .banner {
+      .drawer {
+        display: flex;
+        background-color: rgba(6, 137, 208, 0.95);
+        position: relative;
+        top: 600px;
         width: 100%;
-        margin: 0 auto; /* size of banner, also centers the color background*/
-        height: 80px;
-        text-align: left; /*centers-text for all child elements!*/
-        padding: 0;
-        font-weight: bold;
+        height: 1000px;
+        border-radius: 40px;
+        padding: 40px;
+        box-sizing: border-box;
+        transition: top 0.5s ease-out;
+        flex-direction: column;
         color: white;
+        align-items: center;
+      }
+
+      .drawer p:nth-child(3) {
+        color: white;
+        background-color: rgba(6, 137, 208, 0.9);
+        border: 1px solid white;
+      }
+
+      .drawer a {
+        font-family: "Roboto", "sans-serif";
+        text-decoration: none;
+        color: white;
+        height: 60px;
+        width: 100%;
+        margin: 15px 0;
+        text-align: center;
+        padding: 10px;
         font-size: 20px;
-        background: blue;
-        padding: 0.5em 0;
+        line-height: 60px;
       }
 
-      .banner small {
-        display: block; /* see you dont really need the br*/
-        font-family: Arial, sans-serif;
-        font-size: 30px;
-        font-weight: bold;
-        color: white;
-        margin: 0.125ex 0 0 0; /* determines space from site name, 1st # is the value for the space left at the top... 1ex=same space as the height of the  letter'x' ( might as well use good typography!)  */
-      }
-
-      .banner h1 + div {
-        font-weight: bold;
-        font-family: Arial, sans-serif;
+      body:target .drawer {
+        top: -200px;
       }
     </style>
   </head>
-  <body>
-    <div class="banner">
-      <h1 class="banner">
-        REFER A FRIEND AND EARN<br /><small>50 COINS EACH</small>
-      </h1>
-    </div>
-    <div class="container">
-      <div class="box">
-        <a href="forum.html" onclick="showPage('forum')">
-          <h2>Customer Service</h2>
-          <img src="../images/home.png" alt="Image 1" />
-        </a>
+  <body id="display-drawer">
+    <main>
+      <div class="banner">
+        <h1>
+          REFER A FRIEND AND EARN
+          <small>50 COINS EACH</small>
+        </h1>
       </div>
-      <div class="box">
-        <a href="growthmonitor.html" onclick="showPage('calendar')">
-          <h2>Calendar</h2>
-          <img src="../images/calendar.png" alt="Image 2" />
-        </a>
-      </div>
-      <div class="box">
-        <a href="booking.html" onclick="showPage('booking')">
-          <h2>Booking</h2>
-          <img src="../images/pluscircle.png" alt="Image 3" />
-        </a>
-      </div>
-      <div class="box">
-        <a href="settings.html" onclick="showPage('settings')">
-          <h2>Settings</h2>
-          <img src="../images/settings.png" alt="Image 4" />
-        </a>
-      </div>
-    </div>
 
-    <!-- NavBar -->
-    <div class="bottom-navigation">
-      <a href="home.html" onclick="showPage('home')">
-        <img src="../images/home.png" alt="Home" />
-        Home
-      </a>
-      <a href="growthmonitor.html" onclick="showPage('search')">
-        <img src="../images/calendar.png" alt="Calendar" />
-        Calendar
-      </a>
-      <a href="#" onclick="showPage('notifications')">
-        <img src="../images/users.png" alt="Notifications" />
-        Booking
-      </a>
-      <a href="settings.html" onclick="showPage('profile')">
-        <img src="../images/settings.png" alt="Settings" />
-        Settings
-      </a>
-      <a class="button" href="#display-drawer">
-        <img
-          src=""
-          alt="profile"
-          style="
-            background-color: black;
-            height: 30px;
-            width: 30px;
-            border-radius: 50%;
-          "
-        />
-        Profile
-      </a>
+      <div class="container">
+        <div class="box">
+          <a href="forum.html" onclick="showPage('forum')">
+            <h2>Customer Service</h2>
+            <img src="../images/home.png" alt="Image 1" />
+          </a>
+        </div>
+        <div class="box">
+          <a href="growthmonitor.html" onclick="showPage('calendar')">
+            <h2>Calendar</h2>
+            <img src="../images/calendar.png" alt="Image 2" />
+          </a>
+        </div>
+        <div class="box">
+          <a href="booking.html" onclick="showPage('booking')">
+            <h2>Booking</h2>
+            <img src="../images/pluscircle.png" alt="Image 3" />
+          </a>
+        </div>
+        <div class="box">
+          <a href="settings.html" onclick="showPage('settings')">
+            <h2>Settings</h2>
+            <img src="../images/settings.png" alt="Image 4" />
+          </a>
+        </div>
+      </div>
+
+      <!-- NavBar -->
+      <div class="bottom-navigation">
+        <a href="home.html" onclick="showPage('home')">
+          <img src="../images/home.png" alt="Home" />
+          Home
+        </a>
+        <a href="growthmonitor.html" onclick="showPage('search')">
+          <img src="../images/calendar.png" alt="Calendar" />
+          Calendar
+        </a>
+        <a href="#" onclick="showPage('notifications')">
+          <img src="../images/users.png" alt="Notifications" />
+          Booking
+        </a>
+        <a href="settings.html" onclick="showPage('profile')">
+          <img src="../images/settings.png" alt="Settings" />
+          Settings
+        </a>
+        <a class="button" href="#display-drawer">
+          <img
+            src=""
+            alt="profile"
+            style="
+              background-color: black;
+              height: 30px;
+              width: 30px;
+              border-radius: 50%;
+            "
+          />
+          Profile
+        </a>
+      </div>
+    </main>
+
+    <div class="drawer">
+      <a href="#">Close</a>
     </div>
   </body>
 </html>
