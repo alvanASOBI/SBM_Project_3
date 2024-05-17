@@ -1,175 +1,185 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Forum</title>
-    <link rel="stylesheet" href="../assets/css/global.css">
-
+    <link rel="stylesheet" href="../assets/css/global.css" />
     <style>
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-        }
-        .header {
-            background-color: #007bff;
-            color: white;
-            padding: 10px 20px;
-            text-align: center;
-        }
-        .search-bar {
-            padding: 20px;
-            text-align: center;
-        }
-        .question-list {
-            max-width: 600px;
-            margin: 20px auto;
-            padding: 20px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        .question {
-            border-bottom: 1px solid #ccc;
-            padding-bottom: 10px;
-            margin-bottom: 10px;
-        }
-        .question-title {
-            font-size: 18px;
-            font-weight: bold;
-        }
-        .question-time {
-            color: #666;
-            font-size: 14px;
-        }
-        .question-description {
-            margin-top: 5px;
-            color: #333;
-        }
-        .question-icons {
-            margin-top: 10px;
-        }
-        .question-icons img {
-            width: 30px;
-            height: 30px;
-            margin-right: 10px;
-            cursor: pointer;
-        }
-        .comments-section {
-            margin-top: 10px;
-        }
-        .comment-form input[type="text"] {
-            width: 80%;
-            padding: 5px;
-            margin-right: 10px;
-        }
-        .comment-form button {
-            padding: 5px 10px;
-            background-color: #007bff;
-            color: white;
-            border: none;
-            cursor: pointer;
-        }
-        .comments {
-            margin-top: 10px;
-        }
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+      }
+      .header {
+        background-color: #007bff;
+        color: white;
+        padding: 10px 20px;
+        text-align: center;
+      }
+      .search-bar {
+        padding: 20px;
+        text-align: center;
+      }
+      .question-list {
+        max-width: 600px;
+        margin: 20px auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+      .question {
+        border-bottom: 1px solid #ccc;
+        padding-bottom: 10px;
+        margin-bottom: 10px;
+      }
+      .question-title {
+        font-size: 18px;
+        font-weight: bold;
+      }
+      .question-time {
+        color: #666;
+        font-size: 14px;
+      }
+      .question-description {
+        margin-top: 5px;
+        color: #333;
+      }
+      .question-icons {
+        margin-top: 10px;
+      }
+      .question-icons img {
+        width: 30px;
+        height: 30px;
+        margin-right: 10px;
+        cursor: pointer;
+      }
+      .comments-section {
+        margin-top: 10px;
+      }
+      .comment-form input[type="text"] {
+        width: 80%;
+        padding: 5px;
+        margin-right: 10px;
+      }
+      .comment-form button {
+        padding: 5px 10px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        cursor: pointer;
+      }
+      .comments {
+        margin-top: 10px;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <div class="header">
-        <h1>Forum</h1>
+      <h1>Forum</h1>
     </div>
     <div class="search-bar">
-        <input type="text" placeholder="Search...">
-        <button>Search</button>
+      <input type="text" placeholder="Search..." />
+      <button>Search</button>
     </div>
     <div class="question-list">
-        <div class="question">
-            <div class="question-title">How to code a chat application using JavaScript?</div>
-            <div class="question-time">Posted 2 hours ago</div>
-            <div class="question-description">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis justo vel massa dapibus varius vel vitae odio.
-            </div>
-            <div class="question-icons">
-                <img class="like-icon" src="like_icon.png" alt="Like">
-                <img class="comment-icon" src="comment_icon.png" alt="Comment">
-            </div>
-            <div class="comments-section" style="display: none;">
-                <form class="comment-form">
-                    <input type="text" placeholder="Your comment...">
-                    <button type="submit">Add Comment</button>
-                </form>
-                <div class="comments"></div>
-            </div>
+      <div class="question">
+        <div class="question-title">
+          How to code a chat application using JavaScript?
         </div>
-        <div class="question">
-            <div class="question-title">What are the best practices for responsive web design?</div>
-            <div class="question-time">Posted 1 day ago</div>
-            <div class="question-description">
-                Fusce consequat eleifend diam, eget feugiat odio volutpat a. Integer nec vehicula est, et maximus odio.
-            </div>
-            <div class="question-icons">
-                <img class="like-icon" src="like_icon.png" alt="Like">
-                <img class="comment-icon" src="comment_icon.png" alt="Comment">
-            </div>
-            <div class="comments-section" style="display: none;">
-                <form class="comment-form">
-                    <input type="text" placeholder="Your comment...">
-                    <button type="submit">Add Comment</button>
-                </form>
-                <div class="comments"></div>
-            </div>
+        <div class="question-time">Posted 2 hours ago</div>
+        <div class="question-description">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis
+          justo vel massa dapibus varius vel vitae odio.
         </div>
-        <!-- More questions go here -->
+        <div class="question-icons">
+          <img class="like-icon" src="like_icon.png" alt="Like" />
+          <img class="comment-icon" src="comment_icon.png" alt="Comment" />
+        </div>
+        <div class="comments-section" style="display: none">
+          <form class="comment-form">
+            <input type="text" placeholder="Your comment..." />
+            <button type="submit">Add Comment</button>
+          </form>
+          <div class="comments"></div>
+        </div>
+      </div>
+      <div class="question">
+        <div class="question-title">
+          What are the best practices for responsive web design?
+        </div>
+        <div class="question-time">Posted 1 day ago</div>
+        <div class="question-description">
+          Fusce consequat eleifend diam, eget feugiat odio volutpat a. Integer
+          nec vehicula est, et maximus odio.
+        </div>
+        <div class="question-icons">
+          <img class="like-icon" src="like_icon.png" alt="Like" />
+          <img class="comment-icon" src="comment_icon.png" alt="Comment" />
+        </div>
+        <div class="comments-section" style="display: none">
+          <form class="comment-form">
+            <input type="text" placeholder="Your comment..." />
+            <button type="submit">Add Comment</button>
+          </form>
+          <div class="comments"></div>
+        </div>
+      </div>
+      <!-- More questions go here -->
     </div>
 
-      <!-- Bottom Navigation -->
-      <div class="bottom-navigation">
-        <a href="home.html" onclick="showPage('home')">
-          <img src="../images/home.png" alt="Home" />
-          Home
-        </a>
-        <a href="growthmonitor.html" onclick="showPage('growthmonitor')">
-          <img src="../images/calendar.png" alt="Calendar" />
-          Calendar
-        </a>
-        <a href="#" onclick="showPage('bookings')">
-          <img src="../images/users.png" alt="Bookings" />
-          Booking
-        </a>
-        <a href="settings.html" onclick="showPage('settings')">
-          <img src="../images/settings.png" alt="Settings" />
-          Settings
-        </a>
-      </div>
+    <!-- Bottom Navigation -->
+    <div class="bottom-navigation">
+      <a href="home.html" onclick="showPage('home')">
+        <img src="../images/home.png" alt="Home" />
+        Home
+      </a>
+      <a href="growthmonitor.html" onclick="showPage('growthmonitor')">
+        <img src="../images/calendar.png" alt="Calendar" />
+        Calendar
+      </a>
+      <a href="#" onclick="showPage('bookings')">
+        <img src="../images/users.png" alt="Bookings" />
+        Booking
+      </a>
+      <a href="settings.html" onclick="showPage('settings')">
+        <img src="../images/settings.png" alt="Settings" />
+        Settings
+      </a>
+    </div>
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            var questionIcons = document.querySelectorAll('.question-icons');
+      document.addEventListener("DOMContentLoaded", function () {
+        var questionIcons = document.querySelectorAll(".question-icons");
 
-            questionIcons.forEach(function(icon) {
-                icon.querySelector('.comment-icon').addEventListener('click', function() {
-                    var commentsSection = icon.parentNode.querySelector('.comments-section');
-                    commentsSection.style.display = commentsSection.style.display === 'none' ? 'block' : 'none';
-                });
-            });
-
-            var commentForms = document.querySelectorAll('.comment-form');
-            commentForms.forEach(function(form) {
-                form.addEventListener('submit', function(event) {
-                    event.preventDefault();
-                    var commentInput = this.querySelector('input[type="text"]');
-                    var commentText = commentInput.value.trim();
-                    if (commentText !== '') {
-                        var commentsContainer = this.parentNode.querySelector('.comments');
-                        var commentDiv = document.createElement('div');
-                        commentDiv.textContent = commentText;
-                        commentsContainer.appendChild(commentDiv);
-                        commentInput.value = '';
-                    }
-                });
+        questionIcons.forEach(function (icon) {
+          icon
+            .querySelector(".comment-icon")
+            .addEventListener("click", function () {
+              var commentsSection =
+                icon.parentNode.querySelector(".comments-section");
+              commentsSection.style.display =
+                commentsSection.style.display === "none" ? "block" : "none";
             });
         });
+
+        var commentForms = document.querySelectorAll(".comment-form");
+        commentForms.forEach(function (form) {
+          form.addEventListener("submit", function (event) {
+            event.preventDefault();
+            var commentInput = this.querySelector('input[type="text"]');
+            var commentText = commentInput.value.trim();
+            if (commentText !== "") {
+              var commentsContainer =
+                this.parentNode.querySelector(".comments");
+              var commentDiv = document.createElement("div");
+              commentDiv.textContent = commentText;
+              commentsContainer.appendChild(commentDiv);
+              commentInput.value = "";
+            }
+          });
+        });
+      });
     </script>
-</body>
+  </body>
 </html>
