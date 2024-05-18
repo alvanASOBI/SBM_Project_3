@@ -1,8 +1,8 @@
-<head>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>PWA App</title>
-    <link rel="stylesheet" href="../assets/css/styletest.css" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="stylesheet" href="../assets/css/home.css" />
     <link rel="stylesheet" href="../assets/css/global.css" />
@@ -18,16 +18,13 @@
     <meta name="theme-color" content="#007bff" />
     <title>PWA App</title>
   </head>
-  <body id="display-drawer">
-    <main>
-      <header>
-        <h1>Customer Service Booking</h1>
-      </header>
+
   <body>
     <!-- BANNER -->
     <div class="banner">
       <h3>Booking services</h3>
     </div>
+
     <!-- 2 BY 2 GRID WITH 4 FUNCTIONALITITES -->
     <div class="container">
       <div class="box">
@@ -47,6 +44,31 @@
         <span>Settings</span>
       </div>
     </div>
+
+    <!-- BOTTOM NAVIGATION -->
+    <div class="bottom-nav">
+      <div class="nav-item">
+        <i class="material-icons">home</i>
+      </div>
+      <div class="nav-item">
+        <i class="material-icons">people_outline</i>
+      </div>
+      <div class="nav-item">
+        <i class="material-icons">child_care</i>
+      </div>
+      <div class="nav-item" id="profile-item">
+        <img
+          src=""
+          style="
+            height: 30px;
+            width: 30px;
+            border-radius: 50%;
+            background-color: black;
+          "
+        />
+      </div>
+    </div>
+
     <!-- BOTTOM DRAWER TO DISPLAY ALL THE PROFILES -->
     <div class="bottom-drawer" id="bottom-drawer">
       <div class="drawer-content">
@@ -56,6 +78,7 @@
         <p>Displays profiles</p>
       </div>
     </div>
+
     <script src="../assets/js/home.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
   </body>

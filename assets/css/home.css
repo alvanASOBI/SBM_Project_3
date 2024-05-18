@@ -70,6 +70,10 @@ body {
   cursor: pointer;
 }
 
+.nav-item i.material-icons {
+  font-size: 28px;
+}
+
 .bottom-drawer {
   position: fixed;
   bottom: -100%;
