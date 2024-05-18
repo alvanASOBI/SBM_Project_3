@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nanny Search</title>
+    <link rel="stylesheet" href="">
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+}
+
+.container {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.search-bar {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.nanny-card {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.nanny-card h2 {
+    margin-top: 0;
+}
+
+.hire-button {
+    background-color: #5a67d8;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.hire-button:hover {
+    background-color: #434190;
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <input type="text" placeholder="Search Nanny" class="search-bar">
+        <div class="nanny-card">
+            <h2>Nanny 1:</h2>
+            <p>I'm very dedicated to my work. Blah blah blah blah</p>
+            <p><strong>Working hours:</strong> 9am - 5pm (Mon - Fri)</p>
+            <p><strong>Years of experience:</strong> 11 years</p>
+            <p><strong>Costs:</strong> $1000 per week</p>
+            <button class="hire-button" onclick="hireNanny()">Hire</button>
+        </div>
+        <div class="nanny-card">
+            <h2>Nanny 2:</h2>
+            <p>I'm very dedicated to my work. Blah blah blah blah</p>
+            <p><strong>Working hours:</strong> 9am - 5pm (Mon - Fri)</p>
+            <p><strong>Years of experience:</strong> 11 years</p>
+            <p><strong>Costs:</strong> $1000 per week</p>
+            <button class="hire-button" onclick="hireNanny()">Hire</button>
+        </div>
+    </div>
+    <script>
+function hireNanny() {
+    alert('Successfully hired!');
+}
+
+    </script>
+</body>
+</html>
