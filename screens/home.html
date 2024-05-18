@@ -3,17 +3,25 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>PWA App</title>
-    <link rel="stylesheet" href="../assets/css/styletest.css" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="../assets/css/home.css" />
     <link rel="stylesheet" href="../assets/css/global.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css"
+    />
     <link rel="manifest" href="manifest.json" />
-    <meta name="theme-color" content="#007bff" />
+    <title>PWA App</title>
   </head>
-  <body id="display-drawer">
-    <main>
-      <header>
-        <h1>Customer Service Booking</h1>
-      </header>
+  <body>
+    <!-- BANNER -->
+    <div class="banner">
+      <h3>Booking services</h3>
+    </div>
 
       <div class="container">
         <div class="box">
@@ -23,7 +31,7 @@
           </a>
         </div>
         <div class="box">
-          <a href="growthmonitor.html" onclick="showPage('calendar')">
+          <a href="calendar.html" onclick="showPage('calendar')">
             <h2>Calendar</h2>
             <img src="../images/calendar.png" alt="Image 2" />
           </a>
@@ -61,19 +69,19 @@
       <div class="bottom-navigation">
         <a href="home.html" onclick="showPage('home')">
           <img src="../images/home.png" alt="Home" />
-       
+          Home
         </a>
         <a href="growthmonitor.html" onclick="showPage('search')">
           <img src="../images/calendar.png" alt="Calendar" />
-      
+          Calendar
         </a>
         <a href="#" onclick="showPage('notifications')">
           <img src="../images/users.png" alt="Notifications" />
-    
+          Booking
         </a>
         <a href="settings.html" onclick="showPage('profile')">
           <img src="../images/settings.png" alt="Settings" />
-     
+          Settings
         </a>
         <a class="button" href="#display-drawer">
           <img
@@ -86,13 +94,21 @@
               border-radius: 50%;
             "
           />
-     
+          Profile
         </a>
       </div>
-    </main>
-
-    <div class="drawer">
-      <a href="#">Close</a>
     </div>
+
+    <!-- BOTTOM DRAWER TO DISPLAY ALL THE PROFILES -->
+    <div class="bottom-drawer" id="bottom-drawer">
+      <div class="drawer-content">
+        <span class="close-btn" id="close-btn">
+          <i class="material-icons">arrow_drop_down</i>
+        </span>
+        <p>Displays profiles</p>
+      </div>
+    </div>
+    <script src="../assets/js/home.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
   </body>
 </html>
