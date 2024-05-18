@@ -418,16 +418,6 @@ body {
 }
 
 
-/* Event photo styling */
-.event-photo {
-  display: flex;
-  justify-content: flex-end; /* Align photo to the right */
-}
-
-.event-photo .photo {
-  
-  display: block; /* Ensure it behaves as a block element */
-}
 
 
 .add-event-body .add-event-input {

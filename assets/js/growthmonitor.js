@@ -243,9 +243,7 @@ function updateEvents(date) {
               <h3 class="event-title">${event.title}</h3>
             </div>
             <div class="event-details">
-                <!-- <div class="event-photo">
-                        <p>Photo: <img src="${event.photo}" alt="Event Photo" width="5" height="5"></p>
-                      </div> -->
+                
               <p>Weight: ${event.weight}</p>
               <p>Height: ${event.height}</p>
               <p>Food Intake: ${event.food}</p>
@@ -254,6 +252,14 @@ function updateEvents(date) {
             <div class="event-time">
               <span class="event-time">${event.time}</span>
             </div>
+
+            <!-- <div class="event-photo">
+                        <p>Photo: <img src="../images/users.png" alt="Event Photo" width="5" height="5"></p>
+                      </div> -->
+
+                      <div class="event-photo">
+                      <p>Photo: <img src="../images/users.png" alt="Event Photo" width="25" height="25"></p>
+                    </div> 
             
 
         </div>`;
