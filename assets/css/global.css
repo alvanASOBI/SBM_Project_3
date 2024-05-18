@@ -13,6 +13,8 @@ body {
   align-items: center;
   padding: 10px 0;
   box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  bottom: 0;
 }
 
 .nav-item {
