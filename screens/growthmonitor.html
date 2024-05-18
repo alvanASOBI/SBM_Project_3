@@ -146,25 +146,43 @@
       </button>
     </div>
 
-    <!-- Bottom Navigation -->
-    <div class="bottom-navigation">
-      <a href="home.html" onclick="showPage('home')">
-        <img src="../images/home.png" alt="Home" />
-        Home
-      </a>
-      <a href="growthmonitor.html" onclick="showPage('growthmonitor')">
-        <img src="../images/calendar.png" alt="Calendar" />
-        Calendar
-      </a>
-      <a href="#" onclick="showPage('bookings')">
-        <img src="../images/users.png" alt="Bookings" />
-        Booking
-      </a>
-      <a href="settings.html" onclick="showPage('settings')">
-        <img src="../images/settings.png" alt="Settings" />
-        Settings
-      </a>
-    </div>
+         <!-- NavBar -->
+         <div class="bottom-navigation">
+          <a href="home.html" onclick="showPage('home')">
+            <img src="../images/home.png" alt="Home" />
+         
+          </a>
+          <a href="growthmonitor.html" onclick="showPage('search')">
+            <img src="../images/calendar.png" alt="Calendar" />
+        
+          </a>
+          <a href="#" onclick="showPage('notifications')">
+            <img src="../images/users.png" alt="Notifications" />
+      
+          </a>
+          <a href="settings.html" onclick="showPage('profile')">
+            <img src="../images/settings.png" alt="Settings" />
+       
+          </a>
+          <a class="button" href="#display-drawer">
+            <img
+              src=""
+              alt="profile"
+              style="
+                background-color: black;
+                height: 30px;
+                width: 30px;
+                border-radius: 50%;
+              "
+            />
+       
+          </a>
+        </div>
+      </main>
+  
+      <div class="drawer">
+        <a href="#">Close</a>
+      </div>
     
 
     <script src="../assets/js/growthmonitor.js"></script>
