@@ -20,23 +20,44 @@
   </head>
 
   <body>
-    <!-- 2 BY 2 GRID WITH 4 FUNCTIONALITITES -->
-    <div class="container">
-      <div class="box">
-        <i class="material-icons">add_circle_outline</i>
-        <span>Customer Service</span>
+    <!-- HEADER SECTION WITH BACKGROUND IMAGE -->
+    <div class="header-section">
+      <button class="header-btn">
+        <a class="btn indigo modal-trigger" href="#referral">Referral Now</a>
+      </button>
+
+      <div id="referral" class="modal">
+        <div class="modal-content">
+          <h4>Referral Benefits</h4>
+          <p>
+            Invite your parent friends, after one nanny booking can earn 50.
+            Every coins 100 coins = $1 off. Coins have 6-month expiry. REFER NOW !!!
+          </p>
+        </div>
       </div>
-      <div class="box">
-        <i class="material-icons">perm_contact_calendar </i>
-        <span>Calendar</span>
-      </div>
-      <div class="box">
-        <i class="material-icons">people_outline</i>
-        <span>Booking</span>
-      </div>
-      <div class="box">
-        <i class="material-icons">settings</i>
-        <span>Settings</span>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div class="main-content">
+      <div class="grid-wrapper">
+        <div class="container">
+          <div class="box">
+            <i class="material-icons">add_circle_outline</i>
+            <span>Customer Service</span>
+          </div>
+          <div class="box">
+            <i class="material-icons">perm_contact_calendar</i>
+            <span>Calendar</span>
+          </div>
+          <div class="box">
+            <i class="material-icons">people_outline</i>
+            <span>Booking</span>
+          </div>
+          <div class="box">
+            <i class="material-icons">settings</i>
+            <span>Settings</span>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -114,5 +135,13 @@
 
     <script src="../assets/js/home.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        var modals = document.querySelectorAll(".modal");
+        modals.forEach(function (modal) {
+          new M.Modal(modal);
+        });
+      });
+    </script>
   </body>
 </html>
