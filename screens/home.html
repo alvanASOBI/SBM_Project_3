@@ -3,134 +3,27 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PWA App</title>
+    <link rel="stylesheet" href="../assets/css/styletest.css" />
     <link rel="stylesheet" href="../assets/css/global.css" />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&display=swap"
-    />
-    <title>Home</title>
-    <style>
-      body {
-        margin: 0;
-        padding: 0;
-        font-family: Arial, sans-serif;
-        overflow: hidden;
-      }
-
-      .container {
-        max-width: 800px;
-        margin: 20px auto;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 20px;
-      }
-
-      .banner {
-        width: 100%;
-        margin: 0 auto;
-        height: 80px;
-        text-align: left;
-        padding: 0;
-        font-weight: bold;
-        color: white;
-        font-size: 20px;
-        background: blue;
-        padding: 0.5em 0;
-      }
-
-      .banner small {
-        display: block;
-        font-family: Arial, sans-serif;
-        font-size: 30px;
-        font-weight: bold;
-        color: white;
-        margin: 0.125ex 0 0 0;
-      }
-
-      .banner h1 + div {
-        font-weight: bold;
-        font-family: Arial, sans-serif;
-      }
-
-      .box {
-        margin-top: 20px;
-        width: 100px;
-        background-color: #f4f4f4;
-        border-radius: 10px;
-        padding: 20px;
-        text-align: center;
-        height: 150px;
-      }
-
-      .box h2 {
-        margin-top: 0;
-      }
-
-      .box img {
-        width: 80px;
-        height: 80px;
-        margin-top: 10px;
-      }
-
-      .drawer {
-        display: flex;
-        background-color: rgba(6, 137, 208, 0.95);
-        position: relative;
-        top: 600px;
-        width: 100%;
-        height: 1000px;
-        border-radius: 40px;
-        padding: 40px;
-        box-sizing: border-box;
-        transition: top 0.5s ease-out;
-        flex-direction: column;
-        color: white;
-        align-items: center;
-      }
-
-      .drawer p:nth-child(3) {
-        color: white;
-        background-color: rgba(6, 137, 208, 0.9);
-        border: 1px solid white;
-      }
-
-      .drawer a {
-        font-family: "Roboto", "sans-serif";
-        text-decoration: none;
-        color: white;
-        height: 60px;
-        width: 100%;
-        margin: 15px 0;
-        text-align: center;
-        padding: 10px;
-        font-size: 20px;
-        line-height: 60px;
-      }
-
-      body:target .drawer {
-        top: -200px;
-      }
-    </style>
+    <link rel="manifest" href="manifest.json" />
+    <meta name="theme-color" content="#007bff" />
   </head>
   <body id="display-drawer">
     <main>
-      <div class="banner">
-        <h1>
-          REFER A FRIEND AND EARN
-          <small>50 COINS EACH</small>
-        </h1>
-      </div>
+      <header>
+        <h1>Customer Service Booking</h1>
+      </header>
 
       <div class="container">
         <div class="box">
           <a href="forum.html" onclick="showPage('forum')">
-            <h2>Customer Service</h2>
-            <img src="../images/home.png" alt="Image 1" />
+            <h2>Forum</h2>
+            <img src="../images/users.png" alt="Image 1" />
           </a>
         </div>
         <div class="box">
-          <a href="growthmonitor.html" onclick="showPage('calendar')">
+          <a href="calendar.html" onclick="showPage('calendar')">
             <h2>Calendar</h2>
             <img src="../images/calendar.png" alt="Image 2" />
           </a>
@@ -148,6 +41,21 @@
           </a>
         </div>
       </div>
+
+      <!-- <section class="services">
+        <h2>Services</h2>
+        <ul>
+          <li>Service 1</li>
+          <li>Service 2</li>
+          <li>Service 3</li>
+        </ul>
+      </section>
+      <section class="actions">
+        <h2>Actions</h2>
+        <a href="#">Booking</a>
+        <a href="#">Calendar</a>
+        <a href="#">Settings</a>
+      </section> -->
 
       <!-- NavBar -->
       <div class="bottom-navigation">
