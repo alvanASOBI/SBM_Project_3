@@ -27,8 +27,8 @@
     background-color: #fff;
     border: 1px solid #ccc;
     border-radius: 5px;
-    padding: 20px;
-    margin-bottom: 20px;
+    padding: 10px;
+    margin-bottom: 10px;
 }
 
 .nanny-card h2 {
@@ -42,7 +42,7 @@
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    font-size: 16px;
+    font-size: 10px;
 }
 
 .search-bar {
@@ -55,15 +55,23 @@
 }
 
     </style>
+     <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css"
+    />
 </head>
 <body>
     <div class="container">
         <div class="search-bar">
-            <input type="text" placeholder="Search..." />
+            <input type="text" placeholder="Search for a nanny" />
             <button>Search</button>
           </div>
         <div class="nanny-card">
-            <h2>Nanny 1:</h2>
+            <h4>Nanny 1:</h4>
             <p>I'm very dedicated to my work. Blah blah blah blah</p>
             <p><strong>Working hours:</strong> 9am - 5pm (Mon - Fri)</p>
             <p><strong>Years of experience:</strong> 11 years</p>
@@ -71,7 +79,7 @@
             <button class="hire-button" onclick="hireNanny()">Hire</button>
         </div>
         <div class="nanny-card">
-            <h2>Nanny 2:</h2>
+            <h4>Nanny 2:</h4>
             <p>I'm very dedicated to my work. Blah blah blah blah</p>
             <p><strong>Working hours:</strong> 9am - 5pm (Mon - Fri)</p>
             <p><strong>Years of experience:</strong> 11 years</p>
@@ -79,6 +87,31 @@
             <button class="hire-button" onclick="hireNanny()">Hire</button>
         </div>
     </div>
+
+
+        <!-- BOTTOM NAVIGATION -->
+        <div class="bottom-nav">
+            <div class="nav-item">
+              <i class="material-icons">home</i>
+            </div>
+            <div class="nav-item">
+              <i class="material-icons">people_outline</i>
+            </div>
+            <div class="nav-item">
+              <i class="material-icons">child_care</i>
+            </div>
+            <div class="nav-item" id="profile-item">
+              <img
+                src=""
+                style="
+                  height: 30px;
+                  width: 30px;
+                  border-radius: 50%;
+                  background-color: black;
+                "
+              />
+            </div>
+          </div>
     <script>
 function hireNanny() {
     alert('Successfully hired!');
