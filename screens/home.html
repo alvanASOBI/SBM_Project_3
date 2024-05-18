@@ -1,8 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PWA App</title>
+    <link rel="stylesheet" href="../assets/css/styletest.css" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="stylesheet" href="../assets/css/home.css" />
     <link rel="stylesheet" href="../assets/css/global.css" />
@@ -15,90 +15,38 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css"
     />
     <link rel="manifest" href="manifest.json" />
+    <meta name="theme-color" content="#007bff" />
     <title>PWA App</title>
   </head>
+  <body id="display-drawer">
+    <main>
+      <header>
+        <h1>Customer Service Booking</h1>
+      </header>
   <body>
     <!-- BANNER -->
     <div class="banner">
       <h3>Booking services</h3>
     </div>
-
-      <div class="container">
-        <div class="box">
-          <a href="forum.html" onclick="showPage('forum')">
-            <h2>Forum</h2>
-            <img src="../images/users.png" alt="Image 1" />
-          </a>
-        </div>
-        <div class="box">
-          <a href="calendar.html" onclick="showPage('calendar')">
-            <h2>Calendar</h2>
-            <img src="../images/calendar.png" alt="Image 2" />
-          </a>
-        </div>
-        <div class="box">
-          <a href="booking.html" onclick="showPage('booking')">
-            <h2>Booking</h2>
-            <img src="../images/pluscircle.png" alt="Image 3" />
-          </a>
-        </div>
-        <div class="box">
-          <a href="settings.html" onclick="showPage('settings')">
-            <h2>Settings</h2>
-            <img src="../images/settings.png" alt="Image 4" />
-          </a>
-        </div>
+    <!-- 2 BY 2 GRID WITH 4 FUNCTIONALITITES -->
+    <div class="container">
+      <div class="box">
+        <i class="material-icons">add_circle_outline</i>
+        <span>Customer Service</span>
       </div>
-
-      <!-- <section class="services">
-        <h2>Services</h2>
-        <ul>
-          <li>Service 1</li>
-          <li>Service 2</li>
-          <li>Service 3</li>
-        </ul>
-      </section>
-      <section class="actions">
-        <h2>Actions</h2>
-        <a href="#">Booking</a>
-        <a href="#">Calendar</a>
-        <a href="#">Settings</a>
-      </section> -->
-
-      <!-- NavBar -->
-      <div class="bottom-navigation">
-        <a href="home.html" onclick="showPage('home')">
-          <img src="../images/home.png" alt="Home" />
-          Home
-        </a>
-        <a href="growthmonitor.html" onclick="showPage('search')">
-          <img src="../images/calendar.png" alt="Calendar" />
-          Calendar
-        </a>
-        <a href="#" onclick="showPage('notifications')">
-          <img src="../images/users.png" alt="Notifications" />
-          Booking
-        </a>
-        <a href="settings.html" onclick="showPage('profile')">
-          <img src="../images/settings.png" alt="Settings" />
-          Settings
-        </a>
-        <a class="button" href="#display-drawer">
-          <img
-            src=""
-            alt="profile"
-            style="
-              background-color: black;
-              height: 30px;
-              width: 30px;
-              border-radius: 50%;
-            "
-          />
-          Profile
-        </a>
+      <div class="box">
+        <i class="material-icons">perm_contact_calendar </i>
+        <span>Calendar</span>
+      </div>
+      <div class="box">
+        <i class="material-icons">people_outline</i>
+        <span>Booking</span>
+      </div>
+      <div class="box">
+        <i class="material-icons">settings</i>
+        <span>Settings</span>
       </div>
     </div>
-
     <!-- BOTTOM DRAWER TO DISPLAY ALL THE PROFILES -->
     <div class="bottom-drawer" id="bottom-drawer">
       <div class="drawer-content">
