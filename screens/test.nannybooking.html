@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nanny Search</title>
     <link rel="stylesheet" href="">
+    <link rel="stylesheet" href="../assets/css/global.css" />
     <style>
         body {
     font-family: Arial, sans-serif;
@@ -20,14 +21,7 @@
     padding: 20px;
 }
 
-.search-bar {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
-}
+
 
 .nanny-card {
     background-color: #fff;
@@ -51,6 +45,11 @@
     font-size: 16px;
 }
 
+.search-bar {
+        padding: 20px;
+        text-align: center;
+      }
+
 .hire-button:hover {
     background-color: #434190;
 }
@@ -59,7 +58,10 @@
 </head>
 <body>
     <div class="container">
-        <input type="text" placeholder="Search Nanny" class="search-bar">
+        <div class="search-bar">
+            <input type="text" placeholder="Search..." />
+            <button>Search</button>
+          </div>
         <div class="nanny-card">
             <h2>Nanny 1:</h2>
             <p>I'm very dedicated to my work. Blah blah blah blah</p>
