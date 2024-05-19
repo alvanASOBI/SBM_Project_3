@@ -17,25 +17,23 @@ body {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  margin-top: 120px;
-  margin-bottom: 20px;
+  text-align: center;
 }
 
 .profile img {
-  width: 210px;
-  height: 210px;
+  width: 130px;
+  height: 130px;
   border-radius: 50%;
-  margin-bottom: 30px;
   background-color: rgb(0, 255, 255);
-}
-.profile h2 {
-  margin: 20px 0px 40px 0px;
 }
 
 .container {
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  flex-direction: column;
 }
 
 main {
@@ -45,23 +43,21 @@ main {
 }
 
 form {
-  display: block;
-  width: 100%;
-  margin: auto;
-  color: #2b2d2f;
-  padding: 0.9rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 label {
   display: block;
   margin-bottom: 20px;
+  width: 300px;
 }
 
 label span {
   display: block;
   color: #aaa;
   font-size: 1rem;
-  margin-bottom: 20px;
   transition: 0.3s ease-out;
 }
 
@@ -96,20 +92,10 @@ input[type="password"]:focus {
   border-color: #2b2d2f;
 }
 
-input[type="email"],
-input[type="password"] {
-  display: block;
-  width: 300px; /* Adjust width as desired */
-  padding: 1rem;
-  border: 1px solid #bbb;
-  border-radius: 0.5rem;
-  transition: border-color 0.3s ease-out;
-}
-
 .button {
   display: block;
   width: 100%;
-  margin: 10px auto 0; /* Center the button horizontally with top margin */
+  margin: 10px auto 0;
   cursor: pointer;
   background-color: blue;
   color: #fff;
@@ -127,6 +113,7 @@ input[type="password"] {
 
 .passwd-wrap {
   position: relative;
+  width: 300px;
 }
 
 #show-passwd {
@@ -145,51 +132,55 @@ input[type="password"] {
   height: auto;
 }
 
-.notification-toggle {
+.toggle-switch {
   display: flex;
   align-items: center;
-  justify-content: center;
-  margin-top: 10px;
-  text-align: center;
+  justify-content: space-between;
+  width: 300px;
+  margin-bottom: 20px;
 }
 
-.notification-toggle span {
-  margin-right: 10px;
-  color: #2b2d2f;
+.toggle-switch label {
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  width: 100%;
+  justify-content: space-between;
 }
 
-.notification-toggle input[type="checkbox"] {
+.toggle-switch input[type="checkbox"] {
   display: none;
 }
 
-.notification-toggle .slider {
-  width: 40px;
-  height: 20px;
+.toggle-switch .lever {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 30px;
   background-color: #ccc;
   border-radius: 20px;
-  position: relative;
-  cursor: pointer;
-  transition: background-color 0.3s ease-out;
+  transition: background-color 0.3s;
 }
 
-.notification-toggle .slider:before {
+.toggle-switch .lever:before {
   content: "";
   position: absolute;
-  width: 18px;
-  height: 18px;
-  background-color: white;
+  width: 28px;
+  height: 28px;
+  background-color: #fff;
   border-radius: 50%;
   top: 1px;
   left: 1px;
-  transition: transform 0.3s ease-out;
+  transition: transform 0.3s;
 }
 
-.notification-toggle input[type="checkbox"]:checked + .slider {
-  background-color: blue;
+.toggle-switch input[type="checkbox"]:checked + .lever {
+  background-color: #007bff;
 }
 
-.notification-toggle input[type="checkbox"]:checked + .slider:before {
-  transform: translateX(20px);
+.toggle-switch input[type="checkbox"]:checked + .lever:before {
+  transform: translateX(30px);
 }
 
 #go-to-customer-service {

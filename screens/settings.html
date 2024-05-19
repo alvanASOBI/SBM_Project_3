@@ -22,9 +22,7 @@
       <form id="settingsForm">
         <div class="profile">
           <img src="profile_picture.jpg" alt="Profile Picture" />
-          <h3>[ Name ] <br>
-            <b>Points: 60</b>
-          </h3>
+          <h5>[ Name ]<b> Points: 60</b></h5>
         </div>
 
         <label>
@@ -56,11 +54,14 @@
           </div>
         </label>
 
-        <!-- <label class="notification-toggle">
-          <span>Notifications:</span>
-          <input type="checkbox" id="notifications" name="notifications" />
-          <span class="slider"></span>
-        </label> -->
+        <!-- Toggle Notification Switch -->
+        <div class="toggle-switch">
+          <label>
+            Notifications
+            <input type="checkbox" id="notifications" />
+            <span class="lever"></span>
+          </label>
+        </div>
 
         <button type="button" class="button" onclick="editDetails()">
           Edit Details
