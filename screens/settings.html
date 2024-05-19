@@ -3,7 +3,6 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Settings</title>
     <link rel="stylesheet" href="../assets/css/settings.css" />
     <link rel="stylesheet" href="../assets/css/global.css" />
     <link
@@ -14,6 +13,8 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css"
     />
+    <meta name="theme-color" content="#007bff" />
+    <title>Settings</title>
   </head>
   <body>
     <!-- MAIN CONTENT -->
@@ -21,7 +22,9 @@
       <form id="settingsForm">
         <div class="profile">
           <img src="profile_picture.jpg" alt="Profile Picture" />
-          <h2>[ Name ] <b>Points: 60</b></h2>
+          <h3>[ Name ] <br>
+            <b>Points: 60</b>
+          </h3>
         </div>
 
         <label>
@@ -53,11 +56,11 @@
           </div>
         </label>
 
-        <label class="notification-toggle">
+        <!-- <label class="notification-toggle">
           <span>Notifications:</span>
           <input type="checkbox" id="notifications" name="notifications" />
           <span class="slider"></span>
-        </label>
+        </label> -->
 
         <button type="button" class="button" onclick="editDetails()">
           Edit Details
