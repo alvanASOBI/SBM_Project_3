@@ -28,6 +28,10 @@ body {
 
 .header-btn {
   z-index: 100;
+  appearance: none;
+  outline: none;
+  border: none;
+  background: none;
 }
 
 .main-content {
