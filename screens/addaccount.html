@@ -1,97 +1,110 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Create Username</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            height: 100vh;
-            margin: 0;
-            background-color: white;
-        }
+      body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        height: 100vh;
+        margin: 0;
+        background-color: white;
+      }
 
-        .container {
-            position: relative;
-            text-align: center;
-            padding: 20px;
-         
-        }
+      .container {
+        position: relative;
+        text-align: center;
+        padding: 20px;
+      }
 
-        .close-button {
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            text-decoration: none;
-            font-size: 36px;
-            color: #000;
-        }
+      .close-button {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        text-decoration: none;
+        font-size: 36px;
+        color: #000;
+      }
 
-        h1 {
-            font-size: 24px;
-            margin-bottom: 10px;
-        }
+      h1 {
+        font-size: 24px;
+        margin-bottom: 10px;
+      }
 
-        p {
-            font-size: 16px;
-            color: #666666;
-            margin-bottom: 20px;
-        }
+      p {
+        font-size: 16px;
+        color: #666666;
+        margin-bottom: 20px;
+      }
 
-        form {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
+      form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
 
-        input[type="text"] {
-            width: 80%;
-            padding: 10px;
-            margin-bottom: 20px;
-            border: 1px solid #cccccc;
-            border-radius: 5px;
-            font-size: 16px;
-        }
+      .username-input {
+        width: 80%;
+        padding: 10px;
+        margin-bottom: 20px;
+        border: 1px solid #cccccc;
+        border-radius: 5px;
+        font-size: 16px;
+      }
 
-        button {
-            width: 80%;
-            padding: 10px;
-            background-color: #00bfff;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            font-size: 16px;
-            cursor: pointer;
-        }
+      .submit-button {
+        width: 80%;
+        padding: 10px;
+        background-color: #00bfff;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+      }
 
-        button:hover {
-            background-color: #009fdf;
-        }
+      .submit-button:hover {
+        background-color: #009fdf;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <div class="container">
-        <a href="home.html" class="close-button">&times;</a>
-        <h1>Create username</h1>
-        <p>Choose a username for your new account. You can always change it later.</p>
-        <form id="usernameForm">
-            <input type="text" id="username" placeholder="Username">
-            <button type="submit">Next</button>
-        </form>
+      <a class="close-button" id="backButton">&times;</a>
+      <h1>Create Username</h1>
+      <p>
+        Choose a username for your new account. You can always change it later.
+      </p>
+      <form id="usernameForm">
+        <input
+          type="text"
+          id="usernameInput"
+          class="username-input"
+          placeholder="Username"
+        />
+        <button type="submit" class="submit-button">Next</button>
+      </form>
     </div>
     <script>
-        document.getElementById('usernameForm').addEventListener('submit', function(event) {
-            event.preventDefault();
-            const username = document.getElementById('username').value;
-            if (username) {
-                alert(`Username ${username} created successfully!`);
-            } else {
-                alert('Please enter a username.');
-            }
+      document
+        .getElementById("usernameForm")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+          const username = document.getElementById("usernameInput").value;
+          if (username) {
+            alert(`Username ${username} created successfully!`);
+          } else {
+            alert("Please enter a username.");
+          }
+        });
+      document
+        .getElementById("backButton")
+        .addEventListener("click", function () {
+          window.history.back();
         });
     </script>
-</body>
+  </body>
 </html>
