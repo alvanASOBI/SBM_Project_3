@@ -61,7 +61,7 @@ body {
 }
 
 .box {
-  background-color: blue;
+  background-color: #00bfff;
   color: white;
   display: flex;
   flex-direction: column;

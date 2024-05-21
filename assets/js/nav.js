@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const navChildCare = document.getElementById('nav-child-care');
 
     navHome.addEventListener('click', function () {
-        window.location.href = '/screens/home.html';
+        window.location.href = 'home.html';
     });
 
     navPeople.addEventListener('click', function () {
@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     navChildCare.addEventListener('click', function () {
-        window.location.href = '/screens/growthmonitor.html';
+        window.location.href = 'growthmonitor.html';
     });
 });
 
@@ -42,5 +42,5 @@ document.getElementById('overlay').addEventListener('click', function () {
 });
 
 document.getElementById('add-account-btn').addEventListener('click', function () {
-    window.location.href = '/screens/addaccount.html'; 
+    window.location.href = 'addaccount.html'; 
 });
