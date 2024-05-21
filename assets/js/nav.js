@@ -18,22 +18,38 @@ document.addEventListener('DOMContentLoaded', function () {
     const navProfile = document.getElementById('nav-profile');
     let longPressTimer;
     const longPressThreshold = 500; // 500 milliseconds for a long press
+    let isLongPress = false;
 
-    navProfile.addEventListener('mousedown', function () {
+    function startLongPressTimer() {
+        isLongPress = false;
         longPressTimer = setTimeout(function () {
+            isLongPress = true;
             document.getElementById('bottom-drawer').classList.add('active');
             document.getElementById('overlay').classList.add('active');
         }, longPressThreshold);
-    });
+    }
 
-    navProfile.addEventListener('mouseup', function () {
+    function clearLongPressTimer() {
         clearTimeout(longPressTimer);
-    });
+    }
 
-    navProfile.addEventListener('click', function () {
-        clearTimeout(longPressTimer); // Clear the timer just in case
-        window.location.href = 'settings.html';
-    });
+    function handleClick(event) {
+        if (isLongPress) {
+            event.preventDefault(); // Prevent the default action if it was a long press
+        } else {
+            window.location.href = 'settings.html';
+        }
+    }
+
+    // Add mouse event listeners
+    navProfile.addEventListener('mousedown', startLongPressTimer);
+    navProfile.addEventListener('mouseup', clearLongPressTimer);
+    navProfile.addEventListener('click', handleClick);
+
+    // Add touch event listeners for mobile devices
+    navProfile.addEventListener('touchstart', startLongPressTimer);
+    navProfile.addEventListener('touchend', clearLongPressTimer);
+    navProfile.addEventListener('touchend', handleClick);
 
     document.getElementById('close-btn').addEventListener('click', function () {
         document.getElementById('bottom-drawer').classList.remove('active');
