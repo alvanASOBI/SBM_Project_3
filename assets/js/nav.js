@@ -8,7 +8,9 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     navPeople.addEventListener('click', function () {
+
         window.location.href = '#';
+        
     });
 
     navChildCare.addEventListener('click', function () {
