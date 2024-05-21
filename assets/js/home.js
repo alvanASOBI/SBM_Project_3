@@ -5,19 +5,19 @@ document.addEventListener('DOMContentLoaded', function () {
     const settingsBox = document.getElementById('settings');
 
     customerServiceBox.addEventListener('click', function () {
-        window.location.href = '#';
+        window.location.href = 'forum.html';
     });
 
     calendarBox.addEventListener('click', function () {
-        window.location.href = '/screens/growthmonitor.html';
+        window.location.href = 'growthmonitor.html';
     });
 
     bookingBox.addEventListener('click', function () {
-        window.location.href = '#';
+        window.location.href = 'nannybooking.html';
     });
 
     settingsBox.addEventListener('click', function () {
-        window.location.href = '/screens/settings.html';
+        window.location.href = 'settings.html';
     });
 });
 
