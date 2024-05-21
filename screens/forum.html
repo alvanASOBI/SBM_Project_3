@@ -5,6 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Forum</title>
     <link rel="stylesheet" href="../assets/css/global.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css"
+    />
     <style>
       body {
         margin: 0;
@@ -129,44 +137,78 @@
       <!-- More questions go here -->
     </div>
 
-  
-          <!-- NavBar -->
-          <div class="bottom-navigation">
-            <a href="home.html" onclick="showPage('home')">
-              <img src="../images/home.png" alt="Home" />
-           
-            </a>
-            <a href="growthmonitor.html" onclick="showPage('search')">
-              <img src="../images/calendar.png" alt="Calendar" />
-          
-            </a>
-            <a href="#" onclick="showPage('notifications')">
-              <img src="../images/users.png" alt="Notifications" />
-        
-            </a>
-            <a href="settings.html" onclick="showPage('profile')">
-              <img src="../images/settings.png" alt="Settings" />
-         
-            </a>
-            <a class="button" href="#display-drawer">
-              <img
-                src=""
-                alt="profile"
-                style="
-                  background-color: black;
-                  height: 30px;
-                  width: 30px;
-                  border-radius: 50%;
-                "
-              />
-         
-            </a>
-          </div>
-        </main>
-    
-        <div class="drawer">
-          <a href="#">Close</a>
+    <!-- BOTTOM NAVIGATION -->
+    <div class="bottom-nav">
+      <div class="nav-item" id="nav-home">
+        <i class="material-icons">home</i>
+      </div>
+      <div class="nav-item" id="nav-people">
+        <i class="material-icons">people_outline</i>
+      </div>
+      <div class="nav-item" id="nav-child-care">
+        <i class="material-icons">child_care</i>
+      </div>
+      <div class="nav-item" id="nav-profile">
+        <img
+          src=""
+          style="
+            height: 30px;
+            width: 30px;
+            border-radius: 50%;
+            background-color: black;
+          "
+        />
+      </div>
+    </div>
+
+    <!-- OVERLAY -->
+    <div class="overlay" id="overlay"></div>
+
+    <!-- BOTTOM DRAWER TO DISPLAY ALL THE PROFILES -->
+    <div class="bottom-drawer" id="bottom-drawer">
+      <div class="drawer-content">
+        <span class="close-btn" id="close-btn">
+          <i class="material-icons">arrow_drop_down</i>
+        </span>
+        <div class="profiles">
+          <img
+            src=""
+            style="
+              height: 30px;
+              width: 30px;
+              border-radius: 50%;
+              background-color: black;
+            "
+          />
+          <span>John Doe Baby 1</span>
         </div>
+        <div class="profiles">
+          <img
+            src=""
+            style="
+              height: 30px;
+              width: 30px;
+              border-radius: 50%;
+              background-color: black;
+            "
+          />
+          <span>Daniel Lee Baby 2</span>
+        </div>
+        <div class="profiles">
+          <img
+            src=""
+            style="
+              height: 30px;
+              width: 30px;
+              border-radius: 50%;
+              background-color: black;
+            "
+          />
+          <span>Ah Paw Baby 3</span>
+        </div>
+      </div>
+    </div>
+    <script src="../assets/js/nav.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function () {
         var questionIcons = document.querySelectorAll(".question-icons");
