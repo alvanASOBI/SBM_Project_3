@@ -9,8 +9,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
     navPeople.addEventListener('click', function () {
 
-        window.location.href = '#';
-        
+        window.location.href = 'nannybooking.html';
+
     });
 
     navChildCare.addEventListener('click', function () {
@@ -39,4 +39,8 @@ document.getElementById('close-btn').addEventListener('click', function () {
 document.getElementById('overlay').addEventListener('click', function () {
     document.getElementById('bottom-drawer').classList.remove('active');
     document.getElementById('overlay').classList.remove('active');
+});
+
+document.getElementById('add-account-btn').addEventListener('click', function () {
+    window.location.href = '/screens/addaccount.html'; 
 });
