@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const navProfile = document.getElementById('nav-profile');
     let longPressTimer;
-    const longPressThreshold = 500; // 500 milliseconds for a long press
+    const longPressThreshold = 500;
     let isLongPress = false;
 
     function startLongPressTimer() {
@@ -35,18 +35,16 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function handleClick(event) {
         if (isLongPress) {
-            event.preventDefault(); // Prevent the default action if it was a long press
+            event.preventDefault();
         } else {
             window.location.href = 'settings.html';
         }
     }
 
-    // Add mouse event listeners
     navProfile.addEventListener('mousedown', startLongPressTimer);
     navProfile.addEventListener('mouseup', clearLongPressTimer);
     navProfile.addEventListener('click', handleClick);
 
-    // Add touch event listeners for mobile devices
     navProfile.addEventListener('touchstart', startLongPressTimer);
     navProfile.addEventListener('touchend', clearLongPressTimer);
     navProfile.addEventListener('touchend', handleClick);
