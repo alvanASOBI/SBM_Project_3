@@ -188,6 +188,32 @@ todayBtn.addEventListener("click", () => {
   initCalendar();
 });
 
+// Add an event listener to the "Today" button to toggle the pop-up form
+todayBtn.addEventListener("click", () => {
+  // Show the pop-up form
+  document.querySelector(".popup-form").style.display = "block";
+});
+
+// Add an event listener to the close button in the pop-up form
+document.querySelector(".close-popup").addEventListener("click", () => {
+  // Hide the pop-up form
+  document.querySelector(".popup-form").style.display = "none";
+});
+
+// Add an event listener to the form submission button in the pop-up form
+document.querySelector(".popup-submit-btn").addEventListener("click", () => {
+  // Process the form input
+  const breastfeedingTime = document.querySelector("#breastfeeding-time").value;
+  // Gather other input values as needed
+
+  // Process the input values (e.g., save to localStorage, update UI, etc.)
+  // You can implement your own logic here
+
+  // Hide the pop-up form after processing
+  document.querySelector(".popup-form").style.display = "none";
+});
+
+
 dateInput.addEventListener("input", (e) => {
   dateInput.value = dateInput.value.replace(/[^0-9/]/g, "");
   if (dateInput.value.length === 2) {
