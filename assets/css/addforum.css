@@ -1,8 +1,8 @@
 body {
     margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-    background-color: #f9f9f9;
+        padding: 0;
+        font-family: Arial, sans-serif;
+        background-color: #f0f0f0;
 }
 
 .container {
@@ -11,15 +11,14 @@ body {
     padding: 20px;
     background-color: #fff;
     border-radius: 8px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    box-shadow: 5px 10px lightblue;
 }
 
 .header {
     color: black;
     padding: 10px 0;
     text-align: center;
-    background-color: #007bff;
-    color: #fff;
+    color: black;
     border-radius: 8px 8px 0 0;
     font-size: 20px;
 }
