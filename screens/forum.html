@@ -107,6 +107,22 @@
       .comments {
         margin-top: 10px;
       }
+
+      .cancel-button {
+        background-color: blue;
+        border: none;
+        color: white;
+        cursor: pointer;
+        display: none;
+        padding: 5px 10px;
+        border-radius: 5px;
+        margin-left: 5px;
+        transition: background-color 0.3s;
+      }
+
+      .search-container input:focus + #cancelButton {
+        display: inline;
+      }
     </style>
   </head>
   <body>
@@ -118,7 +134,7 @@
       <i class="material-icons">search</i>
       <input
         type="text"
-        placeholder="Search for a question"
+        placeholder="Search for a nanny"
         id="searchInput"
         onfocus="showCancelButton()"
       />
@@ -141,8 +157,8 @@
           justo vel massa dapibus varius vel vitae odio.
         </div>
         <div class="question-icons">
-          <img class="like-icon" src="like_icon.png" alt="Like" />
-          <img class="comment-icon" src="comment_icon.png" alt="Comment" />
+          <img class="like-icon" src="../images/like.png" alt="Like" />
+          <img class="comment-icon" src="../images/comment.png" alt="Comment" />
         </div>
         <div class="comments-section" style="display: none">
           <form class="comment-form">
@@ -162,8 +178,8 @@
           nec vehicula est, et maximus odio.
         </div>
         <div class="question-icons">
-          <img class="like-icon" src="like_icon.png" alt="Like" />
-          <img class="comment-icon" src="comment_icon.png" alt="Comment" />
+          <img class="like-icon" src="../images/like.png" alt="Like" />
+          <img class="comment-icon" src="../images/comment.png" alt="Comment" />
         </div>
         <div class="comments-section" style="display: none">
           <form class="comment-form">
