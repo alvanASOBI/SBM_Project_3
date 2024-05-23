@@ -5,8 +5,12 @@ body {
   align-items: center;
   height: 100vh;
   margin: 0;
-  background-color: #f0f0f0;
+  background-color: white;
   overflow: hidden;
+}
+
+:root {
+  --main-color: #00bfff;
 }
 
 .header-section {
@@ -61,7 +65,7 @@ body {
 }
 
 .box {
-  background-color: #00bfff;
+  background-color: var(--main-color);
   color: white;
   display: flex;
   flex-direction: column;

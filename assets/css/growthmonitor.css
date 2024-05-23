@@ -1,5 +1,5 @@
 :root {
-  --primary-clr: blue ;
+  --primary-clr: blue;
 }
 * {
   margin: 0;
@@ -310,7 +310,6 @@ body {
   font-size: 0.5rem;
 }
 
-
 .events .event:hover i {
   color: blue;
 }
@@ -416,9 +415,6 @@ body {
   gap: 5px;
   padding: 20px;
 }
-
-
-
 
 .add-event-body .add-event-input {
   width: 100%;

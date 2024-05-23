@@ -5,6 +5,12 @@
   padding: 0;
 }
 
+:root {
+  --btn-primary-color: blue;
+  --btn-hover-color: crimson;
+  --link-primary-color: blue;
+}
+
 body {
   display: flex;
   flex-direction: column;
@@ -39,7 +45,7 @@ main {
 
 form {
   width: 100%;
-  color: #2b2d2f;
+  color: black;
   padding: 0.9rem;
   max-width: 400px;
 }
@@ -65,7 +71,7 @@ label span {
 }
 
 label:focus-within span {
-  color: #2b2d2f;
+  color: black;
 }
 
 input[type="text"],
@@ -93,7 +99,7 @@ input[type="password"] {
 input[type="text"]:focus,
 input[type="email"]:focus,
 input[type="password"]:focus {
-  border-color: #2b2d2f;
+  border-color: black;
 }
 
 .button {
@@ -102,7 +108,7 @@ input[type="password"]:focus {
   max-width: 400px;
   margin: 10px 0;
   cursor: pointer;
-  background-color: blue;
+  background-color: var(--btn-primary-color);
   color: #fff;
   border-radius: 0.45rem;
   padding: 1rem;
@@ -114,7 +120,7 @@ input[type="password"]:focus {
 }
 
 .button:hover {
-  background-color: crimson;
+  background-color: var(--btn-hover-color);
 }
 
 .passwd-wrap {
@@ -146,5 +152,5 @@ input[type="password"]:focus {
 #go-to-register a,
 #go-to-signin a {
   text-decoration: none;
-  color: blue;
+  color: var(--link-primary-color);
 }
