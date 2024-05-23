@@ -6,7 +6,7 @@
   "display": "standalone",
   "orientation": "portriat",
   "background_color": "#ffffff",
-  "theme_color": "#0000ff",
+  "theme_color": "#00bfff",
   "icons": [
     {
       "src": "images/healthy.png",
