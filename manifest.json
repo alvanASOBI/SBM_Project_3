@@ -2,27 +2,16 @@
   "name": "BabySync App",
   "short_name": "BabySync",
   "description": "A Progressive Web App for BabySync, start syncing with your child.",
-  "start_url": "/",
+  "start_url": "/index.html",
   "display": "standalone",
-  "orientation": "portriat",
   "background_color": "#ffffff",
   "theme_color": "#00bfff",
+  "orientation": "portiat-primary",
   "icons": [
     {
       "src": "images/healthy.png",
-      "sizes": "512x512",
       "type": "image/png",
-      "density": "1.0"
+      "sizes": "512x512"
     }
-  ],
-  "splash_pages": null,
-  "scope": "/",
-  "related_applications": [],
-  "prefer_related_applications": false,
-  "permissions": [],
-  "serviceworker": {
-    "src": "/service-worker.js",
-    "scope": "/",
-    "type": "classic"
-  }
+  ]
 }
