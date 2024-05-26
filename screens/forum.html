@@ -13,7 +13,7 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css"
     />
-
+    <link rel="manifest" href="/manifest.json" />
     <style>
       body {
         margin: 0;
@@ -61,7 +61,7 @@
         padding: 20px;
         border: 1px solid #ccc;
         border-radius: 5px;
-        box-shadow: 5px 10px lightblue;;
+        box-shadow: 5px 10px lightblue;
       }
       .question {
         border-bottom: 1px solid #ccc;
@@ -129,73 +129,81 @@
     <!-- <div class="header">
       <h1>Forum</h1>
     </div> -->
-  <div class="container">
-    <div class="search-container">
-      <i class="material-icons">search</i>
-      <input
-        type="text"
-        placeholder="Search for a nanny"
-        id="searchInput"
-        onfocus="showCancelButton()"
-      />
-      <button
-        id="cancelButton"
-        class="cancel-button"
-        onclick="cancelSearch()"
-      >
-        Cancel
-      </button>
-    </div>
-    <div class="question-list">
-      <div class="question">
-        <div class="question-title">
-          How to code a chat application using JavaScript?
-        </div>
-        <div class="question-time">Posted 2 hours ago</div>
-        <div class="question-description">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis
-          justo vel massa dapibus varius vel vitae odio.
-        </div>
-        <div class="question-icons">
-          <i class="material-icons">thumb_up</i>
-          <img class="comment-icon" src="../images/comment.png" alt="Comment" />
-        </div>
-        <div class="comments-section" style="display: none">
-          <form class="comment-form">
-            <input type="text" placeholder="Your comment..." />
-            <button type="submit">Add Comment</button>
-          </form>
-          <div class="comments"></div>
-        </div>
+    <div class="container">
+      <div class="search-container">
+        <i class="material-icons">search</i>
+        <input
+          type="text"
+          placeholder="Search for a nanny"
+          id="searchInput"
+          onfocus="showCancelButton()"
+        />
+        <button
+          id="cancelButton"
+          class="cancel-button"
+          onclick="cancelSearch()"
+        >
+          Cancel
+        </button>
       </div>
-      <div class="question">
-        <div class="question-title">
-          What are the best practices for responsive web design?
+      <div class="question-list">
+        <div class="question">
+          <div class="question-title">
+            How to code a chat application using JavaScript?
+          </div>
+          <div class="question-time">Posted 2 hours ago</div>
+          <div class="question-description">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis
+            justo vel massa dapibus varius vel vitae odio.
+          </div>
+          <div class="question-icons">
+            <i class="material-icons">thumb_up</i>
+            <img
+              class="comment-icon"
+              src="../images/comment.png"
+              alt="Comment"
+            />
+          </div>
+          <div class="comments-section" style="display: none">
+            <form class="comment-form">
+              <input type="text" placeholder="Your comment..." />
+              <button type="submit">Add Comment</button>
+            </form>
+            <div class="comments"></div>
+          </div>
         </div>
-        <div class="question-time">Posted 1 day ago</div>
-        <div class="question-description">
-          Fusce consequat eleifend diam, eget feugiat odio volutpat a. Integer
-          nec vehicula est, et maximus odio.
+        <div class="question">
+          <div class="question-title">
+            What are the best practices for responsive web design?
+          </div>
+          <div class="question-time">Posted 1 day ago</div>
+          <div class="question-description">
+            Fusce consequat eleifend diam, eget feugiat odio volutpat a. Integer
+            nec vehicula est, et maximus odio.
+          </div>
+          <div class="question-icons">
+            <i class="material-icons">thumb_up</i>
+            <img
+              class="comment-icon"
+              src="../images/comment.png"
+              alt="Comment"
+            />
+          </div>
+          <div class="comments-section" style="display: none">
+            <form class="comment-form">
+              <input type="text" placeholder="Your comment..." />
+              <button type="submit">Add Comment</button>
+            </form>
+            <div class="comments"></div>
+          </div>
         </div>
-        <div class="question-icons">
-          <i class="material-icons">thumb_up</i>
-          <img class="comment-icon" src="../images/comment.png" alt="Comment" />
-        </div>
-        <div class="comments-section" style="display: none">
-          <form class="comment-form">
-            <input type="text" placeholder="Your comment..." />
-            <button type="submit">Add Comment</button>
-          </form>
-          <div class="comments"></div>
-        </div>
+        <!-- More questions go here -->
       </div>
-      <!-- More questions go here -->
+      <p id="go-to-add-forum">
+        Can't find your querry?
+        <a href="addforum.html">Add to forums</a>
+      </p>
     </div>
-    <p id="go-to-add-forum">
-      Can't find your querry?
-      <a href="addforum.html">Add to forums</a>
-    </p>
-  </div>
 
     <!-- BOTTOM NAVIGATION -->
     <div class="bottom-nav">
