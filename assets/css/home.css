@@ -1,3 +1,8 @@
+*{
+  margin: 0;
+}
+
+
 body {
   display: flex;
   flex-direction: column;
@@ -54,6 +59,7 @@ body {
   align-items: center;
   flex: 1;
   width: 100%;
+  margin-top: 200px;
 }
 
 .container {
@@ -80,4 +86,64 @@ body {
 .box i.material-icons {
   font-size: 48px;
   margin-bottom: 5px;
+}
+
+.Top-Section {
+  position: relative;
+}
+
+.Top-Section img {
+  width: 150px; 
+  height: auto;   
+  position: fixed; 
+  top: 0;        
+  left: 0;          
+  margin: 5px;      
+} 
+
+body, html {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+.banner {
+    width: 100%;
+    overflow: hidden;
+    background-color: #f1f1f1;
+    white-space: nowrap;
+    position: relative;
+}
+
+.banner-content {
+    display: inline-block;
+    padding-left: 100%;
+    animation: scroll 15s linear infinite;
+}
+
+.banner-content img {
+    height: 100px; 
+    margin-right: 20px; 
+}
+
+@keyframes scroll {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-100%);
+    }
+}
+
+body {
+  margin: 0;
+}
+
+.logo {
+  width: 150px;
+  height: 210px;
+  top: 0;
+  left: 0;
+  margin-right: 280px;
+  margin-top: 0;
 }
