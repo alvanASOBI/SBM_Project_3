@@ -95,6 +95,46 @@
       .search-container input:focus + #cancelButton {
         display: inline;
       }
+
+      .reviews {
+        margin-top: 20px;
+        margin-bottom: 20px;
+      }
+
+      .review {
+        background-color: #f9f9f9;
+        border-radius: 10px;
+        padding: 10px;
+        margin-bottom: 10px;
+      }
+
+      .review-form {
+        margin-top: 20px;
+      }
+
+      .review-form textarea {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+      }
+
+      .rating {
+        display: flex;
+        align-items: center;
+      }
+
+      .rating i {
+        color: gold;
+        cursor: pointer;
+      }
+
+      .average-rating {
+        font-size: 18px;
+        color: blue;
+        margin-top: 10px;
+      }
     </style>
   </head>
   <body>
@@ -116,22 +156,65 @@
         </button>
       </div>
 
-      <div class="nanny-card">
+      <div class="nanny-card" id="nanny1">
         <h5>Nanny 1:</h5>
         <p>I'm very dedicated to my work. Blah blah blah blah</p>
         <p><strong>Working hours:</strong><br />9am - 5pm (Mon - Fri)</p>
         <p><strong>Years of experience:</strong><br />11 years</p>
         <p><strong>Costs:</strong><br />$1000 per week</p>
+
+        <div class="reviews">
+          <button onclick="toggleReviews('nanny1')">View Reviews</button>
+          <div id="nanny1-reviews" class="review-list" style="display: none;">
+            <div class="average-rating" id="nanny1-average-rating"></div>
+            <div id="nanny1-review-items"></div>
+            <div class="review-form">
+              <h6>Leave a Review:</h6>
+              <div class="rating" id="nanny1-rating">
+                <i class="material-icons" onclick="rateNanny('nanny1', 1)">star_border</i>
+                <i class="material-icons" onclick="rateNanny('nanny1', 2)">star_border</i>
+                <i class="material-icons" onclick="rateNanny('nanny1', 3)">star_border</i>
+                <i class="material-icons" onclick="rateNanny('nanny1', 4)">star_border</i>
+                <i class="material-icons" onclick="rateNanny('nanny1', 5)">star_border</i>
+              </div>
+              <textarea id="nanny1-comment" placeholder="Write your review here..."></textarea>
+              <button onclick="submitReview('nanny1')">Submit</button>
+            </div>
+          </div>
+        </div>
         <button class="hire-button" onclick="hireNanny()">Hire</button>
       </div>
 
-      <div class="nanny-card">
+      
+
+      
+      <div class="nanny-card" id="nanny2">
         <h5>Nanny 2:</h5>
         <p>I'm very dedicated to my work. Blah blah blah blah</p>
         <p><strong>Working hours:</strong><br />9am - 5pm (Mon - Fri)</p>
         <p><strong>Years of experience:</strong><br />8 years</p>
         <p><strong>Costs:</strong><br />$900 per week</p>
         <button class="hire-button" onclick="hireNanny()">Hire</button>
+
+        <div class="reviews">
+          <button onclick="toggleReviews('nanny2')">View Reviews</button>
+          <div id="nanny2-reviews" class="review-list" style="display: none;">
+            <div class="average-rating" id="nanny2-average-rating"></div>
+            <div id="nanny2-review-items"></div>
+            <div class="review-form">
+              <h6>Leave a Review:</h6>
+              <div class="rating" id="nanny2-rating">
+                <i class="material-icons" onclick="rateNanny('nanny2', 1)">star_border</i>
+                <i class="material-icons" onclick="rateNanny('nanny2', 2)">star_border</i>
+                <i class="material-icons" onclick="rateNanny('nanny2', 3)">star_border</i>
+                <i class="material-icons" onclick="rateNanny('nanny2', 4)">star_border</i>
+                <i class="material-icons" onclick="rateNanny('nanny2', 5)">star_border</i>
+              </div>
+              <textarea id="nanny2-comment" placeholder="Write your review here..."></textarea>
+              <button onclick="submitReview('nanny2')">Submit</button>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -215,6 +298,65 @@
     <script>
       function hireNanny() {
         alert("Successfully hired! Your Nanny will contact you within 2 days!");
+      }
+
+      const reviews = {
+        nanny1: [],
+        nanny2: []
+      };
+
+      function toggleReviews(nannyId) {
+        const reviewList = document.getElementById(`${nannyId}-reviews`);
+        reviewList.style.display = reviewList.style.display === 'none' ? 'block' : 'none';
+        updateAverageRating(nannyId);
+        displayReviews(nannyId);
+      }
+
+      function rateNanny(nannyId, rating) {
+        const stars = document.getElementById(`${nannyId}-rating`).children;
+        for (let i = 0; i < stars.length; i++) {
+          stars[i].innerText = i < rating ? 'star' : 'star_border';
+        }
+        document.getElementById(`${nannyId}-rating`).setAttribute('data-rating', rating);
+      }
+
+      function submitReview(nannyId) {
+        const rating = parseInt(document.getElementById(`${nannyId}-rating`).getAttribute('data-rating'));
+        const comment = document.getElementById(`${nannyId}-comment`).value;
+
+        if (rating && comment) {
+          reviews[nannyId].push({ rating, comment });
+          document.getElementById(`${nannyId}-comment`).value = '';
+          rateNanny(nannyId, 0);
+          updateAverageRating(nannyId);
+          displayReviews(nannyId);
+        } else {
+          alert('Please provide a rating and a comment.');
+        }
+      }
+
+      function updateAverageRating(nannyId) {
+        const reviewList = reviews[nannyId];
+        if (reviewList.length === 0) {
+          document.getElementById(`${nannyId}-average-rating`).innerText = 'No reviews yet';
+          return;
+        }
+
+        const sum = reviewList.reduce((acc, review) => acc + review.rating, 0);
+        const average = (sum / reviewList.length).toFixed(1);
+        document.getElementById(`${nannyId}-average-rating`).innerText = `Average Rating: ${average} out of 5`;
+      }
+
+      function displayReviews(nannyId) {
+        const reviewItems = document.getElementById(`${nannyId}-review-items`);
+        reviewItems.innerHTML = '';
+
+        reviews[nannyId].forEach(review => {
+          const reviewElement = document.createElement('div');
+          reviewElement.className = 'review';
+          reviewElement.innerHTML = `<strong>Rating:</strong> ${review.rating} / 5<br/><strong>Comment:</strong> ${review.comment}`;
+          reviewItems.appendChild(reviewElement);
+        });
       }
     </script>
   </body>
