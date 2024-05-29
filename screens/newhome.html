@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link rel="stylesheet" href="../assets/css/home.css" />
-    <link rel="stylesheet" href="../assets/css/global.css" />
+    <title>PWA Sample</title>
+    <link rel="stylesheet" href="../assets/css/newhome.css">
+    <link rel="stylesheet" href="../assets/css/global.css">
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
@@ -16,21 +16,43 @@
     />
     <link rel="manifest" href="/manifest.json" />
     <meta name="theme-color" content="#00bfff" />
-    <img class="logo" src="../images/AppIcon.png" alt="logo">
-    <title>New Home</title>
 </head>
 <body>
-    <!-- TOP SECTION-->
-    <div class = "banner">
-        <div class="banner-content">
-            <img src="" alt="">
-            <img src="" alt="">
-            <img src="" alt="">
-        </div>
-    </div>
+    <div class="app">
+        <header>
+            <img class="logo" src="../images/AppIcon.png" alt="logo" alt="logo">
+        </header>
+        <main>
+            <section class="banner-container">
+                <div class="banner" id="banner1">BANNER 1</div>
+                <div class="banner" id="banner2">BANNER 2</div>
+                <div class="banner" id="banner3">BANNER 3</div>
+            </section>
+            <section class="content-boxes">
+                <div class="box" onclick="window.location.href='#'">View Community Forum</div>
+                <div class="box" onclick="window.location.href='#'">Growth Monitoring</div>
+                <div class="box" onclick="window.location.href='#'">View Community Forum</div>
+                <div class="box" onclick="window.location.href='#'">Growth Monitoring</div>
+                <div class="box" onclick="window.location.href='#'">Another Link</div>
+                <div class="box" onclick="window.location.href='#'">More Info</div>
+            </section>
+            <section class="baby-container">
+                <div class="baby-info">
+                    <div class="baby-icon">👶</div>
+                    <div class="baby-details">
+                        <h2>Baby 1</h2>
+                        <p>Baby 1 details, LOREM IPSUM EFCEWCFEWFCEFEWF</p>
+                    </div>
+                </div>
+            </section>
+            <section class="add-baby">
+                <button onclick="window.location.href='#'">+</button>
+            </section>
+        </main>
 
-    <!-- BOTTOM NAVIGATION -->
-    <div class="bottom-nav">
+    </div>
+      <!-- BOTTOM NAVIGATION -->
+      <div class="bottom-nav">
         <div class="nav-item" id="nav-home">
           <i class="material-icons">home</i>
         </div>
@@ -52,9 +74,12 @@
           />
         </div>
       </div>
-
-    <!-- BOTTOM DRAWER TO DISPLAY ALL THE PROFILES -->
-    <div class="bottom-drawer" id="bottom-drawer">
+  
+      <!-- OVERLAY -->
+      <div class="overlay" id="overlay"></div>
+  
+      <!-- BOTTOM DRAWER TO DISPLAY ALL THE PROFILES -->
+      <div class="bottom-drawer" id="bottom-drawer">
         <div class="drawer-content">
           <span class="close-btn" id="close-btn">
             <i class="material-icons">arrow_drop_down</i>
@@ -102,15 +127,6 @@
         </div>
       </div>
       <script src="../assets/js/nav.js"></script>
-      <script src="../assets/js/home.js"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
-      <script>
-        document.addEventListener("DOMContentLoaded", function () {
-          var modals = document.querySelectorAll(".modal");
-          modals.forEach(function (modal) {
-            new M.Modal(modal);
-          });
-        });
-      </script>
+    <script src="../assets/js/harish.js"></script>
 </body>
 </html>
