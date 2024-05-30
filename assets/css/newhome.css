@@ -14,7 +14,7 @@ header {
     display: flex;
     justify-content: flex-end;
     padding: 10px;
-    background-color: #f8f8f8;
+    background-color: lightblue;
 }
 
 .user-icon {
@@ -54,7 +54,7 @@ main {
     flex: 0 0 30%;
     padding: 10px;
     margin: 5px;
-    background-color: #e0e0e0;
+    background-color: lightpink;
     text-align: center;
     border-radius: 8px;
     cursor: pointer;
@@ -63,6 +63,8 @@ main {
 .baby-container {
     display: flex;
     margin-bottom: 10px;
+    border-radius: 8px;
+    background-color: #007BFF;
 }
 
 .baby-info {
@@ -81,18 +83,13 @@ main {
 
 .add-baby {
     display: flex;
-    justify-content: center;
-    margin-bottom: 10px;
+    justify-content: right;
+    margin-bottom: 0px;
 }
 
 .add-baby button {
-    font-size: 24px;
-    padding: 10px;
-    border: none;
-    background-color: #007BFF;
-    color: white;
-    border-radius: 50%;
-    cursor: pointer;
+    height: 20px;
+    width: auto;
 }
 
 .bottom-nav {
@@ -118,3 +115,16 @@ main {
     height: 50px;
     width: 50px;
 }
+
+/* .nanny-card {
+    background-color: #fff;
+    border-radius: 20px;
+    padding: 25px;
+    margin-bottom: 20px;
+    box-shadow: 5px 10px lightblue;
+  }
+
+.nanny-card p strong {
+    color: blue;
+    font-size: 18px;
+} */
