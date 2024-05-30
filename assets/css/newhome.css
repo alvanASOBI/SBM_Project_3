@@ -87,11 +87,6 @@ main {
     margin-bottom: 0px;
 }
 
-.add-baby button {
-    height: 20px;
-    width: auto;
-}
-
 .bottom-nav {
     display: flex;
     justify-content: space-around;
