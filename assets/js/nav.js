@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const navChildCare = document.getElementById('nav-child-care');
 
     navHome.addEventListener('click', function () {
-        window.location.href = 'home.html';
+        window.location.href = 'newhome.html';
     });
 
     navPeople.addEventListener('click', function () {
