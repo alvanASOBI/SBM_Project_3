@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nanny Booking Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .booking-container {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            padding: 20px;
+            width: 300px;
+        }
+        .booking-container h2 {
+            margin-top: 0;
+            color: #333;
+        }
+        .booking-container label {
+            display: block;
+            margin-top: 10px;
+            color: #555;
+        }
+        .booking-container input[type="text"],
+        .booking-container input[type="date"],
+        .booking-container input[type="time"],
+        .booking-container input[type="submit"] {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .booking-container input[type="submit"] {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .booking-container input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="booking-container">
+        <h2>Book Nanny 1</h2>
+        <form id="bookingForm">
+            <label for="date">Date:</label>
+            <input type="date" id="date" name="date">
+            
+            <label for="start-time">Start Time:</label>
+            <input type="time" id="start-time" name="start-time">
+            
+            <label for="end-time">End Time:</label>
+            <input type="time" id="end-time" name="end-time">
+            
+            <label for="location">Location:</label>
+            <input type="text" id="location" name="location" placeholder="Enter location">
+            
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+    <script>
+        document.getElementById('bookingForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const date = document.getElementById('date').value;
+            const startTime = document.getElementById('start-time').value;
+            const endTime = document.getElementById('end-time').value;
+            const location = document.getElementById('location').value;
+            
+            const booking = { date, startTime, endTime, location };
+            let bookings = JSON.parse(localStorage.getItem('bookings')) || [];
+            bookings.push(booking);
+            localStorage.setItem('bookings', JSON.stringify(bookings));
+            
+            window.location.href = 'allbookings.html';
+        });
+    </script>
+</body>
+</html>
