@@ -53,8 +53,11 @@
 </head>
 <body>
     <div class="booking-container">
-        <h2>Book Nanny 1</h2>
+        <h2>Book Nanny</h2>
         <form id="bookingForm">
+            <label for="nanny-name">Nanny Name:</label>
+            <input type="text" id="nanny-name" name="nanny-name" placeholder="Enter nanny name">
+            
             <label for="date">Date:</label>
             <input type="date" id="date" name="date">
             
@@ -73,12 +76,13 @@
     <script>
         document.getElementById('bookingForm').addEventListener('submit', function(event) {
             event.preventDefault();
+            const nannyName = document.getElementById('nanny-name').value;
             const date = document.getElementById('date').value;
             const startTime = document.getElementById('start-time').value;
             const endTime = document.getElementById('end-time').value;
             const location = document.getElementById('location').value;
             
-            const booking = { date, startTime, endTime, location };
+            const booking = { nannyName, date, startTime, endTime, location };
             let bookings = JSON.parse(localStorage.getItem('bookings')) || [];
             bookings.push(booking);
             localStorage.setItem('bookings', JSON.stringify(bookings));
