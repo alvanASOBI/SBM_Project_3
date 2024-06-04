@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>PWA Sample</title>
-    <link rel="stylesheet" href="../assets/css/newhome.css">
-    <link rel="stylesheet" href="../assets/css/global.css">
+    <link rel="stylesheet" href="../assets/css/newhome.css" />
+    <link rel="stylesheet" href="../assets/css/global.css" />
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
@@ -16,88 +16,153 @@
     />
     <link rel="manifest" href="/manifest.json" />
     <meta name="theme-color" content="#00bfff" />
-</head>
-<body>
+  </head>
+  <body>
     <div class="app">
-        <header>
-            <img class="logo" src="../images/AppIcon.png" alt="logo" alt="logo">
-        </header>
-        <main>
-            <section class="banner-container">
-                <img class="banner" src="../images/BabyBanner1.jpg" alt="banner" alt="banner">
-                <img class="banner" src="../images/BabyBanner2.jpg" alt="banner2" alt="banner2">
-                <img class="banner" src="../images/BabyBanner3.jpg" alt="banner3" alt="banner3">
-            </section>
-            <section class="content-boxes">
-                <div class="box" onclick="window.location.href='#'">
-                  <a href="../screens/addforum.html">
-                    <div class="box" id="customer-service">
-                        <img class="icon" src="../images/customerservice.png" width="30px" height="auto">
-                    </div>
-                  </a>
-                </div>
-                <div class="box" onclick="window.location.href='#'">
-                  <a href="../screens/growthmonitor.html">
-                    <div class="box" id="calendar">
-                        <img class="icon" src="../images/calendar.png" width="30px" height="auto">
-                    </div>
-                  </a>
-                </div>
-                <div class="box" onclick="window.location.href='#'">
-                  <a href="../screens/forum.html">
-                    <div class="box" id="community-forum">
-                        <img class="icon" src="../images/users.png" width="30px" height="auto">
-                    </div>
-                  </a>
-                </div>
-                <div class="box" onclick="window.location.href='#'">
-                  <a href="../screens/settings.html">
-                    <div class="box" id="settings">
-                        <img class="icon" src="../images/settings.png" width="30px" height="auto">
-                    </div>
-                  </a>
-                </div>
-                <div class="box" onclick="window.location.href='#'">
-                  <a href="">
-                    <div class="box" id="settings">
-                        <img class="icon" src="../images/shoppingcart.png" width="30px" height="auto">
-                    </div>
-                  </a>
-                </div>
-                <div class="box" onclick="window.location.href='#'">More Info</div>
-            </section>
-            <section class="baby-container">
-                <div class="baby-info">
-                    <div class="baby-icon">
-                        <img src="../images/BabyProfilePicture.png" height="55px" width="auto">
-                    </div>
-                    <div class="baby-details">
-                        <h5>Baby 1</h5>
-                        <p>Age: 15 months</p>
-                        <p>Height: 50.8cm</p>
-                    </div>
-                </div>
-            </section>
-            <section class="add-baby">
-              <a href="../screens/addaccount.html">
-                <img src="../images/pluscircle.png" height="50px" width="auto">
-              </a>
-            </section>
-        </main>
-
+      <header>
+        <img class="logo" src="../images/AppIcon.png" alt="logo" alt="logo" />
+      </header>
+      <main>
+        <section class="banner-container">
+          <img
+            class="banner"
+            src="../images/BabyBanner1.jpg"
+            alt="banner"
+            alt="banner"
+          />
+          <img
+            class="banner"
+            src="../images/BabyBanner2.jpg"
+            alt="banner2"
+            alt="banner2"
+          />
+          <img
+            class="banner"
+            src="../images/BabyBanner3.jpg"
+            alt="banner3"
+            alt="banner3"
+          />
+        </section>
+        <section class="content-boxes">
+          <div class="box" onclick="window.location.href='#'">
+            <a href="../screens/addforum.html">
+              <div class="box" id="customer-service">
+                <img
+                  class="icon"
+                  src="../images/customerservice.png"
+                  width="30px"
+                  height="auto"
+                />
+              </div>
+            </a>
+          </div>
+          <div class="box" onclick="window.location.href='#'">
+            <a href="../screens/growthmonitor.html">
+              <div class="box" id="calendar">
+                <img
+                  class="icon"
+                  src="../images/calendar.png"
+                  width="30px"
+                  height="auto"
+                />
+              </div>
+            </a>
+          </div>
+          <div class="box" onclick="window.location.href='#'">
+            <a href="../screens/forum.html">
+              <div class="box" id="community-forum">
+                <img
+                  class="icon"
+                  src="../images/users.png"
+                  width="30px"
+                  height="auto"
+                />
+              </div>
+            </a>
+          </div>
+          <div class="box" onclick="window.location.href='#'">
+            <a href="../screens/settings.html">
+              <div class="box" id="settings">
+                <img
+                  class="icon"
+                  src="../images/settings.png"
+                  width="30px"
+                  height="auto"
+                />
+              </div>
+            </a>
+          </div>
+          <div class="box" onclick="window.location.href='#'">
+            <a href="">
+              <div class="box" id="settings">
+                <img
+                  class="icon"
+                  src="../images/shoppingcart.png"
+                  width="30px"
+                  height="auto"
+                />
+              </div>
+            </a>
+          </div>
+          <div class="box" onclick="window.location.href='#'">More Info</div>
+        </section>
+        <section class="baby-container">
+          <div class="baby-info">
+            <div class="baby-icon">
+              <img
+                src="../images/BabyProfilePicture.png"
+                height="55px"
+                width="auto"
+              />
+            </div>
+            <div class="baby-details">
+              <h5>Baby 1</h5>
+              <p>Age: 15 months</p>
+              <p>Height: 50.8cm</p>
+            </div>
+          </div>
+        </section>
+        <section class="add-baby">
+          <a href="../screens/addaccount.html">
+            <img src="../images/pluscircle.png" height="50px" width="auto" />
+          </a>
+        </section>
+      </main>
     </div>
-      <!-- BOTTOM NAVIGATION -->
-      <div class="bottom-nav">
-        <div class="nav-item" id="nav-home">
-          <i class="material-icons">home</i>
-        </div>
-        <div class="nav-item" id="nav-people">
-          <i class="material-icons">people_outline</i>
-        </div>
-        <div class="nav-item" id="nav-child-care">
-          <i class="material-icons">child_care</i>
-        </div>
-        <div class="nav-item" id="nav-profile">
+    <!-- BOTTOM NAVIGATION -->
+    <div class="bottom-nav">
+      <div class="nav-item" id="nav-home">
+        <i class="material-icons">home</i>
+      </div>
+      <div class="nav-item" id="nav-people">
+        <i class="material-icons">people_outline</i>
+      </div>
+      <div class="nav-item" id="nav-child-care">
+        <i class="material-icons">child_care</i>
+      </div>
+      <div class="nav-item" id="nav-profile">
+        <img
+          src=""
+          style="
+            height: 30px;
+            width: 30px;
+            border-radius: 50%;
+            background-color: black;
+          "
+        />
+      </div>
+    </div>
+
+    <!-- OVERLAY -->
+    <div class="overlay" id="overlay"></div>
+
+    <!-- BOTTOM DRAWER TO DISPLAY ALL THE PROFILES -->
+    <div class="bottom-drawer" id="bottom-drawer">
+      <div class="drawer-content">
+        <span class="close-btn" id="close-btn">
+          <i class="material-icons">arrow_drop_down</i>
+        </span>
+        <div class="profiles">
           <img
             src=""
             style="
@@ -107,61 +172,40 @@
               background-color: black;
             "
           />
+          <span>John Doe Baby 1</span>
+        </div>
+        <div class="profiles">
+          <img
+            src=""
+            style="
+              height: 30px;
+              width: 30px;
+              border-radius: 50%;
+              background-color: black;
+            "
+          />
+          <span>Daniel Lee Baby 2</span>
+        </div>
+        <div class="profiles">
+          <img
+            src=""
+            style="
+              height: 30px;
+              width: 30px;
+              border-radius: 50%;
+              background-color: black;
+            "
+          />
+          <span>Ah Paw Baby 3</span>
+        </div>
+        <div class="add-account-btn" id="add-account-btn">
+          <i class="material-icons">add_circle_outline</i>
+          <span>Add Baby Account</span>
         </div>
       </div>
-  
-      <!-- OVERLAY -->
-      <div class="overlay" id="overlay"></div>
-  
-      <!-- BOTTOM DRAWER TO DISPLAY ALL THE PROFILES -->
-      <div class="bottom-drawer" id="bottom-drawer">
-        <div class="drawer-content">
-          <span class="close-btn" id="close-btn">
-            <i class="material-icons">arrow_drop_down</i>
-          </span>
-          <div class="profiles">
-            <img
-              src=""
-              style="
-                height: 30px;
-                width: 30px;
-                border-radius: 50%;
-                background-color: black;
-              "
-            />
-            <span>John Doe Baby 1</span>
-          </div>
-          <div class="profiles">
-            <img
-              src=""
-              style="
-                height: 30px;
-                width: 30px;
-                border-radius: 50%;
-                background-color: black;
-              "
-            />
-            <span>Daniel Lee Baby 2</span>
-          </div>
-          <div class="profiles">
-            <img
-              src=""
-              style="
-                height: 30px;
-                width: 30px;
-                border-radius: 50%;
-                background-color: black;
-              "
-            />
-            <span>Ah Paw Baby 3</span>
-          </div>
-          <div class="add-account-btn" id="add-account-btn">
-            <i class="material-icons">add_circle_outline</i>
-            <span>Add Baby Account</span>
-          </div>
-        </div>
-      </div>
-      <script src="../assets/js/nav.js"></script>
+    </div>
+    <script src="../assets/js/nav.js"></script>
     <script src="../assets/js/newhome.js"></script>
-</body>
+    <script src="../assets/js/app.js"></script>
+  </body>
 </html>
