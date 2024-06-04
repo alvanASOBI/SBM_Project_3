@@ -116,6 +116,29 @@
         cursor: pointer;
         z-index: 1000;
       }
+
+      .notifications-btn {
+  position: absolute;
+  top: 53px;
+  right: 0; /* Adjusted to place it beside the add-event button */
+  right: -20px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  color: blue;
+  border: 2px solid blue;
+  opacity: 0.5;
+  border-radius: 50%;
+  background-color: transparent;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+
+      
     </style>
   </head>
   <body>
@@ -143,14 +166,22 @@
               <button class="goto-btn">Go</button>
             </div>
             <button class="today-btn">Today</button>
+            
           </div>
+          
         </div>
       </div>
+      
       <div class="right">
+        
         <div class="today-date">
           <div class="event-day">wed</div>
           <div class="event-date">12th december 2022</div>
         </div>
+        <!-- //New Notifications Button -->
+    <button class="notifications-btn">
+      <i class="fas fa-bell"></i>
+    </button>
         <div class="events"></div>
         <div class="add-event-wrapper">
           <div class="add-event-header">
@@ -218,6 +249,8 @@
         <i class="fas fa-plus"></i>
       </button>
     </div>
+
+    
 
     <!-- BOTTOM NAVIGATION -->
     <div class="bottom-nav">
