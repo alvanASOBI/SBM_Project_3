@@ -24,9 +24,19 @@
       "sizes": "96x96"
     },
     {
-      "src": "icons/app_icon_x128",
+      "src": "icons/app_icon_x144",
       "type": "image/png",
-      "sizes": "128x128"
+      "sizes": "144x144"
+    },
+    {
+      "src": "icons/app_icon_x192",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "icons/app_icon_x512",
+      "type": "image/png",
+      "sizes": "512x512"
     }
   ]
 }
