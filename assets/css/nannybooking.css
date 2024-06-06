@@ -1,0 +1,122 @@
+
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f0f0f0;
+      }
+
+      .container {
+        padding: 20px;
+        padding-bottom: 80px;
+      }
+
+      .search-container {
+        display: flex;
+        align-items: center;
+        background-color: white;
+        border-radius: 20px;
+        box-shadow: 5px 10px lightblue;
+        padding: 10px 20px;
+        margin-bottom: 20px;
+      }
+
+      .search-container input {
+        flex: 1;
+        border: none;
+        outline: none;
+        font-size: 12px;
+      }
+
+      .search-container i {
+        background: none;
+        border: none;
+        color: blue;
+        cursor: pointer;
+      }
+
+      .nanny-card {
+        background-color: #fff;
+        border-radius: 20px;
+        padding: 25px;
+        margin-bottom: 20px;
+        box-shadow: 5px 10px lightblue;
+      }
+
+      .nanny-card p strong {
+        color: blue;
+        font-size: 18px;
+      }
+
+      .hire-button {
+        background-color: blue;
+        color: white;
+        width: 100%;
+        padding: 10px;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        font-size: 1rem;
+        display: block;
+        text-align: center;
+      }
+
+      .hire-button:hover {
+        background-color: #434190;
+      }
+
+      .cancel-button {
+        background-color: blue;
+        border: none;
+        color: white;
+        cursor: pointer;
+        display: none;
+        padding: 5px 10px;
+        border-radius: 5px;
+        margin-left: 5px;
+        transition: background-color 0.3s;
+      }
+
+      .search-container input:focus + #cancelButton {
+        display: inline;
+      }
+
+      .reviews {
+        margin-top: 20px;
+        margin-bottom: 20px;
+      }
+
+      .review {
+        background-color: #f9f9f9;
+        border-radius: 10px;
+        padding: 10px;
+        margin-bottom: 10px;
+      }
+
+      .review-form {
+        margin-top: 20px;
+      }
+
+      .review-form textarea {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+      }
+
+      .rating {
+        display: flex;
+        align-items: center;
+      }
+
+      .rating i {
+        color: gold;
+        cursor: pointer;
+      }
+
+      .average-rating {
+        font-size: 18px;
+        color: blue;
+        margin-top: 10px;
+      }
