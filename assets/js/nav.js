@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     navChildCare.addEventListener('click', function () {
-        window.location.href = 'growthmonitor.html';
+        window.location.href = 'calendar.html';
     });
 
     const navProfile = document.getElementById('nav-profile');
