@@ -1,0 +1,41 @@
+
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f0f0f0;
+    }
+    .container {
+      padding: 20px;
+    }
+    .form-container {
+
+      padding: 20px;
+
+    }
+    .form-container h5 {
+      color: blue;
+    }
+    .form-field {
+      margin-bottom: 20px;
+    }
+    .form-field input,
+    .form-field textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    .form-field button {
+      background-color: blue;
+      color: white;
+      width: 100%;
+      padding: 10px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+    .form-field button:hover {
+      background-color: #434190;
+    }
