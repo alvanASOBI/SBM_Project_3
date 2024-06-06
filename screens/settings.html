@@ -18,14 +18,12 @@
     <title>Settings</title>
   </head>
   <body>
-    <!-- MAIN CONTENT -->
     <div class="container">
       <form id="settingsForm">
         <div class="profile">
           <img src="profile_picture.jpg" alt="Profile Picture" />
           <h5>[ Name ]<b> Points: 60</b></h5>
         </div>
-
         <label>
           <input
             type="email"
@@ -35,13 +33,12 @@
             required
           />
         </label>
-
         <label>
           <div class="passwd-wrap">
             <input
               type="password"
               id="password"
-              name="username"
+              name="password"
               placeholder="Password:"
               required
             />
@@ -54,8 +51,6 @@
             </button>
           </div>
         </label>
-
-        <!-- Toggle Notification Switch -->
         <div class="toggle-switch">
           <label>
             Notifications
@@ -63,20 +58,15 @@
             <span class="lever"></span>
           </label>
         </div>
-
         <button type="button" class="button" onclick="editDetails()">
           Edit Details
         </button>
         <button type="button" class="button" onclick="logout()">Logout</button>
-
         <p id="go-to-customer-service">
-          Need help?
-          <a href="">Customer service</a>
+          Need help? <a href="">Customer service</a>
         </p>
       </form>
     </div>
-
-    <!-- BOTTOM NAVIGATION -->
     <div class="bottom-nav">
       <div class="nav-item" id="nav-home">
         <i class="material-icons">home</i>
@@ -99,11 +89,7 @@
         />
       </div>
     </div>
-
-    <!-- OVERLAY -->
     <div class="overlay" id="overlay"></div>
-
-    <!-- BOTTOM DRAWER TO DISPLAY ALL THE PROFILES -->
     <div class="bottom-drawer" id="bottom-drawer">
       <div class="drawer-content">
         <span class="close-btn" id="close-btn">
@@ -151,8 +137,9 @@
         </div>
       </div>
     </div>
-    <script src="../assets/js/nav.js"></script>
     <script src="../assets/js/settings.js"></script>
-    <script src="../assets/js/script.js"></script>
+    <script src="../assets/js/password_script.js"></script>
+    <script src="../assets/validation/settings_validation.js"></script>
+    <script src="../assets/js/nav.js"></script>
   </body>
 </html>
