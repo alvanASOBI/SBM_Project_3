@@ -15,11 +15,19 @@
             margin: 0;
         }
         .bookings-container {
-            background-color: white;
+            position: relative;
             border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
             padding: 20px;
-            width: 300px;
+            width: 100%;
+            height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .bookings-list {
+            flex-grow: 1;
+            overflow-y: auto;
+            margin-bottom: 10px;
         }
         .booking {
             display: flex;
@@ -29,6 +37,7 @@
             padding: 10px;
             border: 1px solid #ccc;
             border-radius: 5px;
+            background-color: wheat;
         }
         .booking button {
             background-color: red;
@@ -40,7 +49,6 @@
         }
         .add-button {
             display: block;
-            width: 100%;
             text-align: center;
             background-color: #007bff;
             color: white;
@@ -49,6 +57,9 @@
             cursor: pointer;
             padding: 10px;
             text-decoration: none;
+            position: sticky;
+            bottom: 0;
+            margin-top: auto;
         }
         .add-button:hover {
             background-color: #0056b3;
@@ -58,7 +69,7 @@
 <body>
     <div class="bookings-container">
         <h2>All Bookings</h2>
-        <div id="bookingsList"></div>
+        <div id="bookingsList" class="bookings-list"></div>
         <a href="nannybooking.html" class="add-button">Add Booking</a>
     </div>
     <script>
