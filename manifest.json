@@ -7,36 +7,43 @@
   "background_color": "#ffffff",
   "theme_color": "#00bfff",
   "orientation": "portrait-primary",
+  "id": "/index.html",
   "icons": [
     {
-      "src": "icons/app_icon_x48",
+      "src": "icons/app_icon_x48.png",
       "type": "image/png",
-      "sizes": "48x48"
+      "sizes": "48x48",
+      "purpose": "any"
     },
     {
-      "src": "icons/app_icon_x72",
+      "src": "icons/app_icon_x72.png",
       "type": "image/png",
-      "sizes": "72x72"
+      "sizes": "72x72",
+      "purpose": "any"
     },
     {
-      "src": "icons/app_icon_x96",
+      "src": "icons/app_icon_x96.png",
       "type": "image/png",
-      "sizes": "96x96"
+      "sizes": "96x96",
+      "purpose": "any"
     },
     {
-      "src": "icons/app_icon_x144",
+      "src": "icons/app_icon_x144.png",
       "type": "image/png",
-      "sizes": "144x144"
+      "sizes": "144x144",
+      "purpose": "any"
     },
     {
-      "src": "icons/app_icon_x192",
+      "src": "icons/app_icon_x192.png",
       "type": "image/png",
-      "sizes": "192x192"
+      "sizes": "192x192",
+      "purpose": "any"
     },
     {
-      "src": "icons/app_icon_x512",
+      "src": "icons/app_icon_x512.png",
       "type": "image/png",
-      "sizes": "512x512"
+      "sizes": "512x512",
+      "purpose": "any"
     }
   ]
 }
