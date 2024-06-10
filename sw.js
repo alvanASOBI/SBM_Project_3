@@ -1,4 +1,4 @@
-const staticCacheName = 'site-static'
+const staticCacheName = 'site-static-v1';
 const assets = [
     '/',
     '/index.html',
@@ -6,7 +6,9 @@ const assets = [
     '/assets/css/materialize.css',
     '/assets/js/materialize.js',
     'https://fonts.googleapis.com/icon?family=Material+Icons',
+    'https://fonts.gstatic.com/s/materialicons/v142/flUhRq6tzZclQEJ-Vdg-IuiaDsNcIhQ8tQ.woff2',
     'https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css',
+    'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css',
     // ------ All the css cached ------
     'assets/css/addaccount.css',
     'assets/css/addforum.css',
@@ -71,22 +73,34 @@ const assets = [
     'screens/signup.html',
 ];
 
-// install event
+// Install event
 self.addEventListener('install', evt => {
-    // console.log('service worker installed');
     evt.waitUntil(
         caches.open(staticCacheName).then(cache => {
-            console.log('caching shell assets')
-            cache.addAll(assets)
-        }))
+            console.log('caching shell assets');
+            return cache.addAll(assets);
+        })
+    );
 });
 
-// activate event
+// Activate event
 self.addEventListener('activate', evt => {
-    // console.log('service worker activated');
+    // evt.waitUntil(
+    //     caches.keys().then(keys => {
+    //         return Promise.all(
+    //             keys
+    //                 .filter(key => key !== staticCacheName)
+    //                 .map(key => caches.delete(key))
+    //         );
+    //     })
+    // );
 });
 
-// fetch event
+// Fetch event
 self.addEventListener('fetch', evt => {
-    // console.log('fetch event', evt);
+    evt.respondWith(
+        caches.match(evt.request).then(cacheRes => {
+            return cacheRes || fetch(evt.request);
+        })
+    );
 });
