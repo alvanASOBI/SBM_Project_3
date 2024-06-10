@@ -1,4 +1,5 @@
-const staticCacheName = 'site-static-v1';
+const staticCacheName = 'site-static-v3';
+const dynamicCacheName = 'site-dynamic-v2';
 const assets = [
     '/',
     '/index.html',
@@ -71,7 +72,19 @@ const assets = [
     'screens/settings.html',
     'screens/signin.html',
     'screens/signup.html',
+    'screens/fallback.html',
 ];
+
+// Limit the size of the dynamic cache
+const limitCacheSize = (name, size) => {
+    caches.open(name).then(cache => {
+        cache.keys().then(keys => {
+            if (keys.length > size) {
+                cache.delete(keys[0]).then(limitCacheSize(name, size));
+            }
+        });
+    });
+};
 
 // Install event
 self.addEventListener('install', evt => {
@@ -85,22 +98,66 @@ self.addEventListener('install', evt => {
 
 // Activate event
 self.addEventListener('activate', evt => {
-    // evt.waitUntil(
-    //     caches.keys().then(keys => {
-    //         return Promise.all(
-    //             keys
-    //                 .filter(key => key !== staticCacheName)
-    //                 .map(key => caches.delete(key))
-    //         );
-    //     })
-    // );
+    evt.waitUntil(
+        caches.keys().then(keys => {
+            return Promise.all(
+                keys
+                    .filter(key => key !== staticCacheName && key !== dynamicCacheName)
+                    .map(key => caches.delete(key))
+            );
+        })
+    );
 });
 
 // Fetch event
 self.addEventListener('fetch', evt => {
-    evt.respondWith(
-        caches.match(evt.request).then(cacheRes => {
-            return cacheRes || fetch(evt.request);
-        })
+    if (evt.request.url.indexOf('https://api.example.com/data') > -1) {
+        evt.respondWith(
+            fetch(evt.request).then(fetchRes => {
+                return caches.open(dynamicCacheName).then(cache => {
+                    cache.put(evt.request.url, fetchRes.clone());
+                    limitCacheSize(dynamicCacheName, 50);
+                    return fetchRes;
+                });
+            }).catch(() => caches.match(evt.request))
+        );
+    } else {
+        evt.respondWith(
+            caches.match(evt.request).then(cacheRes => {
+                return cacheRes || fetch(evt.request).then(fetchRes => {
+                    return caches.open(dynamicCacheName).then(cache => {
+                        cache.put(evt.request.url, fetchRes.clone());
+                        limitCacheSize(dynamicCacheName, 50);
+                        return fetchRes;
+                    });
+                });
+            }).catch(() => {
+                if (evt.request.url.indexOf('.html') > -1) {
+                    return caches.match('screens/fallback.html')
+                }
+            })
+        );
+    }
+});
+
+// Background Sync
+self.addEventListener('sync', evt => {
+    if (evt.tag === 'sync-new-posts') {
+        evt.waitUntil(
+            // Sync logic here
+        );
+    }
+});
+
+// Push Notifications
+self.addEventListener('push', evt => {
+    const data = evt.data.json();
+    const options = {
+        body: data.body,
+        icon: 'icons/app_icon_x144.png',
+        badge: 'icons/app_icon_x144.png'
+    };
+    evt.waitUntil(
+        self.registration.showNotification(data.title, options)
     );
 });
