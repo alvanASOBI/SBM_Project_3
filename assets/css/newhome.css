@@ -63,6 +63,11 @@ main {
   cursor: pointer;
 }
 
+.box i{
+  color: black;
+  font-size: 30px;
+}
+
 .baby-container {
   display: flex;
   margin-bottom: 10px;
@@ -88,6 +93,10 @@ main {
   display: flex;
   justify-content: right;
   margin-bottom: 0px;
+}
+
+.add-baby i{
+  color: black;
 }
 
 .bottom-nav {
