@@ -5,9 +5,9 @@ body {
 }
 
 :root {
-  --main-color: #00bfff;
-  --drawer-color: whitesmoke;
-  --profile-color: #cfcfcf;
+  --main-color: #d4a373;
+  --drawer-color: #fefae0;
+  --profile-color: #faedcd;
 }
 
 .bottom-nav {
