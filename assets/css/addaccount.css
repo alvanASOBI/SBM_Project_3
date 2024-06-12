@@ -5,7 +5,7 @@
         justify-content: center;
         height: 100vh;
         margin: 0;
-        background-color: white;
+        background-color: #fefae0;
       }
 
       .container {
@@ -52,7 +52,7 @@
       .submit-button {
         width: 80%;
         padding: 10px;
-        background-color: #00bfff;
+        background-color: #d4a373;
         color: white;
         border: none;
         border-radius: 5px;
@@ -61,5 +61,5 @@
       }
 
       .submit-button:hover {
-        background-color: #009fdf;
+        background-color: #d4a373;
       }
