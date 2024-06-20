@@ -26,7 +26,6 @@
               required
             />
           </label>
-
           <label>
             <span>Password</span>
             <div class="passwd-wrap">
@@ -34,7 +33,6 @@
                 type="password"
                 id="password"
                 name="password"
-                ƒ
                 placeholder="Enter your password"
                 required
               />
@@ -47,7 +45,6 @@
               </button>
             </div>
           </label>
-
           <label>
             <span>Confirm Password</span>
             <div class="passwd-wrap">
@@ -67,9 +64,7 @@
               </button>
             </div>
           </label>
-
           <button class="button" type="submit">Sign Up</button>
-
           <p id="go-to-signin">
             Already have an account?
             <a href="../screens/signin.html">Sign In</a>
@@ -77,12 +72,21 @@
         </form>
       </main>
     </div>
-    
-    <!-- Import the functions you need from the SDKs you need -->
-    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js"></script>
-    <script>
-      // Your web app's Firebase configuration
+
+    <!-- Import Firebase SDKs -->
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+      import {
+        getAuth,
+        createUserWithEmailAndPassword,
+      } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+      import {
+        getFirestore,
+        collection,
+        doc,
+        setDoc,
+      } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
       const firebaseConfig = {
         apiKey: "AIzaSyDhPUkqiqku9P2vzCGvZmWzdo0nDzAKTR0",
         authDomain: "babysync-pwa.firebaseapp.com",
@@ -91,15 +95,25 @@
         messagingSenderId: "526444280562",
         appId: "1:526444280562:web:2e1de1423b222427b76e6b",
       };
-      // Initialize Firebase
-      const app = initializeApp(firebaseConfig);
-      // Initialize Firestore
-      const db = firebase.firestore();
-    </script>
 
-    <script src="assets/js/app.js"></script>
-    <script src="assets/js/db.js"></script>
+      const app = initializeApp(firebaseConfig);
+      const db = getFirestore(app);
+      const auth = getAuth(app);
+
+      window.db = db;
+      window.auth = auth;
+      window.createUserWithEmailAndPassword = createUserWithEmailAndPassword;
+      window.collection = collection;
+      window.doc = doc;
+      window.setDoc = setDoc;
+    </script>
+    
+    <script src="../assets/js/app.js"></script>
+    <script src="../assets/js/db.js" type="module"></script>
+    <script
+      src="../assets/validation/signup_validation.js"
+      type="module"
+    ></script>
     <script src="../assets/js/password_script.js"></script>
-    <script src="../assets/validation/signup_validation.js"></script>
   </body>
 </html>

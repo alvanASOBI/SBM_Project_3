@@ -26,14 +26,13 @@
               required
             />
           </label>
-
           <label>
             <span>Password</span>
             <div class="passwd-wrap">
               <input
                 type="password"
                 id="password"
-                name="username"
+                name="password"
                 placeholder="Enter your password"
                 required
               />
@@ -46,22 +45,22 @@
               </button>
             </div>
           </label>
-
           <button class="button" type="submit">Sign In</button>
-
           <p id="go-to-register">
-            Don't have an account?
-            <a href="../screens/signup.html">Sign Up</a>
+            Don't have an account? <a href="../screens/signup.html">Sign Up</a>
           </p>
         </form>
       </main>
     </div>
 
-    <!-- Import the functions you need from the SDKs you need -->
-    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js"></script>
-    <script>
-      // Your web app's Firebase configuration
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+      import {
+        getAuth,
+        signInWithEmailAndPassword,
+      } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+      import { getFirestore } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
       const firebaseConfig = {
         apiKey: "AIzaSyDhPUkqiqku9P2vzCGvZmWzdo0nDzAKTR0",
         authDomain: "babysync-pwa.firebaseapp.com",
@@ -70,15 +69,22 @@
         messagingSenderId: "526444280562",
         appId: "1:526444280562:web:2e1de1423b222427b76e6b",
       };
-      // Initialize Firebase
+
       const app = initializeApp(firebaseConfig);
-      // Initialize Firestore
-      const db = firebase.firestore();
+      const db = getFirestore(app);
+      const auth = getAuth(app);
+
+      window.db = db;
+      window.auth = auth;
+      window.signInWithEmailAndPassword = signInWithEmailAndPassword;
     </script>
 
-    <script src="assets/js/app.js"></script>
-    <script src="assets/js/db.js"></script>
+    <script src="../assets/js/app.js"></script>
+    <script src="../assets/js/db.js" type="module"></script>
+    <script
+      src="../assets/validation/signin_validation.js"
+      type="module"
+    ></script>
     <script src="../assets/js/password_script.js"></script>
-    <script src="../assets/validation/signin_validation.js"></script>
   </body>
 </html>

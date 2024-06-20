@@ -111,53 +111,40 @@ self.addEventListener('activate', evt => {
 
 // Fetch event
 self.addEventListener('fetch', evt => {
-    if (evt.request.url.indexOf('https://api.example.com/data') > -1) {
-        evt.respondWith(
-            fetch(evt.request).then(fetchRes => {
-                return caches.open(dynamicCacheName).then(cache => {
-                    cache.put(evt.request.url, fetchRes.clone());
-                    limitCacheSize(dynamicCacheName, 50);
-                    return fetchRes;
-                });
-            }).catch(() => caches.match(evt.request))
-        );
-    } else {
-        evt.respondWith(
-            caches.match(evt.request).then(cacheRes => {
-                return cacheRes || fetch(evt.request).then(fetchRes => {
-                    return caches.open(dynamicCacheName).then(cache => {
-                        cache.put(evt.request.url, fetchRes.clone());
-                        limitCacheSize(dynamicCacheName, 50);
-                        return fetchRes;
-                    });
-                });
-            }).catch(() => {
-                if (evt.request.url.indexOf('.html') > -1) {
-                    return caches.match('screens/fallback.html')
-                }
-            })
-        );
-    }
+    //     evt.respondWith(
+    //         caches.match(evt.request).then(cacheRes => {
+    //             return cacheRes || fetch(evt.request).then(fetchRes => {
+    //                 return caches.open(dynamicCacheName).then(cache => {
+    //                     cache.put(evt.request.url, fetchRes.clone());
+    //                     limitCacheSize(dynamicCacheName, 50);
+    //                     return fetchRes;
+    //                 });
+    //             });
+    //         }).catch(() => {
+    //             if (evt.request.url.indexOf('.html') > -1)
+    //                 return caches.match('/screens/fallback.html')
+    //         })
+    //     );
 });
 
 // Background Sync
-self.addEventListener('sync', evt => {
-    if (evt.tag === 'sync-new-posts') {
-        evt.waitUntil(
-            // Sync logic here
-        );
-    }
-});
+// self.addEventListener('sync', evt => {
+//     if (evt.tag === 'sync-new-posts') {
+//         evt.waitUntil(
+//             // Sync logic here
+//         );
+//     }
+// });
 
 // Push Notifications
-self.addEventListener('push', evt => {
-    const data = evt.data.json();
-    const options = {
-        body: data.body,
-        icon: 'icons/app_icon_x144.png',
-        badge: 'icons/app_icon_x144.png'
-    };
-    evt.waitUntil(
-        self.registration.showNotification(data.title, options)
-    );
-});
+// self.addEventListener('push', evt => {
+//     const data = evt.data.json();
+//     const options = {
+//         body: data.body,
+//         icon: 'icons/app_icon_x144.png',
+//         badge: 'icons/app_icon_x144.png'
+//     };
+//     evt.waitUntil(
+//         self.registration.showNotification(data.title, options)
+//     );
+// });
