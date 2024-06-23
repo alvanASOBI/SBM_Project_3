@@ -83,7 +83,7 @@
       }
       .comment-form button {
         padding: 5px 10px;
-        background-color: #007bff;
+        background-color: #d4a373;
         color: white;
         border: none;
         cursor: pointer;
@@ -93,7 +93,7 @@
       }
 
       .cancel-button {
-        background-color: blue;
+        background-color: #d4a373;
         border: none;
         color: white;
         cursor: pointer;
@@ -103,6 +103,11 @@
         margin-left: 5px;
         transition: background-color 0.3s;
       }
+
+      .brown-link {
+        color: brown;
+      }
+      
 
       .search-container input:focus + #cancelButton {
         display: inline;
