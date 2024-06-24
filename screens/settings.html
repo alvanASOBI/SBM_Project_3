@@ -32,6 +32,7 @@
             name="email"
             placeholder="Email:"
             required
+            readonly
           />
         </label>
         
@@ -41,8 +42,7 @@
               type="password"
               id="password"
               name="password"
-              placeholder="Password:"
-              required
+              placeholder="New Password:"
             />
             <button type="button" id="show-passwd">
               <img
@@ -144,7 +144,8 @@
       import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
       import {
         getAuth,
-        onAuthStateChanged
+        onAuthStateChanged,
+        updatePassword
       } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
       import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
@@ -177,6 +178,36 @@
           console.log("No user is signed in.");
         }
       });
+
+      window.editDetails = async () => {
+        const user = auth.currentUser;
+        const newPassword = document.getElementById('password').value;
+
+        if (user) {
+          try {
+            if (newPassword) {
+              await updatePassword(user, newPassword);
+              alert('Password updated successfully');
+            } else {
+              alert('No new password provided');
+            }
+          } catch (error) {
+            console.error('Error updating password:', error);
+            alert('Error updating password');
+          }
+        } else {
+          alert('No user is signed in');
+        }
+      };
+
+      window.logout = () => {
+        auth.signOut().then(() => {
+          alert('User signed out');
+          window.location.href = 'signin.html';
+        }).catch((error) => {
+          console.error('Sign out error:', error);
+        });
+      };
     </script>
 
     <script src="../assets/js/db.js"></script>
