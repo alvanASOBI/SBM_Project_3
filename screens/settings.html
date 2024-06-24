@@ -24,6 +24,7 @@
           <img src="profile_picture.jpg" alt="Profile Picture" />
           <h5>[ Name ]<b> Points: 60</b></h5>
         </div>
+
         <label>
           <input
             type="email"
@@ -33,6 +34,7 @@
             required
           />
         </label>
+        
         <label>
           <div class="passwd-wrap">
             <input
@@ -137,6 +139,47 @@
         </div>
       </div>
     </div>
+
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+      import {
+        getAuth,
+        onAuthStateChanged
+      } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+      import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+      const firebaseConfig = {
+        apiKey: "AIzaSyDhPUkqiqku9P2vzCGvZmWzdo0nDzAKTR0",
+        authDomain: "babysync-pwa.firebaseapp.com",
+        projectId: "babysync-pwa",
+        storageBucket: "babysync-pwa.appspot.com",
+        messagingSenderId: "526444280562",
+        appId: "1:526444280562:web:2e1de1423b222427b76e6b",
+      };
+
+      const app = initializeApp(firebaseConfig);
+      const db = getFirestore(app);
+      const auth = getAuth(app);
+
+      onAuthStateChanged(auth, async (user) => {
+        if (user) {
+          const userDocRef = doc(db, "users", user.uid);
+          const userDoc = await getDoc(userDocRef);
+
+          if (userDoc.exists()) {
+            const userData = userDoc.data();
+            const email = userData.email;
+            document.getElementById('email').value = email;
+          } else {
+            console.log("No such document!");
+          }
+        } else {
+          console.log("No user is signed in.");
+        }
+      });
+    </script>
+
+    <script src="../assets/js/db.js"></script>
     <script src="../assets/js/settings.js"></script>
     <script src="../assets/js/password_script.js"></script>
     <script src="../assets/validation/settings_validation.js"></script>
