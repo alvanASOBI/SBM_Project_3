@@ -20,8 +20,8 @@
     </div>
     <form id="postForm">
       <br /> 
-      <label for="username">Username:</label><br />
-      <input type="text" id="username" required /><br /><br />
+      <label for="username">UserId:</label><br />
+      <input type="text" id="username" required readonly /><br /><br />
       <label for="postTitle">Title:</label><br />
       <textarea id="postTitle" rows="2" cols="20" required></textarea><br /><br />
       <label for="postContent">Post:</label><br />
@@ -104,6 +104,16 @@
     const app = initializeApp(firebaseConfig);
     const db = getFirestore(app);
     const auth = getAuth(app);
+
+    // Set the username field to the logged-in user's UID
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        const usernameInput = document.getElementById("username");
+        usernameInput.value = user.uid;
+      } else {
+        console.error("No user is signed in.");
+      }
+    });
 
     const postForm = document.getElementById("postForm");
 
