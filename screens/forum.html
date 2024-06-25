@@ -1,59 +1,110 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Forum</title>
-    <link rel="stylesheet" href="../assets/css/global.css" />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/icon?family=Material+Icons"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css"
-    />
-    <link rel="manifest" href="/manifest.json" />
-    <link rel="stylesheet" href="../assets/css/forum.css">
-  </head>
-  <body>
-    <!-- <div class="header">
-      <h1>Forum</h1>
-    </div> -->
-    <div class="container">
-      <div class="search-container">
-        <i class="material-icons">search</i>
-        <input
-          type="text"
-          placeholder="Search"
-          id="searchInput"
-          onfocus="showCancelButton()"
-        />
-        <button
-          id="cancelButton"
-          class="cancel-button"
-          onclick="cancelSearch()"
-        >
-          Cancel
-        </button>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Forum</title>
+  <link rel="stylesheet" href="../assets/css/global.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css" />
+  <link rel="manifest" href="/manifest.json" />
+  <link rel="stylesheet" href="../assets/css/forum.css">
+</head>
+<body>
+  <div class="container">
+    <div class="search-container">
+      <i class="material-icons">search</i>
+      <input type="text" placeholder="Search" id="searchInput" onfocus="showCancelButton()" />
+      <button id="cancelButton" class="cancel-button" onclick="cancelSearch()">Cancel</button>
+    </div>
+    <div class="question-list" id="questionList">
+      <!-- Questions will be inserted here dynamically -->
+    </div>
+    <p id="go-to-add-forum">
+      Can't find your query?
+      <a href="addforum.html">Add to forums</a>
+    </p>
+  </div>
+
+  <!-- BOTTOM NAVIGATION -->
+  <div class="bottom-nav">
+    <div class="nav-item" id="nav-home">
+      <i class="material-icons">home</i>
+    </div>
+    <div class="nav-item" id="nav-people">
+      <i class="material-icons">people_outline</i>
+    </div>
+    <div class="nav-item" id="nav-child-care">
+      <i class="material-icons">child_care</i>
+    </div>
+    <div class="nav-item" id="nav-profile">
+      <img src="" style="height: 30px; width: 30px; border-radius: 50%; background-color: black;" />
+    </div>
+  </div>
+
+  <!-- OVERLAY -->
+  <div class="overlay" id="overlay"></div>
+
+  <!-- BOTTOM DRAWER TO DISPLAY ALL THE PROFILES -->
+  <div class="bottom-drawer" id="bottom-drawer">
+    <div class="drawer-content">
+      <span class="close-btn" id="close-btn">
+        <i class="material-icons">arrow_drop_down</i>
+      </span>
+      <div class="profiles">
+        <img src="" style="height: 30px; width: 30px; border-radius: 50%; background-color: black;" />
+        <span>John Doe Baby 1</span>
       </div>
-      <div class="question-list">
-        <div class="question">
-          <div class="question-title">
-            How to code a chat application using JavaScript?
-          </div>
-          <div class="question-time">Posted 2 hours ago</div>
-          <div class="question-description">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis
-            justo vel massa dapibus varius vel vitae odio.
-          </div>
+      <div class="profiles">
+        <img src="" style="height: 30px; width: 30px; border-radius: 50%; background-color: black;" />
+        <span>Daniel Lee Baby 2</span>
+      </div>
+      <div class="profiles">
+        <img src="" style="height: 30px; width: 30px; border-radius: 50%; background-color: black;" />
+        <span>Ah Paw Baby 3</span>
+      </div>
+      <div class="add-account-btn" id="add-account-btn">
+        <i class="material-icons">add_circle_outline</i>
+        <span>Add Baby Account</span>
+      </div>
+    </div>
+  </div>
+
+  <script src="../assets/js/nav.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+    import { getFirestore, collection, getDocs, query, orderBy } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyDhPUkqiqku9P2vzCGvZmWzdo0nDzAKTR0",
+      authDomain: "babysync-pwa.firebaseapp.com",
+      projectId: "babysync-pwa",
+      storageBucket: "babysync-pwa.appspot.com",
+      messagingSenderId: "526444280562",
+      appId: "1:526444280562:web:2e1de1423b222427b76e6b",
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+
+    async function loadPosts() {
+      const postsContainer = document.getElementById("questionList");
+      postsContainer.innerHTML = ''; // Clear the container first
+      const postsQuery = query(collection(db, "forumPosts"), orderBy("createdAt", "desc"));
+      const querySnapshot = await getDocs(postsQuery);
+      querySnapshot.forEach((doc) => {
+        const post = doc.data();
+        const postElement = document.createElement("div");
+        postElement.classList.add("question");
+
+        postElement.innerHTML = `
+          <div class="question-title">${post.postTitle}</div>
+          <div class="question-time">Posted on ${post.createdAt.toDate().toLocaleString()} by ${post.username}</div>
+          <div class="question-description">${post.postContent}</div>
           <div class="question-icons">
             <i class="material-icons">thumb_up</i>
-            <img
-              class="comment-icon"
-              src="../images/comment.png"
-              alt="Comment"
-            />
+            <img class="comment-icon" src="../images/comment.png" alt="Comment" />
           </div>
           <div class="comments-section" style="display: none">
             <form class="comment-form">
@@ -62,117 +113,19 @@
             </form>
             <div class="comments"></div>
           </div>
-        </div>
-        <div class="question">
-          <div class="question-title">
-            What are the best practices for responsive web design?
-          </div>
-          <div class="question-time">Posted 1 day ago</div>
-          <div class="question-description">
-            Fusce consequat eleifend diam, eget feugiat odio volutpat a. Integer
-            nec vehicula est, et maximus odio.
-          </div>
-          <div class="question-icons">
-            <i class="material-icons">thumb_up</i>
-            <img
-              class="comment-icon"
-              src="../images/comment.png"
-              alt="Comment"
-            />
-          </div>
-          <div class="comments-section" style="display: none">
-            <form class="comment-form">
-              <input type="text" placeholder="Your comment..." />
-              <button type="submit">Add Comment</button>
-            </form>
-            <div class="comments"></div>
-          </div>
-        </div>
-        <!-- More questions go here -->
-      </div>
-      <p id="go-to-add-forum">
-        Can't find your querry?
-        <a href="addforum.html" >Add to forums</a>
-      </p>
-    </div>
+        `;
+        postsContainer.appendChild(postElement);
 
-    <!-- BOTTOM NAVIGATION -->
-    <div class="bottom-nav">
-      <div class="nav-item" id="nav-home">
-        <i class="material-icons">home</i>
-      </div>
-      <div class="nav-item" id="nav-people">
-        <i class="material-icons">people_outline</i>
-      </div>
-      <div class="nav-item" id="nav-child-care">
-        <i class="material-icons">child_care</i>
-      </div>
-      <div class="nav-item" id="nav-profile">
-        <img
-          src=""
-          style="
-            height: 30px;
-            width: 30px;
-            border-radius: 50%;
-            background-color: black;
-          "
-        />
-      </div>
-    </div>
+        // Add event listener to toggle comments section
+        const commentIcon = postElement.querySelector('.comment-icon');
+        const commentsSection = postElement.querySelector('.comments-section');
+        commentIcon.addEventListener('click', () => {
+          commentsSection.style.display = commentsSection.style.display === 'none' ? 'block' : 'none';
+        });
+      });
+    }
 
-    <!-- OVERLAY -->
-    <div class="overlay" id="overlay"></div>
-
-    <!-- BOTTOM DRAWER TO DISPLAY ALL THE PROFILES -->
-    <div class="bottom-drawer" id="bottom-drawer">
-      <div class="drawer-content">
-        <span class="close-btn" id="close-btn">
-          <i class="material-icons">arrow_drop_down</i>
-        </span>
-        <div class="profiles">
-          <img
-            src=""
-            style="
-              height: 30px;
-              width: 30px;
-              border-radius: 50%;
-              background-color: black;
-            "
-          />
-          <span>John Doe Baby 1</span>
-        </div>
-        <div class="profiles">
-          <img
-            src=""
-            style="
-              height: 30px;
-              width: 30px;
-              border-radius: 50%;
-              background-color: black;
-            "
-          />
-          <span>Daniel Lee Baby 2</span>
-        </div>
-        <div class="profiles">
-          <img
-            src=""
-            style="
-              height: 30px;
-              width: 30px;
-              border-radius: 50%;
-              background-color: black;
-            "
-          />
-          <span>Ah Paw Baby 3</span>
-        </div>
-        <div class="add-account-btn" id="add-account-btn">
-          <i class="material-icons">add_circle_outline</i>
-          <span>Add Baby Account</span>
-        </div>
-      </div>
-    </div>
-    <script src="../assets/js/nav.js"></script>
-    <script src="../assets/js/forum.js"></script>
-    <script src="assets/js/app.js"></script>
-  </body>
+    document.addEventListener("DOMContentLoaded", loadPosts);
+  </script>
+</body>
 </html>
