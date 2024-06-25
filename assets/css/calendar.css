@@ -51,7 +51,7 @@ body {
   color: black;
   border-radius: 20px;
   box-shadow: 5px 10px #e9edc9;
-  background-color: #ccd5ae;
+  background-color: #e9edc9;
 }
 .calendar::before,
 .calendar::after {
