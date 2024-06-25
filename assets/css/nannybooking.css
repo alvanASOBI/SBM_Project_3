@@ -14,7 +14,7 @@
       .search-container {
         display: flex;
         align-items: center;
-        background-color: #ccd5ae;
+        background-color: #e9edc9;
         border-radius: 20px;
         box-shadow: 5px 10px #e9edc9;
         padding: 10px 20px;
@@ -36,7 +36,7 @@
       }
 
       .nanny-card {
-        background-color: #ccd5ae;
+        background-color: #e9edc9;
         border-radius: 20px;
         padding: 25px;
         margin-bottom: 20px;
