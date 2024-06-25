@@ -50,8 +50,8 @@ body {
   justify-content: space-between;
   color: black;
   border-radius: 20px;
-  box-shadow: 5px 10px lightblue;
-  background-color: #e9edc9;
+  box-shadow: 5px 10px #e9edc9;
+  background-color: #ccd5ae;
 }
 .calendar::before,
 .calendar::after {

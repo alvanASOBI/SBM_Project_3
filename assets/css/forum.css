@@ -18,9 +18,9 @@
       .search-container {
         display: flex;
         align-items: center;
-        background-color: #e9edc9;
+        background-color: #ccd5ae;
         border-radius: 20px;
-        box-shadow: 5px 10px lightblue;
+        box-shadow: 5px 10px #e9edc9;
         padding: 10px 20px;
         margin-bottom: 20px;
       }
@@ -41,11 +41,11 @@
       .question-list {
         max-width: 600px;
         margin: 20px auto;
-        background-color: #e9edc9;
+        background-color: #ccd5ae;
         padding: 20px;
         border: 1px solid #ccc;
         border-radius: 5px;
-        box-shadow: 5px 10px lightblue;
+        box-shadow: 5px 10px #e9edc9;
       }
       .question {
         border-bottom: 1px solid #ccc;

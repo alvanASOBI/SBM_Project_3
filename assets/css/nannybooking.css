@@ -14,9 +14,9 @@
       .search-container {
         display: flex;
         align-items: center;
-        background-color: #e9edc9;
+        background-color: #ccd5ae;
         border-radius: 20px;
-        box-shadow: 5px 10px lightblue;
+        box-shadow: 5px 10px #e9edc9;
         padding: 10px 20px;
         margin-bottom: 20px;
       }
@@ -36,17 +36,17 @@
       }
 
       .nanny-card {
-        background-color: #e9edc9;
+        background-color: #ccd5ae;
         border-radius: 20px;
         padding: 25px;
         margin-bottom: 20px;
-        box-shadow: 5px 10px lightblue;
+        box-shadow: 5px 10px #e9edc9;
       }
 
       .nanny-card p strong {
         color: black;
         font-size: 1.1rem;
-  font-weight: 700;
+        font-weight: 700;
       }
 
       .hire-button {
