@@ -70,11 +70,9 @@
     </div>
   </div>
 
-  <script src="../assets/js/nav.js"></script>
-  <script src="assets/js/app.js"></script>
   <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-    import { getFirestore, collection, getDocs, query, orderBy } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+    import { getFirestore, collection, getDocs, query, orderBy, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
     const firebaseConfig = {
       apiKey: "AIzaSyDhPUkqiqku9P2vzCGvZmWzdo0nDzAKTR0",
@@ -88,6 +86,22 @@
     const app = initializeApp(firebaseConfig);
     const db = getFirestore(app);
 
+    async function loadComments(postId, commentsContainer) {
+      const commentsQuery = query(collection(db, `forumPosts/${postId}/comments`), orderBy("createdAt", "desc"));
+      const querySnapshot = await getDocs(commentsQuery);
+      commentsContainer.innerHTML = ''; // Clear existing comments
+      querySnapshot.forEach((doc) => {
+        const comment = doc.data();
+        const commentElement = document.createElement("div");
+        commentElement.classList.add("comment");
+        commentElement.innerHTML = `
+          <div class="comment-content">${comment.content}</div>
+          <div class="comment-time">${comment.createdAt.toDate().toLocaleString()}</div>
+        `;
+        commentsContainer.appendChild(commentElement);
+      });
+    }
+
     async function loadPosts() {
       const postsContainer = document.getElementById("questionList");
       postsContainer.innerHTML = ''; // Clear the container first
@@ -100,20 +114,21 @@
 
         postElement.innerHTML = `
           <div class="question-title">${post.postTitle}</div>
-          <div class="question-time">Posted on ${post.createdAt.toDate().toLocaleString()} posted by user ${post.username}</div>
+          <div class="question-time">Posted on ${post.createdAt.toDate().toLocaleString()} by ${post.username}</div>
           <div class="question-description">${post.postContent}</div>
           <div class="question-icons">
             <i class="material-icons">thumb_up</i>
             <img class="comment-icon" src="../images/comment.png" alt="Comment" />
           </div>
           <div class="comments-section" style="display: none">
-            <form class="comment-form">
-              <input type="text" placeholder="Your comment..." />
+            <form class="comment-form" data-post-id="${doc.id}">
+              <input type="text" placeholder="Your comment..." required/>
               <button type="submit">Add Comment</button>
             </form>
-            <div class="comments"></div>
+            <div class="comments" data-comments-container="${doc.id}"></div>
           </div>
         `;
+
         postsContainer.appendChild(postElement);
 
         // Add event listener to toggle comments section
@@ -121,11 +136,41 @@
         const commentsSection = postElement.querySelector('.comments-section');
         commentIcon.addEventListener('click', () => {
           commentsSection.style.display = commentsSection.style.display === 'none' ? 'block' : 'none';
+          if (commentsSection.style.display === 'block') {
+            const commentsContainer = commentsSection.querySelector(`[data-comments-container="${doc.id}"]`);
+            loadComments(doc.id, commentsContainer);
+          }
+        });
+
+        // Add event listener to handle comment form submission
+        const commentForm = postElement.querySelector('.comment-form');
+        commentForm.addEventListener('submit', async (e) => {
+          e.preventDefault();
+          const postId = e.target.getAttribute('data-post-id');
+          const commentInput = e.target.querySelector('input');
+          const commentContent = commentInput.value;
+
+          console.log('Adding comment to postId:', postId); // Debug output
+
+          // Add comment to Firestore
+          try {
+            await addDoc(collection(db, `forumPosts/${postId}/comments`), {
+              content: commentContent,
+              createdAt: serverTimestamp(),
+            });
+            console.log('Comment added successfully'); // Debug output
+            commentInput.value = ''; // Clear the input field
+            loadComments(postId, e.target.nextElementSibling); // Reload comments
+          } catch (e) {
+            console.error("Error adding comment: ", e);
+          }
         });
       });
     }
 
     document.addEventListener("DOMContentLoaded", loadPosts);
   </script>
+  <script src="../assets/js/nav.js"></script>
+  <!-- <script src="../assets/js/addforum.js"></script> -->
 </body>
 </html>
