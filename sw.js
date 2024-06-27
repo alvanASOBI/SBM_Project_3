@@ -73,6 +73,10 @@ const assets = [
     'screens/signin.html',
     'screens/signup.html',
     'screens/fallback.html',
+    // ------ All the links for Firebase ------
+    'https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js',
+    'https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js',
+    'https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js',
 ];
 
 // Limit the size of the dynamic cache
@@ -111,20 +115,20 @@ self.addEventListener('activate', evt => {
 
 // Fetch event
 self.addEventListener('fetch', evt => {
-    //     evt.respondWith(
-    //         caches.match(evt.request).then(cacheRes => {
-    //             return cacheRes || fetch(evt.request).then(fetchRes => {
-    //                 return caches.open(dynamicCacheName).then(cache => {
-    //                     cache.put(evt.request.url, fetchRes.clone());
-    //                     limitCacheSize(dynamicCacheName, 50);
-    //                     return fetchRes;
-    //                 });
-    //             });
-    //         }).catch(() => {
-    //             if (evt.request.url.indexOf('.html') > -1)
-    //                 return caches.match('/screens/fallback.html')
-    //         })
-    //     );
+        evt.respondWith(
+            caches.match(evt.request).then(cacheRes => {
+                return cacheRes || fetch(evt.request).then(fetchRes => {
+                    return caches.open(dynamicCacheName).then(cache => {
+                        cache.put(evt.request.url, fetchRes.clone());
+                        limitCacheSize(dynamicCacheName, 50);
+                        return fetchRes;
+                    });
+                });
+            }).catch(() => {
+                if (evt.request.url.indexOf('.html') > -1)
+                    return caches.match('/screens/fallback.html')
+            })
+        );
 });
 
 // Background Sync
