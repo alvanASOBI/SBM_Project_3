@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -10,16 +11,17 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css" />
   <link rel="manifest" href="/manifest.json" />
 </head>
+
 <body>
   <div>
-    <br /> 
+    <br />
   </div>
   <div class="container">
     <div class="search-container">
       Ask our wonderful community!
     </div>
     <form id="postForm">
-      <br /> 
+      <br />
       <label for="username">UserId:</label><br />
       <input type="text" id="username" required readonly /><br /><br />
       <label for="postTitle">Title:</label><br />
@@ -43,10 +45,7 @@
       <i class="material-icons">child_care</i>
     </div>
     <div class="nav-item" id="nav-profile">
-      <img
-        src=""
-        style="height: 30px; width: 30px; border-radius: 50%; background-color: black;"
-      />
+      <img src="" style="height: 30px; width: 30px; border-radius: 50%; background-color: black;" />
     </div>
   </div>
 
@@ -60,24 +59,15 @@
         <i class="material-icons">arrow_drop_down</i>
       </span>
       <div class="profiles">
-        <img
-          src=""
-          style="height: 30px; width: 30px; border-radius: 50%; background-color: black;"
-        />
+        <img src="" style="height: 30px; width: 30px; border-radius: 50%; background-color: black;" />
         <span>John Doe Baby 1</span>
       </div>
       <div class="profiles">
-        <img
-          src=""
-          style="height: 30px; width: 30px; border-radius: 50%; background-color: black;"
-        />
+        <img src="" style="height: 30px; width: 30px; border-radius: 50%; background-color: black;" />
         <span>Daniel Lee Baby 2</span>
       </div>
       <div class="profiles">
-        <img
-          src=""
-          style="height: 30px; width: 30px; border-radius: 50%; background-color: black;"
-        />
+        <img src="" style="height: 30px; width: 30px; border-radius: 50%; background-color: black;" />
         <span>Ah Paw Baby 3</span>
       </div>
       <div class="add-account-btn" id="add-account-btn">
@@ -119,7 +109,7 @@
 
     postForm.addEventListener("submit", async (e) => {
       e.preventDefault();
-      
+
       const username = document.getElementById("username").value;
       const postTitle = document.getElementById("postTitle").value;
       const postContent = document.getElementById("postContent").value;
@@ -139,6 +129,7 @@
             console.log("Document written with ID: ", docRef.id);
             alert("Post added successfully!");
             postForm.reset(); // Reset form after successful submission
+            window.location.href = 'forum.html';
           } catch (e) {
             console.error("Error adding document: ", e);
           }
@@ -152,4 +143,5 @@
   <script src="../assets/js/nav.js"></script>
   <!-- <script src="../assets/js/addforum.js"></script> -->
 </body>
+
 </html>
