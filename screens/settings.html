@@ -180,7 +180,7 @@
       });
 
       window.editDetails = async () => {
-        const user = auth.currentUser;
+        const user = auth.currentUser; //ref fr current user 
         const newPassword = document.getElementById('password').value;
 
         if (user) {
