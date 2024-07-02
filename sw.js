@@ -20,7 +20,7 @@ const assets = [
     'assets/css/forum.css',
     'assets/css/global.css',
     'assets/css/nannybooking.css',
-    'assets/css/newhome.css',
+    'assets/css/home.css',
     'assets/css/settings.css',
     'assets/css/styles.css',
     // ------ All the js cached ------
@@ -33,7 +33,7 @@ const assets = [
     'assets/js/forum.js',
     'assets/js/nannybooking.js',
     'assets/js/nav.js',
-    'assets/js/newhome.js',
+    'assets/js/home.js',
     'assets/js/password_script.js',
     'assets/js/settings.js',
     // ------ All the js validation cached ------
@@ -67,8 +67,7 @@ const assets = [
     'screens/calendar.html',
     'screens/forum.html',
     'screens/nannybooking.html',
-    'screens/nav.html',
-    'screens/newhome.html',
+    'screens/home.html',
     'screens/settings.html',
     'screens/signin.html',
     'screens/signup.html',
