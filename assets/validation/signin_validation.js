@@ -27,8 +27,7 @@ async function signInUser(email, password) {
         const user = userCredential.user;
         console.log("User signed in:", user.uid);
         alert("Sign-in successful! Redirecting...");
-        // Redirect to a different page after successful sign-in
-        window.location.href = "../screens/newhome.html";
+        window.location.href = "../screens/home.html";
     } catch (error) {
         console.error("Error during sign-in:", error);
         alert("Error: " + error.message);
