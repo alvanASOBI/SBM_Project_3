@@ -43,22 +43,22 @@ const assets = [
     'assets/validation/signin_validation.js',
     'assets/validation/signup_validation.js',
     // ------ All the icons cached ------
-    'icons/app_icon_x48.png',
-    'icons/app_icon_x72.png',
-    'icons/app_icon_x96.png',
-    'icons/app_icon_x144.png',
-    'icons/app_icon_x192.png',
-    'icons/app_icon_x512.png',
+    'assets/icons/app_icon_x48.png',
+    'assets/icons/app_icon_x72.png',
+    'assets/icons/app_icon_x96.png',
+    'assets/icons/app_icon_x144.png',
+    'assets/icons/app_icon_x192.png',
+    'assets/icons/app_icon_x512.png',
     // ------ All the png, jpg, jpeg, svg cached ------
-    'images/BabyBanner1.jpg',
-    'images/BabyBanner2.jpg',
-    'images/BabyBanner3.jpg',
-    'images/comment.png',
-    'images/customerservice.png',
-    'images/eye_closed.svg',
-    'images/eye_open.svg',
-    'images/healthy.png',
-    'images/like.png',
+    'assets/images/BabyBanner1.jpg',
+    'assets/images/BabyBanner2.jpg',
+    'assets/images/BabyBanner3.jpg',
+    'assets/images/comment.png',
+    'assets/images/customerservice.png',
+    'assets/images/eye_closed.svg',
+    'assets/images/eye_open.svg',
+    'assets/images/healthy.png',
+    'assets/images/like.png',
     // ------ All the screen html cached ------
     'screens/addaccount.html',
     'screens/addforum.html',
@@ -114,20 +114,20 @@ self.addEventListener('activate', evt => {
 
 // Fetch event
 self.addEventListener('fetch', evt => {
-        evt.respondWith(
-            caches.match(evt.request).then(cacheRes => {
-                return cacheRes || fetch(evt.request).then(fetchRes => {
-                    return caches.open(dynamicCacheName).then(cache => {
-                        cache.put(evt.request.url, fetchRes.clone());
-                        limitCacheSize(dynamicCacheName, 50);
-                        return fetchRes;
-                    });
+    evt.respondWith(
+        caches.match(evt.request).then(cacheRes => {
+            return cacheRes || fetch(evt.request).then(fetchRes => {
+                return caches.open(dynamicCacheName).then(cache => {
+                    cache.put(evt.request.url, fetchRes.clone());
+                    limitCacheSize(dynamicCacheName, 50);
+                    return fetchRes;
                 });
-            }).catch(() => {
-                if (evt.request.url.indexOf('.html') > -1)
-                    return caches.match('/screens/fallback.html')
-            })
-        );
+            });
+        }).catch(() => {
+            if (evt.request.url.indexOf('.html') > -1)
+                return caches.match('/screens/fallback.html')
+        })
+    );
 });
 
 // Background Sync

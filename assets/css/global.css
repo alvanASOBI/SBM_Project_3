@@ -10,6 +10,11 @@ body {
   --profile-color: #faedcd;
 }
 
+.icon-size {
+  height: 30px;
+  width: 30px;
+}
+
 .bottom-nav {
   width: 100%;
   background-color: var(--main-color);

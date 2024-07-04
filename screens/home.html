@@ -16,177 +16,97 @@
     />
     <link rel="manifest" href="/manifest.json" />
     <meta name="theme-color" content="#00bfff" />
-    <header>
-      <img class="logo" src="../assets/icons/app_icon.png" alt="logo" alt="logo" />
-      <span class="logo-text">BabySync</span>
-    </header>
   </head>
   <body>
     <div class="app">
-        <main>
-            <section class="banner-container">
-                <img class="banner" src="../assets/images/BabyBanner1.jpg" alt="banner" alt="banner">
-                <img class="banner" src="../assets/images/BabyBanner2.jpg" alt="banner2" alt="banner2">
-                <img class="banner" src="../assets/images/BabyBanner3.jpg" alt="banner3" alt="banner3">
-            </section>
-            <section class="content-boxes">
-                <div class="box" onclick="window.location.href='#'">
-                  <a href="../screens/addforum.html">
-                    <div class="box" id="customer-service">
-                      <img src="../assets/images/customerservice.png" style="height: 30px; width: 30px;">
-                    </div>
-                  </a>
-                </div>
-                <div class="box" onclick="window.location.href='#'">
-                  <a href="../screens/calendar.html">
-                    <div class="box" id="calendar">
-                      <i class="material-icons">perm_contact_calendar</i>
-                    </div>
-                  </a>
-                </div>
-                <div class="box" onclick="window.location.href='#'">
-                  <a href="../screens/forum.html">
-                    <div class="box" id="community-forum">
-                      <img src="../assets/images/users.png" style="height: 30px; width: 30px;">
-                    </div>
-                  </a>
-                </div>
-                <div class="box" onclick="window.location.href='#'">
-                  <a href="../screens/settings.html">
-                    <div class="box" id="settings">
-                      <i class="material-icons">settings</i>
-                    </div>
-                  </a>
-                </div>
-                <div class="box" onclick="window.location.href='#'">
-                  <a href="https://shopee.sg">
-                    <div class="box" id="settings">
-                      <i class="material-icons">shopping_basket</i>
-                    </div>
-                  </a>
-                </div>
-            </section>
-            <section class="baby-container">
-                <div class="baby-info">
-                    <div class="baby-icon">
-                      <i class="medium material-icons">child_care</i>
-                    </div>
-                    <div class="baby-details">
-                        <h5>Baby 1</h5>
-                        <p>Age: 15 months</p>
-                        <p>Height: 50.8cm</p>
-                    </div>
-                </div>
-            </section>
-            <section class="add-baby">
-              <a href="../screens/addaccount.html">
-                <i class="medium material-icons">add_circle_outline</i>
-              </a>
-            </section>
-        </main>
-
-      
-    <!-- BOTTOM NAVIGATION -->
-    <div class="bottom-nav">
-      <div class="nav-item" id="nav-home">
-        <i class="material-icons">home</i>
-      </div>
-      <div class="nav-item" id="nav-people">
-        <i class="material-icons">people_outline</i>
-      </div>
-      <div class="nav-item" id="nav-child-care">
-        <i class="material-icons">child_care</i>
-      </div>
-      <div class="nav-item" id="nav-profile">
-        <img
-          src=""
-          style="
-            height: 30px;
-            width: 30px;
-            border-radius: 50%;
-            background-color: black;
-          "
-        />
-      </div>
-    </div>
-    <!-- OVERLAY -->
-    <div class="overlay" id="overlay"></div>
-
-    <!-- BOTTOM DRAWER TO DISPLAY ALL THE PROFILES -->
-    <div class="bottom-drawer" id="bottom-drawer">
-      <div class="drawer-content">
-        <span class="close-btn" id="close-btn">
-          <i class="material-icons">arrow_drop_down</i>
-        </span>
-        <div class="profiles">
+      <header>
+        <img class="logo" src="../assets/icons/app_icon.png" alt="logo" />
+      </header>
+      <main>
+        <section class="banner-container">
           <img
-            src=""
-            style="
-              height: 30px;
-              width: 30px;
-              border-radius: 50%;
-              background-color: black;
-            "
+            class="banner"
+            src="../assets/images/BabyBanner1.jpg"
+            alt="banner"
           />
-          <span>John Doe Baby 1</span>
-        </div>
-        <div class="profiles">
           <img
-            src=""
-            style="
-              height: 30px;
-              width: 30px;
-              border-radius: 50%;
-              background-color: black;
-            "
+            class="banner"
+            src="../assets/images/BabyBanner2.jpg"
+            alt="banner2"
           />
-          <span>Daniel Lee Baby 2</span>
-        </div>
-        <div class="profiles">
           <img
-            src=""
-            style="
-              height: 30px;
-              width: 30px;
-              border-radius: 50%;
-              background-color: black;
-            "
+            class="banner"
+            src="../assets/images/BabyBanner3.jpg"
+            alt="banner3"
           />
-          <span>Ah Paw Baby 3</span>
-        </div>
-        <div class="add-account-btn" id="add-account-btn">
-          <i class="material-icons">add_circle_outline</i>
-          <span>Add Baby Account</span>
-        </div>
-      </div>
+        </section>
+        <section class="content-boxes">
+          <div class="box">
+            <a href="../screens/addforum.html">
+              <div class="box-content" id="customer-service">
+                <img
+                  src="../assets/images/customerservice.png"
+                  class="icon-size"
+                />
+              </div>
+            </a>
+          </div>
+          <div class="box">
+            <a href="../screens/calendar.html">
+              <div class="box-content" id="calendar">
+                <i class="material-icons">perm_contact_calendar</i>
+              </div>
+            </a>
+          </div>
+          <div class="box">
+            <a href="../screens/forum.html">
+              <div class="box-content" id="community-forum">
+                <img src="../assets/images/users.png" class="icon-size" />
+              </div>
+            </a>
+          </div>
+          <div class="box">
+            <a href="../screens/settings.html">
+              <div class="box-content" id="settings">
+                <i class="material-icons">settings</i>
+              </div>
+            </a>
+          </div>
+          <div class="box">
+            <a href="https://shopee.sg">
+              <div class="box-content" id="shopping">
+                <i class="material-icons">shopping_basket</i>
+              </div>
+            </a>
+          </div>
+        </section>
+      </main>
     </div>
 
-    <!-- Import Firebase SDKs -->
+    <!-- Import Firebase SDKs and Bottom Nav -->
     <script type="module">
-      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+      import { bottomNavigationBar } from "../common/bottom_navigation_bar.js";
+      import { homeBabyProfileCard } from "../src/components/home/home_baby_profile_card.js";
+      import { homeAddBabyProfileCardButton } from "../src/components/home/home_add_baby_profile_button.js";
       import {
-        getAuth,
+        db,
+        auth,
         createUserWithEmailAndPassword,
-      } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
-      import {
-        getFirestore,
         collection,
         doc,
         setDoc,
-      } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+      } from "../src/components/firebase_configuration.js";
 
-      const firebaseConfig = {
-        apiKey: "AIzaSyDhPUkqiqku9P2vzCGvZmWzdo0nDzAKTR0",
-        authDomain: "babysync-pwa.firebaseapp.com",
-        projectId: "babysync-pwa",
-        storageBucket: "babysync-pwa.appspot.com",
-        messagingSenderId: "526444280562",
-        appId: "1:526444280562:web:2e1de1423b222427b76e6b",
+      const babyProfile = {
+        icon: "child_care",
+        name: "Baby 1",
+        age: "15 months",
+        height: "50.8cm",
       };
 
-      const app = initializeApp(firebaseConfig);
-      const db = getFirestore(app);
-      const auth = getAuth(app);
+      homeBabyProfileCard(babyProfile);
+      homeAddBabyProfileCardButton();
+      bottomNavigationBar();
 
       window.db = db;
       window.auth = auth;
@@ -195,7 +115,7 @@
       window.doc = doc;
       window.setDoc = setDoc;
     </script>
-    
+
     <script src="../assets/js/nav.js"></script>
     <script src="../assets/js/home.js"></script>
     <script src="../assets/js/app.js"></script>
