@@ -10,7 +10,7 @@
   <body>
     <div class="container">
       <a class="close-button" id="backButton">&times;</a>
-      <h1>Create Account </h1>
+      <h1>Create Account</h1>
       <p>
         Fill in the details for your new account. You can always change it later.
       </p>
@@ -36,6 +36,39 @@
         <button type="submit" class="submit-button">Next</button>
       </form>
     </div>
+
+    <!-- Import Firebase SDKs and Bottom Nav -->
+    <script type="module">
+      import { bottomNavigationBar } from "../common/bottom_navigation_bar.js";
+      import { homeBabyProfileCard } from "../src/components/home/home_baby_profile_card.js";
+      import { homeAddBabyProfileCardButton } from "../src/components/home/home_add_baby_profile_button.js";
+      import {
+        db,
+        auth,
+        createUserWithEmailAndPassword,
+        collection,
+        doc,
+        setDoc,
+      } from "../src/components/firebase_configuration.js";
+
+      const babyProfile = {
+        icon: "child_care",
+        name: "Baby 1",
+        age: "15 months",
+        height: "50.8cm",
+      };
+
+      homeBabyProfileCard(babyProfile);
+      homeAddBabyProfileCardButton();
+      bottomNavigationBar();
+
+      window.db = db;
+      window.auth = auth;
+      window.createUserWithEmailAndPassword = createUserWithEmailAndPassword;
+      window.collection = collection;
+      window.doc = doc;
+      window.setDoc = setDoc;
+    </script>
     <script src="../assets/js/addaccount.js"></script>
     <script src="../assets/validation/addaccount_validation.js"></script>
     <script src="assets/js/app.js"></script>
