@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css" />
   <link rel="manifest" href="/manifest.json" />
-<link rel="stylesheet" href="../assets/css/bookingdetail.css">
+  <link rel="stylesheet" href="../assets/css/bookingdetail.css">
 </head>
 <body>
   <div class="container">
@@ -35,6 +35,72 @@
       </div>
     </div>
   </div>
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+    import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+    import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+    
+    const firebaseConfig = {
+      apiKey: "AIzaSyDhPUkqiqku9P2vzCGvZmWzdo0nDzAKTR0",
+      authDomain: "babysync-pwa.firebaseapp.com",
+      projectId: "babysync-pwa",
+      storageBucket: "babysync-pwa.appspot.com",
+      messagingSenderId: "526444280562",
+      appId: "1:526444280562:web:2e1de1423b222427b76e6b",
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+    const auth = getAuth(app);
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      const nannyName = urlParams.get('nannyName');
+      console.log('Nanny Name from URL:', nannyName); // Debug log
+      if (nannyName) {
+        document.getElementById('nannyNameTitle').textContent = `Booking Details for ${nannyName}`;
+      } else {
+        console.log('Nanny Name not found in URL parameters.');
+      }
+    });
+
+    window.submitBooking = async () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      const nannyName = urlParams.get('nannyName');
+      const date = document.getElementById('date').value;
+      const startTime = document.getElementById('startTime').value;
+      const endTime = document.getElementById('endTime').value;
+      const location = document.getElementById('location').value;
+
+      console.log('Form values:', { nannyName, date, startTime, endTime, location }); // Debug log
+
+      if (date && startTime && endTime && location) {
+        const booking = { nannyName, date, startTime, endTime, location };
+        onAuthStateChanged(auth, async (user) => {
+          if (user) {
+            console.log('User ID:', user.uid); // Debug log
+            try {
+              await addDoc(collection(db, "nannybookings"), {
+                userId: user.uid,
+                ...booking,
+                createdAt: new Date()
+              });
+              console.log('Booking added successfully'); // Debug log
+              alert("Booking submitted successfully!");
+              window.location.href = 'allbookings.html';
+            } catch (error) {
+              console.error('Error adding document:', error);
+              alert('Error submitting booking');
+            }
+          } else {
+            alert('No user is signed in');
+          }
+        });
+      } else {
+        alert('Please fill out all fields.');
+      }
+    };
+  </script>
   <script src="../assets/js/bookingdetail.js"></script>
   <script src="../assets/validation/bookingdetail_validation.js"></script>
   <script src="assets/js/app.js"></script>

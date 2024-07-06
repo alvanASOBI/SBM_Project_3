@@ -1,87 +1,156 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Booking</title>
-    <link rel="stylesheet" href="../assets/css/global.css" />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/icon?family=Material+Icons"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css"
-    />
-    <link rel="manifest" href="/manifest.json" />
-    <link rel="stylesheet" href="../assets/css/nannybooking.css">
-  </head>
-  <body>
-    <div class="container">
-      <div class="search-container">
-        <i class="material-icons">search</i>
-        <input
-          type="text"
-          placeholder="Search for a nanny"
-          id="searchInput"
-          onfocus="showCancelButton()"
-        />
-        <button
-          id="cancelButton"
-          class="cancel-button"
-          onclick="cancelSearch()"
-        >
-          Cancel
-        </button>
-      </div>
-
-      <div class="nanny-card" id="nanny1">
-        <h5>Nanny 1:</h5>
-        <p>I'm very dedicated to my work. Blah blah blah blah</p>
-        <p><strong>Working hours:</strong><br />9am - 5pm (Mon - Fri)</p>
-        <p><strong>Years of experience:</strong><br />11 years</p>
-        <p><strong>Costs:</strong><br />$1000 per week</p>
-
-        <div class="reviews">
-          <button onclick="toggleReviews('nanny1')">View Reviews</button>
-          <div id="nanny1-reviews" class="review-list" style="display: none;">
-            <div class="average-rating" id="nanny1-average-rating"></div>
-            <div id="nanny1-review-items"></div>
-            <div class="review-form">
-              <h6>Leave a Review:</h6>
-              <div class="rating" id="nanny1-rating">
-                <i class="material-icons" onclick="rateNanny('nanny1', 1)">star_border</i>
-                <i class="material-icons" onclick="rateNanny('nanny1', 2)">star_border</i>
-                <i class="material-icons" onclick="rateNanny('nanny1', 3)">star_border</i>
-                <i class="material-icons" onclick="rateNanny('nanny1', 4)">star_border</i>
-                <i class="material-icons" onclick="rateNanny('nanny1', 5)">star_border</i>
-              </div>
-              <textarea id="nanny1-comment" placeholder="Write your review here..."></textarea>
-              <button onclick="submitReview('nanny1')">Submit</button>
-            </div>
-          </div>
-        </div>
-        <a href="bookingdetail.html?nannyName=Nanny 1" class="hire-button">HIRE</a>
-      </div>
-    </div>      </div>
-
-      
-
-      </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Booking</title>
+  <link rel="stylesheet" href="../assets/css/global.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css" />
+  <link rel="manifest" href="/manifest.json" />
+  <link rel="stylesheet" href="../assets/css/nannybooking.css">
+</head>
+<body>
+  <div class="container">
+    <div class="search-container">
+      <i class="material-icons">search</i>
+      <input
+        type="text"
+        placeholder="Search for a nanny"
+        id="searchInput"
+        onfocus="showCancelButton()"
+      />
+      <button
+        id="cancelButton"
+        class="cancel-button"
+        onclick="cancelSearch()"
+      >
+        Cancel
+      </button>
     </div>
 
-    <!-- BOTTOM NAVIGATION -->
-    <div class="bottom-nav">
-      <div class="nav-item" id="nav-home">
-        <i class="material-icons">home</i>
+    <div class="nanny-card" id="nanny1">
+      <h5>Mary Lin:</h5>
+      <p>I'm very dedicated to my work. Blah blah blah blah</p>
+      <p><strong>Working hours:</strong><br />9am - 5pm (Mon - Fri)</p>
+      <p><strong>Years of experience:</strong><br />11 years</p>
+      <p><strong>Costs:</strong><br />$1000 per week</p>
+
+      <div class="reviews">
+        <button onclick="toggleReviews('nanny1')">View Reviews</button>
+        <div id="nanny1-reviews" class="review-list" style="display: none;">
+          <div class="average-rating" id="nanny1-average-rating"></div>
+          <div id="nanny1-review-items"></div>
+          <div class="review-form">
+            <h6>Leave a Review:</h6>
+            <div class="rating" id="nanny1-rating">
+              <i class="material-icons" onclick="rateNanny('nanny1', 1)">star_border</i>
+              <i class="material-icons" onclick="rateNanny('nanny1', 2)">star_border</i>
+              <i class="material-icons" onclick="rateNanny('nanny1', 3)">star_border</i>
+              <i class="material-icons" onclick="rateNanny('nanny1', 4)">star_border</i>
+              <i class="material-icons" onclick="rateNanny('nanny1', 5)">star_border</i>
+            </div>
+            <textarea id="nanny1-comment" placeholder="Write your review here..."></textarea>
+            <button onclick="submitReview('nanny1')">Submit</button>
+          </div>
+        </div>
       </div>
-      <div class="nav-item" id="nav-people">
-        <i class="material-icons">people_outline</i>
+      <a href="bookingdetail.html?nannyName=Nanny%201" class="hire-button">HIRE</a>
+    </div>
+
+    <div class="nanny-card" id="nanny2">
+      <h5>Susan:</h5>
+      <p>I have a passion for child care and development. Blah blah blah blah</p>
+      <p><strong>Working hours:</strong><br />10am - 6pm (Mon - Fri)</p>
+      <p><strong>Years of experience:</strong><br />8 years</p>
+      <p><strong>Costs:</strong><br />$900 per week</p>
+
+      <div class="reviews">
+        <button onclick="toggleReviews('nanny2')">View Reviews</button>
+        <div id="nanny2-reviews" class="review-list" style="display: none;">
+          <div class="average-rating" id="nanny2-average-rating"></div>
+          <div id="nanny2-review-items"></div>
+          <div class="review-form">
+            <h6>Leave a Review:</h6>
+            <div class="rating" id="nanny2-rating">
+              <i class="material-icons" onclick="rateNanny('nanny2', 1)">star_border</i>
+              <i class="material-icons" onclick="rateNanny('nanny2', 2)">star_border</i>
+              <i class="material-icons" onclick="rateNanny('nanny2', 3)">star_border</i>
+              <i class="material-icons" onclick="rateNanny('nanny2', 4)">star_border</i>
+              <i class="material-icons" onclick="rateNanny('nanny2', 5)">star_border</i>
+            </div>
+            <textarea id="nanny2-comment" placeholder="Write your review here..."></textarea>
+            <button onclick="submitReview('nanny2')">Submit</button>
+          </div>
+        </div>
       </div>
-      <div class="nav-item" id="nav-child-care">
-        <i class="material-icons">child_care</i>
+      <a href="bookingdetail.html?nannyName=Nanny%202" class="hire-button">HIRE</a>
+    </div>
+
+    <div class="nanny-card" id="nanny3">
+      <h5> Old Nanny:</h5>
+      <p>Experienced in early childhood education. Blah blah blah blah</p>
+      <p><strong>Working hours:</strong><br />8am - 4pm (Mon - Fri)</p>
+      <p><strong>Years of experience:</strong><br />15 years</p>
+      <p><strong>Costs:</strong><br />$1200 per week</p>
+
+      <div class="reviews">
+        <button onclick="toggleReviews('nanny3')">View Reviews</button>
+        <div id="nanny3-reviews" class="review-list" style="display: none;">
+          <div class="average-rating" id="nanny3-average-rating"></div>
+          <div id="nanny3-review-items"></div>
+          <div class="review-form">
+            <h6>Leave a Review:</h6>
+            <div class="rating" id="nanny3-rating">
+              <i class="material-icons" onclick="rateNanny('nanny3', 1)">star_border</i>
+              <i class="material-icons" onclick="rateNanny('nanny3', 2)">star_border</i>
+              <i class="material-icons" onclick="rateNanny('nanny3', 3)">star_border</i>
+              <i class="material-icons" onclick="rateNanny('nanny3', 4)">star_border</i>
+              <i class="material-icons" onclick="rateNanny('nanny3', 5)">star_border</i>
+            </div>
+            <textarea id="nanny3-comment" placeholder="Write your review here..."></textarea>
+            <button onclick="submitReview('nanny3')">Submit</button>
+          </div>
+        </div>
       </div>
-      <div class="nav-item" id="nav-profile">
+      <a href="bookingdetail.html?nannyName=Nanny%203" class="hire-button">HIRE</a>
+    </div>
+  </div>
+
+  <!-- BOTTOM NAVIGATION -->
+  <div class="bottom-nav">
+    <div class="nav-item" id="nav-home">
+      <i class="material-icons">home</i>
+    </div>
+    <div class="nav-item" id="nav-people">
+      <i class="material-icons">people_outline</i>
+    </div>
+    <div class="nav-item" id="nav-child-care">
+      <i class="material-icons">child_care</i>
+    </div>
+    <div class="nav-item" id="nav-profile">
+      <img
+        src=""
+        style="
+          height: 30px;
+          width: 30px;
+          border-radius: 50%;
+          background-color: black;
+        "
+      />
+    </div>
+  </div>
+
+  <!-- OVERLAY -->
+  <div class="overlay" id="overlay"></div>
+
+  <!-- BOTTOM DRAWER TO DISPLAY ALL THE PROFILES -->
+  <div class="bottom-drawer" id="bottom-drawer">
+    <div class="drawer-content">
+      <span class="close-btn" id="close-btn">
+        <i class="material-icons">arrow_drop_down</i>
+      </span>
+      <div class="profiles">
         <img
           src=""
           style="
@@ -91,63 +160,41 @@
             background-color: black;
           "
         />
+        <span>John Doe Baby 1</span>
+      </div>
+      <div class="profiles">
+        <img
+          src=""
+          style="
+            height: 30px;
+            width: 30px;
+            border-radius: 50%;
+            background-color: black;
+          "
+        />
+        <span>Daniel Lee Baby 2</span>
+      </div>
+      <div class="profiles">
+        <img
+          src=""
+          style="
+            height: 30px;
+            width: 30px;
+            border-radius: 50%;
+            background-color: black;
+          "
+        />
+        <span>Ah Paw Baby 3</span>
+      </div>
+      <div class="add-account-btn" id="add-account-btn">
+        <i class="material-icons">add_circle_outline</i>
+        <span>Add Baby Account</span>
       </div>
     </div>
-
-    <!-- OVERLAY -->
-    <div class="overlay" id="overlay"></div>
-
-    <!-- BOTTOM DRAWER TO DISPLAY ALL THE PROFILES -->
-    <div class="bottom-drawer" id="bottom-drawer">
-      <div class="drawer-content">
-        <span class="close-btn" id="close-btn">
-          <i class="material-icons">arrow_drop_down</i>
-        </span>
-        <div class="profiles">
-          <img
-            src=""
-            style="
-              height: 30px;
-              width: 30px;
-              border-radius: 50%;
-              background-color: black;
-            "
-          />
-          <span>John Doe Baby 1</span>
-        </div>
-        <div class="profiles">
-          <img
-            src=""
-            style="
-              height: 30px;
-              width: 30px;
-              border-radius: 50%;
-              background-color: black;
-            "
-          />
-          <span>Daniel Lee Baby 2</span>
-        </div>
-        <div class="profiles">
-          <img
-            src=""
-            style="
-              height: 30px;
-              width: 30px;
-              border-radius: 50%;
-              background-color: black;
-            "
-          />
-          <span>Ah Paw Baby 3</span>
-        </div>
-        <div class="add-account-btn" id="add-account-btn">
-          <i class="material-icons">add_circle_outline</i>
-          <span>Add Baby Account</span>
-        </div>
-      </div>
-    </div>
-    <script src="../assets/js/nannybooking.js"></script>
-    <script src="../assets/js/nav.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
-    <script src="assets/js/app.js"></script>
-  </body>
+  </div>
+  <script src="../assets/js/nannybooking.js"></script>
+  <script src="../assets/js/nav.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
 </html>
