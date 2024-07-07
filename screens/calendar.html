@@ -76,64 +76,32 @@
           </div>
           <div class="add-event-body">
             <div class="add-event-input">
-              <input type="text" placeholder="Add Event" class="event-name" />
-            </div>
-
-            <div class="add-event-input">
-              <input
-                type="text"
-                placeholder="Add baby's weight"
-                class="event-weight"
-              />
+              <input type="text" placeholder="Add Event" class="event-name" id="event-name" />
             </div>
             <div class="add-event-input">
-              <input
-                type="text"
-                placeholder="Add baby's height"
-                class="event-height"
-              />
+              <input type="text" placeholder="Add baby's weight" class="event-weight" id="event-weight" />
             </div>
             <div class="add-event-input">
-              <input
-                type="text"
-                placeholder="Add food intake"
-                class="event-food"
-              />
+              <input type="text" placeholder="Add baby's height" class="event-height" id="event-height" />
             </div>
             <div class="add-event-input">
-              <input
-                type="text"
-                placeholder="No. of times changed diaper"
-                class="event-diaper"
-              />
-            </div>
-
-            <div class="add-event-input">
-              <input
-                type="text"
-                placeholder="Event Time From"
-                class="event-time-from"
-              />
+              <input type="text" placeholder="Add food intake" class="event-food" id="event-food" />
             </div>
             <div class="add-event-input">
-              <input
-                type="text"
-                placeholder="Event Time To"
-                class="event-time-to"
-              />
+              <input type="text" placeholder="No. of times changed diaper" class="event-diaper" id="event-diaper" />
             </div>
             <div class="add-event-input">
-              <input type="file" accept="images/*" class="event-photo" />
+              <input type="text" placeholder="Event Time From" class="event-time-from" id="event-time-from" />
+            </div>
+            <div class="add-event-input">
+              <input type="text" placeholder="Event Time To" class="event-time-to" id="event-time-to" />
+            </div>
+            <div class="add-event-input">
+              <input type="file" accept="image/*" class="event-photo" id="event-photo" />
             </div>
           </div>
           <div class="add-event-footer">
-            <button
-              id="add-event-btn"
-              class="add-event-btn"
-              onclick="addEvent()"
-            >
-              Add Event
-            </button>
+            <button id="add-event-btn" class="add-event-btn" onclick="addEvent()">Add Event</button>
           </div>
         </div>
       </div>
@@ -199,61 +167,95 @@
           />
           <span>Daniel Lee Baby 2</span>
         </div>
-        <div class="profiles">
-          <img
-            src=""
-            style="
-              height: 30px;
-              width: 30px;
-              border-radius: 50%;
-              background-color: black;
-            "
-          />
-          <span>Ah Paw Baby 3</span>
-        </div>
-        <div class="add-account-btn" id="add-account-btn">
-          <i class="material-icons">add_circle_outline</i>
-          <span>Add Baby Account</span>
-        </div>
-      </div>
-    </div>
-    <!-- BreaftFeeding Schedule[PLEASE PRESS TODAY BUTTON] -->
-    <div class="popup-form" style="display: none">
-      <div class="popup-header">
-        <div class="title">Breastfeeding Schedule</div>
-        <i class="fas fa-times close-popup"></i>
-      </div>
-      <div class="popup-body">
-        <div class="popup-input">
-          <label for="breastfeeding-time"
-            >Enter your breastfeeding details here!</label
-          >
-          <input type="text" id="breastfeeding-time" placeholder="Details" />
-        </div>
-        <!-- Add more input fields as needed -->
-      </div>
-      <div class="popup-footer">
-        <button class="popup-submit-btn">Submit</button>
       </div>
     </div>
 
-    <!-- Import the functions you need from the SDKs you need -->
-    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js"></script>
-    <script>
-      // Your web app's Firebase configuration
+    <!-- Firebase JS SDKs -->
+    <script type="module" src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js"></script>
+    <script type="module" src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js"></script>
+    <script type="module" src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js"></script>
+    <script type="module" src="https://www.gstatic.com/firebasejs/10.12.2/firebase-storage.js"></script>
+
+    <!-- Custom JS -->
+    <script type="module">
+      import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js';
+      import { getFirestore, collection, addDoc, serverTimestamp } from 'https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js';
+      import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+      import { getStorage, ref, uploadBytes, getDownloadURL } from 'https://www.gstatic.com/firebasejs/10.12.2/firebase-storage.js';
+
       const firebaseConfig = {
-        apiKey: "AIzaSyDhPUkqiqku9P2vzCGvZmWzdo0nDzAKTR0",
-        authDomain: "babysync-pwa.firebaseapp.com",
-        projectId: "babysync-pwa",
-        storageBucket: "babysync-pwa.appspot.com",
+        apiKey: "AIzaSyB-YLfYyDdQPGfwPhmYvGny6hfPEy5NzvI",
+        authDomain: "to-do-calendar-22474.firebaseapp.com",
+        projectId: "to-do-calendar-22474",
+        storageBucket: "to-do-calendar-22474.appspot.com",
         messagingSenderId: "526444280562",
         appId: "1:526444280562:web:2e1de1423b222427b76e6b",
       };
-      // Initialize Firebase
+
       const app = initializeApp(firebaseConfig);
-      // Initialize Firestore
-      const db = firebase.firestore();
+      const db = getFirestore(app);
+      const auth = getAuth(app);
+      const storage = getStorage(app);
+
+      async function addEvent() {
+        const eventName = document.getElementById('event-name').value;
+        const eventWeight = document.getElementById('event-weight').value;
+        const eventHeight = document.getElementById('event-height').value;
+        const eventFood = document.getElementById('event-food').value;
+        const eventDiaper = document.getElementById('event-diaper').value;
+        const eventTimeFrom = document.getElementById('event-time-from').value;
+        const eventTimeTo = document.getElementById('event-time-to').value;
+        const eventPhoto = document.getElementById('event-photo').files[0];
+
+        const user = auth.currentUser;
+        if (!user) {
+          alert('Please sign in to add an event.');
+          return;
+        }
+
+        const userId = user.uid;
+
+        const event = {
+          eventName,
+          eventWeight,
+          eventHeight,
+          eventFood,
+          eventDiaper,
+          eventTimeFrom,
+          eventTimeTo,
+          userId,
+          createdAt: serverTimestamp(),
+        };
+
+        try {
+          const docRef = await addDoc(collection(db, 'babyEvents'), event);
+          console.log('Document written with ID: ', docRef.id);
+          alert('Event added successfully!');
+
+          if (eventPhoto) {
+            const photoRef = ref(storage, `eventPhotos/${docRef.id}/${eventPhoto.name}`);
+            await uploadBytes(photoRef, eventPhoto);
+            const photoURL = await getDownloadURL(photoRef);
+            await addDoc(collection(db, 'babyEvents').doc(docRef.id), { photoURL });
+            console.log('Photo uploaded and URL added to the event.');
+          }
+
+          document.getElementById('event-name').value = '';
+          document.getElementById('event-weight').value = '';
+          document.getElementById('event-height').value = '';
+          document.getElementById('event-food').value = '';
+          document.getElementById('event-diaper').value = '';
+          document.getElementById('event-time-from').value = '';
+          document.getElementById('event-time-to').value = '';
+          document.getElementById('event-photo').value = '';
+        } catch (error) {
+          console.error('Error adding document: ', error);
+          alert('Failed to add event. Please try again.');
+        }
+      }
+
+      // Export the addEvent function to make it accessible
+  window.addEvent = addEvent;
     </script>
 
     <script src="../assets/js/db.js" type="module"></script>
