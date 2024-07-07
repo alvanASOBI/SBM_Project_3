@@ -1,266 +1,189 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="Stay organized with our user-friendly Calendar featuring events, reminders, and a customizable interface. Built with HTML, CSS, and JavaScript. Start scheduling today!"
-    />
-    <meta
-      name="keywords"
-      content="calendar, events, reminders, javascript, html, css, open source coding"
-    />
-    <title>Calendar</title>
-    <link rel="stylesheet" href="../assets/css/calendar.css" />
-    <link rel="stylesheet" href="../assets/css/global.css" />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/icon?family=Material+Icons"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
-    />
-    <link rel="manifest" href="/manifest.json" />
-  </head>
 
-  <body>
-    <div class="container">
-      <div class="left">
-        <div class="calendar">
-          <div class="month">
-            <i class="fas fa-angle-left prev"></i>
-            <div class="date">december 2015</div>
-            <i class="fas fa-angle-right next"></i>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Stay organized with our user-friendly Calendar featuring events, reminders, and a customizable interface. Built with HTML, CSS, and JavaScript. Start scheduling today!" />
+  <meta name="keywords" content="calendar, events, reminders, javascript, html, css, open source coding" />
+  <title>Calendar</title>
+  <link rel="stylesheet" href="../assets/css/calendar.css" />
+  <link rel="stylesheet" href="../assets/css/global.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
+  <link rel="manifest" href="/manifest.json" />
+</head>
+
+<body>
+  <div class="container">
+    <div class="left">
+      <div class="calendar">
+        <div class="month">
+          <i class="fas fa-angle-left prev"></i>
+          <div class="date">december 2015</div>
+          <i class="fas fa-angle-right next"></i>
+        </div>
+        <div class="weekdays">
+          <div>Sun</div>
+          <div>Mon</div>
+          <div>Tue</div>
+          <div>Wed</div>
+          <div>Thu</div>
+          <div>Fri</div>
+          <div>Sat</div>
+        </div>
+        <div class="days"></div>
+        <div class="goto-today">
+          <div class="goto">
+            <input type="text" placeholder="mm/yyyy" class="date-input" />
+            <button class="goto-btn">Go</button>
           </div>
-          <div class="weekdays">
-            <div>Sun</div>
-            <div>Mon</div>
-            <div>Tue</div>
-            <div>Wed</div>
-            <div>Thu</div>
-            <div>Fri</div>
-            <div>Sat</div>
-          </div>
-          <div class="days"></div>
-          <div class="goto-today">
-            <div class="goto">
-              <input type="text" placeholder="mm/yyyy" class="date-input" />
-              <button class="goto-btn">Go</button>
-            </div>
-            <button class="today-btn">Today</button>
-          </div>
+          <button class="today-btn">Today</button>
         </div>
       </div>
-
-      <div class="right">
-        <div class="today-date">
-          <div class="event-day">wed</div>
-          <div class="event-date">12th december 2022</div>
-        </div>
-        <!-- //New Notifications Button -->
-        <button class="notifications-btn">
-          <i class="fas fa-bell"></i>
-        </button>
-        <div class="events"></div>
-        <div class="add-event-wrapper">
-          <div class="add-event-header">
-            <div class="title">Baby's log</div>
-            <i class="fas fa-times close"></i>
-          </div>
-          <div class="add-event-body">
-            <div class="add-event-input">
-              <input type="text" placeholder="Add Event" class="event-name" id="event-name" />
-            </div>
-            <div class="add-event-input">
-              <input type="text" placeholder="Add baby's weight" class="event-weight" id="event-weight" />
-            </div>
-            <div class="add-event-input">
-              <input type="text" placeholder="Add baby's height" class="event-height" id="event-height" />
-            </div>
-            <div class="add-event-input">
-              <input type="text" placeholder="Add food intake" class="event-food" id="event-food" />
-            </div>
-            <div class="add-event-input">
-              <input type="text" placeholder="No. of times changed diaper" class="event-diaper" id="event-diaper" />
-            </div>
-            <div class="add-event-input">
-              <input type="text" placeholder="Event Time From" class="event-time-from" id="event-time-from" />
-            </div>
-            <div class="add-event-input">
-              <input type="text" placeholder="Event Time To" class="event-time-to" id="event-time-to" />
-            </div>
-            <div class="add-event-input">
-              <input type="file" accept="image/*" class="event-photo" id="event-photo" />
-            </div>
-          </div>
-          <div class="add-event-footer">
-            <button id="add-event-btn" class="add-event-btn" onclick="addEvent()">Add Event</button>
-          </div>
-        </div>
-      </div>
-      <button class="add-event">
-        <i class="fas fa-plus"></i>
-      </button>
     </div>
 
-    <!-- BOTTOM NAVIGATION -->
-    <div class="bottom-nav">
-      <div class="nav-item" id="nav-home">
-        <i class="material-icons">home</i>
+    <div class="right">
+      <div class="today-date">
+        <div class="event-day">wed</div>
+        <div class="event-date">12th december 2022</div>
       </div>
-      <div class="nav-item" id="nav-people">
-        <i class="material-icons">people_outline</i>
+      <!-- //New Notifications Button -->
+      <button class="notifications-btn">
+        <i class="fas fa-bell"></i>
+      </button>
+      <div class="events"></div>
+      <div class="add-event-wrapper">
+        <div class="add-event-header">
+          <div class="title">Baby's log</div>
+          <i class="fas fa-times close"></i>
+        </div>
+        <div class="add-event-body">
+          <div class="add-event-input">
+            <input type="text" placeholder="Add Event" class="event-name" id="event-name" />
+          </div>
+          <div class="add-event-input">
+            <input type="text" placeholder="Add baby's weight" class="event-weight" id="event-weight" />
+          </div>
+          <div class="add-event-input">
+            <input type="text" placeholder="Add baby's height" class="event-height" id="event-height" />
+          </div>
+          <div class="add-event-input">
+            <input type="text" placeholder="Add food intake" class="event-food" id="event-food" />
+          </div>
+          <div class="add-event-input">
+            <input type="text" placeholder="No. of times changed diaper" class="event-diaper" id="event-diaper" />
+          </div>
+          <div class="add-event-input">
+            <input type="text" placeholder="Event Time From" class="event-time-from" id="event-time-from" />
+          </div>
+          <div class="add-event-input">
+            <input type="text" placeholder="Event Time To" class="event-time-to" id="event-time-to" />
+          </div>
+          <div class="add-event-input">
+            <input type="file" accept="image/*" class="event-photo" id="event-photo" />
+          </div>
+        </div>
+        <div class="add-event-footer">
+          <button id="add-event-btn" class="add-event-btn" onclick="addEvent()">Add Event</button>
+        </div>
       </div>
-      <div class="nav-item" id="nav-child-care">
-        <i class="material-icons">child_care</i>
-      </div>
-      <div class="nav-item" id="nav-profile">
-        <img
-          src=""
-          style="
+    </div>
+    <button class="add-event">
+      <i class="fas fa-plus"></i>
+    </button>
+  </div>
+
+  <!-- BOTTOM NAVIGATION -->
+  <div class="bottom-nav">
+    <div class="nav-item" id="nav-home">
+      <i class="material-icons">home</i>
+    </div>
+    <div class="nav-item" id="nav-people">
+      <i class="material-icons">people_outline</i>
+    </div>
+    <div class="nav-item" id="nav-child-care">
+      <i class="material-icons">child_care</i>
+    </div>
+    <div class="nav-item" id="nav-profile">
+      <img src="" style="
             height: 30px;
             width: 30px;
             border-radius: 50%;
             background-color: black;
-          "
-        />
-      </div>
+          " />
     </div>
+  </div>
 
-    <!-- OVERLAY -->
-    <div class="overlay" id="overlay"></div>
+  <!-- OVERLAY -->
+  <div class="overlay" id="overlay"></div>
 
-    <!-- BOTTOM DRAWER TO DISPLAY ALL THE PROFILES -->
-    <div class="bottom-drawer" id="bottom-drawer">
-      <div class="drawer-content">
-        <span class="close-btn" id="close-btn">
-          <i class="material-icons">arrow_drop_down</i>
-        </span>
-        <div class="profiles">
-          <img
-            src=""
-            style="
+  <!-- BOTTOM DRAWER TO DISPLAY ALL THE PROFILES -->
+  <div class="bottom-drawer" id="bottom-drawer">
+    <div class="drawer-content">
+      <span class="close-btn" id="close-btn">
+        <i class="material-icons">arrow_drop_down</i>
+      </span>
+      <div class="profiles">
+        <img src="" style="
               height: 30px;
               width: 30px;
               border-radius: 50%;
               background-color: black;
-            "
-          />
-          <span>John Doe Baby 1</span>
-        </div>
-        <div class="profiles">
-          <img
-            src=""
-            style="
+            " />
+        <span>John Doe Baby 1</span>
+      </div>
+      <div class="profiles">
+        <img src="" style="
               height: 30px;
               width: 30px;
               border-radius: 50%;
               background-color: black;
-            "
-          />
-          <span>Daniel Lee Baby 2</span>
-        </div>
+            " />
+        <span>Daniel Lee Baby 2</span>
+      </div>
+      <div class="profiles">
+        <img src="" style="
+            height: 30px;
+            width: 30px;
+            border-radius: 50%;
+            background-color: black;
+          " />
+        <span>Ah Paw Baby 3</span>
+      </div>
+      <div class="add-account-btn" id="add-account-btn">
+        <i class="material-icons">add_circle_outline</i>
+        <span>Add Baby Account</span>
       </div>
     </div>
+  </div>
+  <!-- BreaftFeeding Schedule[PLEASE PRESS TODAY BUTTON] -->
+  <div class="popup-form" style="display: none">
+    <div class="popup-header">
+      <div class="title">Breastfeeding Schedule</div>
+      <i class="fas fa-times close-popup"></i>
+    </div>
+    <div class="popup-body">
+      <div class="popup-input">
+        <label for="breastfeeding-time">Enter your breastfeeding details here!</label>
+        <input type="text" id="breastfeeding-time" placeholder="Details" />
+      </div>
+      <!-- Add more input fields as needed -->
+    </div>
+    <div class="popup-footer">
+      <button class="popup-submit-btn">Submit</button>
+    </div>
+  </div>
 
-    <!-- Firebase JS SDKs -->
-    <script type="module" src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js"></script>
-    <script type="module" src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js"></script>
-    <script type="module" src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js"></script>
-    <script type="module" src="https://www.gstatic.com/firebasejs/10.12.2/firebase-storage.js"></script>
 
-    <!-- Custom JS -->
-    <script type="module">
-      import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js';
-      import { getFirestore, collection, addDoc, serverTimestamp } from 'https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js';
-      import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
-      import { getStorage, ref, uploadBytes, getDownloadURL } from 'https://www.gstatic.com/firebasejs/10.12.2/firebase-storage.js';
 
-      const firebaseConfig = {
-        apiKey: "AIzaSyDhPUkqiqku9P2vzCGvZmWzdo0nDzAKTR0",
-      authDomain: "babysync-pwa.firebaseapp.com",
-      projectId: "babysync-pwa",
-      storageBucket: "babysync-pwa.appspot.com",
-      messagingSenderId: "526444280562",
-      appId: "1:526444280562:web:2e1de1423b222427b76e6b",
-      };
+  <script src="../assets/js/db.js" type="module"></script>
+  <script src="../assets/js/nav.js"></script>
+  <script src="../assets/js/calendar.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
 
-      const app = initializeApp(firebaseConfig);
-      const db = getFirestore(app);
-      const auth = getAuth(app);
-      const storage = getStorage(app);
-
-      async function addEvent() {
-        const eventName = document.getElementById('event-name').value;
-        const eventWeight = document.getElementById('event-weight').value;
-        const eventHeight = document.getElementById('event-height').value;
-        const eventFood = document.getElementById('event-food').value;
-        const eventDiaper = document.getElementById('event-diaper').value;
-        const eventTimeFrom = document.getElementById('event-time-from').value;
-        const eventTimeTo = document.getElementById('event-time-to').value;
-        const eventPhoto = document.getElementById('event-photo').files[0];
-
-        const user = auth.currentUser;
-        if (!user) {
-          alert('Please sign in to add an event.');
-          return;
-        }
-
-        const userId = user.uid;
-
-        const event = {
-          eventName,
-          eventWeight,
-          eventHeight,
-          eventFood,
-          eventDiaper,
-          eventTimeFrom,
-          eventTimeTo,
-          userId,
-          createdAt: serverTimestamp(),
-        };
-
-        try {
-          const docRef = await addDoc(collection(db, 'babyEvents'), event);
-          console.log('Document written with ID: ', docRef.id);
-          alert('Event added successfully!');
-
-          if (eventPhoto) {
-            const photoRef = ref(storage, `eventPhotos/${docRef.id}/${eventPhoto.name}`);
-            await uploadBytes(photoRef, eventPhoto);
-            const photoURL = await getDownloadURL(photoRef);
-            await addDoc(collection(db, 'babyEvents').doc(docRef.id), { photoURL });
-            console.log('Photo uploaded and URL added to the event.');
-          }
-
-          document.getElementById('event-name').value = '';
-          document.getElementById('event-weight').value = '';
-          document.getElementById('event-height').value = '';
-          document.getElementById('event-food').value = '';
-          document.getElementById('event-diaper').value = '';
-          document.getElementById('event-time-from').value = '';
-          document.getElementById('event-time-to').value = '';
-          document.getElementById('event-photo').value = '';
-        } catch (error) {
-          console.error('Error adding document: ', error);
-          alert('Failed to add event. Please try again.');
-        }
-      }
-
-      // Export the addEvent function to make it accessible
-  window.addEvent = addEvent;
-    </script>
-
-    <script src="../assets/js/db.js" type="module"></script>
-    <script src="../assets/js/nav.js"></script>
-    <script src="../assets/js/calendar.js"></script>
-    <script src="assets/js/app.js"></script>
-  </body>
 </html>
