@@ -1,76 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="manifest" href="/manifest.json" />
-    <title>Create Account</title>
-    <link rel="stylesheet" href="../assets/css/addaccount.css" />
-  </head>
-  <body>
-    <div class="container">
-      <a class="close-button" id="backButton">&times;</a>
-      <h1>Create Account</h1>
-      <p>
-        Fill in the details for your new account. You can always change it later.
-      </p>
-      <form id="usernameForm">
-        <input
-          type="text"
-          id="usernameInput"
-          class="username-input"
-          placeholder="Name"
-        />
-        <input
-          type="text"
-          id="usernameInput"
-          class="username-input"
-          placeholder="Age"
-        />
-        <input
-          type="text"
-          id="usernameInput"
-          class="username-input"
-          placeholder="Height"
-        />
-        <button type="submit" class="submit-button">Next</button>
-      </form>
-    </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="manifest" href="/manifest.json" />
+  <title>Create Account</title>
+  <link rel="stylesheet" href="../assets/css/addaccount.css" />
+</head>
+<body>
+  <div class="container">
+    <a class="close-button" id="backButton">&times;</a>
+    <h1>Create Account</h1>
+    <p>
+      Fill in the details for your new account. You can always change it later.
+    </p>
+    <form id="accountForm">
+      <input
+        type="text"
+        id="nameInput"
+        class="username-input"
+        placeholder="Name"
+        required
+      />
+      <input
+        type="number"
+        id="ageInput"
+        class="username-input"
+        placeholder="Age"
+        required
+      />
+      <input
+        type="text"
+        id="heightInput"
+        class="username-input"
+        placeholder="Height"
+        required
+      />
+      <button type="submit" class="submit-button">Next</button>
+    </form>
+  </div>
+  
+  <!-- Firebase SDKs -->
+  <script type="module">
+    // Import the Firebase modules
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+    import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
-    <!-- Import Firebase SDKs and Bottom Nav -->
-    <script type="module">
-      import { bottomNavigationBar } from "../common/bottom_navigation_bar.js";
-      import { homeBabyProfileCard } from "../src/components/home/home_baby_profile_card.js";
-      import { homeAddBabyProfileCardButton } from "../src/components/home/home_add_baby_profile_button.js";
-      import {
-        db,
-        auth,
-        createUserWithEmailAndPassword,
-        collection,
-        doc,
-        setDoc,
-      } from "../src/components/firebase_configuration.js";
+    // Firebase configuration object
+    const firebaseConfig = {
+      apiKey: "AIzaSyDhPUkqiqku9P2vzCGvZmWzdo0nDzAKTR0",
+      authDomain: "babysync-pwa.firebaseapp.com",
+      projectId: "babysync-pwa",
+      storageBucket: "babysync-pwa.appspot.com",
+      messagingSenderId: "526444280562",
+      appId: "1:526444280562:web:2e1de1423b222427b76e6b",
+    };
 
-      const babyProfile = {
-        icon: "child_care",
-        name: "Baby 1",
-        age: "15 months",
-        height: "50.8cm",
-      };
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
 
-      homeBabyProfileCard(babyProfile);
-      homeAddBabyProfileCardButton();
-      bottomNavigationBar();
+    // Form submission handler
+    document.getElementById('accountForm').addEventListener('submit', async (e) => {
+      e.preventDefault(); // Prevent the default form submission
 
-      window.db = db;
-      window.auth = auth;
-      window.createUserWithEmailAndPassword = createUserWithEmailAndPassword;
-      window.collection = collection;
-      window.doc = doc;
-      window.setDoc = setDoc;
-    </script>
-    <script src="../assets/js/addaccount.js"></script>
-    <script src="../assets/validation/addaccount_validation.js"></script>
-    <script src="assets/js/app.js"></script>
-  </body>
+      const name = document.getElementById('nameInput').value;
+      const age = document.getElementById('ageInput').value;
+      const height = document.getElementById('heightInput').value;
+
+      try {
+        await addDoc(collection(db, 'babyProfile'), {
+          name: name,
+          age: age,
+          height: height
+        });
+        alert('Data saved successfully!');
+        document.getElementById('accountForm').reset(); // Reset the form
+      } catch (error) {
+        console.error('Error adding document: ', error);
+        alert('Error saving data. Please try again.');
+      }
+    });
+  </script>
+
+  <!-- Other scripts -->
+  <script src="../assets/js/addaccount.js"></script>
+  <script src="../assets/validation/addaccount_validation.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
 </html>
+
+
