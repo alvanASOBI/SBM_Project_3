@@ -17,6 +17,16 @@
         <form id="registerForm">
           <h3>Register</h3>
           <label>
+            <span>Username</span>
+            <input
+              type="text"
+              id="username"
+              name="username"
+              placeholder="Enter a username"
+              required
+            />
+          </label>
+          <label>
             <span>Email</span>
             <input
               type="email"
@@ -45,25 +55,6 @@
               </button>
             </div>
           </label>
-          <label>
-            <span>Confirm Password</span>
-            <div class="passwd-wrap">
-              <input
-                type="password"
-                id="c-password"
-                name="c-password"
-                placeholder="Confirm your password"
-                required
-              />
-              <button type="button" id="show-passwd">
-                <img
-                  src="../assets/images/eye_open.svg"
-                  class="c-toggle-password"
-                  onclick="c_togglePassword()"
-                />
-              </button>
-            </div>
-          </label>
           <button class="button" type="submit">Sign Up</button>
           <p id="go-to-signin">
             Already have an account?
@@ -83,7 +74,7 @@
         doc,
         setDoc,
       } from "../src/components/firebase_configuration.js";
-      
+
       window.db = db;
       window.auth = auth;
       window.createUserWithEmailAndPassword = createUserWithEmailAndPassword;

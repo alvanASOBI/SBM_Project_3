@@ -4,7 +4,7 @@ document.getElementById("registerForm").addEventListener("submit", function (eve
     event.preventDefault();
     var email = document.getElementById("email").value;
     var password = document.getElementById("password").value;
-    var confirmPassword = document.getElementById("c-password").value;
+    var username = document.getElementById("username").value;
 
     // Email validation regex pattern
     var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -19,7 +19,7 @@ document.getElementById("registerForm").addEventListener("submit", function (eve
         return;
     }
 
-    if (!email || !password || !confirmPassword) {
+    if (!username || !email || !password ) {
         alert("Please fill in all fields.");
         return;
     }
@@ -30,24 +30,18 @@ document.getElementById("registerForm").addEventListener("submit", function (eve
         return;
     }
 
-    // Validate password match
-    if (password !== confirmPassword) {
-        alert("Passwords do not match.");
-        return;
-    }
-
     // If validation passes, call the registration function
-    registerUser(email, password);
+    registerUser(username, email, password);
 });
 
-async function registerUser(email, password) {
+async function registerUser(username, email, password) {
     try {
         const userCredential = await window.createUserWithEmailAndPassword(window.auth, email, password);
         const user = userCredential.user;
         console.log("User created:", user.uid);
 
         // Store user email and password in Firestore
-        await addUserToDatabase(user.uid, user.email, password);
+        await addUserToDatabase(user.uid, username, user.email, password);
 
         console.log("User data saved to Firestore");
         alert("Registration successful! Redirecting to sign-in page...");
