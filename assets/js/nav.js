@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     if (navHome) {
         navHome.addEventListener('click', function () {
-            window.location.href = 'newhome.html';
+            window.location.href = 'home.html';
         });
     }
 
