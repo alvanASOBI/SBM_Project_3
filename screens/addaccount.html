@@ -45,6 +45,7 @@
     // Import the Firebase modules
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
     import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+    import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 
     // Firebase configuration object
     const firebaseConfig = {
@@ -59,6 +60,7 @@
     // Initialize Firebase
     const app = initializeApp(firebaseConfig);
     const db = getFirestore(app);
+    const auth = getAuth(app);
 
     // Form submission handler
     document.getElementById('accountForm').addEventListener('submit', async (e) => {
@@ -69,13 +71,21 @@
       const height = document.getElementById('heightInput').value;
 
       try {
-        await addDoc(collection(db, 'babyProfile'), {
-          name: name,
-          age: age,
-          height: height
+        // Ensure user is authenticated before saving data
+        onAuthStateChanged(auth, async (user) => {
+          if (user) {
+            await addDoc(collection(db, 'babyProfile'), {
+              name: name,
+              age: age,
+              height: height,
+              userId: user.uid
+            });
+            alert('Data saved successfully!');
+            document.getElementById('accountForm').reset(); // Reset the form
+          } else {
+            alert('You must be logged in to save data.');
+          }
         });
-        alert('Data saved successfully!');
-        document.getElementById('accountForm').reset(); // Reset the form
       } catch (error) {
         console.error('Error adding document: ', error);
         alert('Error saving data. Please try again.');
@@ -89,5 +99,6 @@
   <script src="assets/js/app.js"></script>
 </body>
 </html>
+
 
 
