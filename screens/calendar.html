@@ -188,7 +188,7 @@
   <!-- Custom JS -->
   <script type="module">
     import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js';
-    import { getFirestore, collection, addDoc, serverTimestamp } from 'https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js';
+    import { getFirestore, collection, addDoc, query, where, getDocs, serverTimestamp } from 'https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js';
     import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
     import { getStorage, ref, uploadBytes, getDownloadURL } from 'https://www.gstatic.com/firebasejs/10.12.2/firebase-storage.js';
 
@@ -206,6 +206,15 @@
     const auth = getAuth(app);
     const storage = getStorage(app);
 
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        document.getElementById('main-content').style.display = 'block';
+        fetchUserEvents(user.uid);
+      } else {
+        window.location.href = 'SignIn.html'; // Redirect to login page
+      }
+    });
+
     async function addEvent() {
       const eventName = document.getElementById('event-name').value;
       const eventWeight = document.getElementById('event-weight').value;
@@ -218,7 +227,7 @@
 
       const user = auth.currentUser;
       if (!user) {
-        alert('Please sign in to add an event.');
+        alert('Please sign in to be able to save your event offcially.');
         return;
       }
 
@@ -257,16 +266,31 @@
         document.getElementById('event-time-from').value = '';
         document.getElementById('event-time-to').value = '';
         document.getElementById('event-photo').value = '';
+
+        fetchUserEvents(userId); // Refresh the events
       } catch (error) {
         console.error('Error adding document: ', error);
         alert('Failed to add event. Please try again.');
       }
     }
 
-    // Export the addEvent function to make it accessible
+    async function fetchUserEvents(userId) {
+      const q = query(collection(db, 'babyEvents'), where('userId', '==', userId));
+      const querySnapshot = await getDocs(q);
+      const eventsContainer = document.querySelector('.events');
+      eventsContainer.innerHTML = '';
+
+      querySnapshot.forEach((doc) => {
+        const event = doc.data();
+        const eventElement = document.createElement('div');
+        eventElement.classList.add('event');
+        eventElement.textContent = `${event.eventName} - ${event.eventTimeFrom} to ${event.eventTimeTo}`;
+        eventsContainer.appendChild(eventElement);
+      });
+    }
+
     window.addEvent = addEvent;
   </script>
-
 
 
   <script src="../assets/js/db.js" type="module"></script>
