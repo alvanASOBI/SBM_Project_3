@@ -134,7 +134,7 @@ main {
 }
 
 .baby-container {
-  background-color: #fff;
+  background-color: #d4a373;
   border-radius: 8px;
   padding: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -148,7 +148,7 @@ main {
 
 .baby-icon {
   font-size: 36px;
-  color: #d4a373; /* Adjust the color to match your theme */
+  color: #000000; /* Adjust the color to match your theme */
   margin-right: 10px;
 }
 
