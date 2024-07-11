@@ -6,6 +6,8 @@ document.addEventListener('DOMContentLoaded', function () {
     const navProfile = document.getElementById('nav-profile');
     const closeBtn = document.getElementById('close-btn');
     const addAccountBtn = document.getElementById('add-account-btn');
+    const bottomDrawer = document.getElementById('bottom-drawer');
+    const overlay = document.getElementById('overlay');
 
     if (navHome) {
         navHome.addEventListener('click', function () {
