@@ -1,5 +1,4 @@
 // bottom-nav.js
-
 export function bottomNavigationBar() {
   const bottomNavHTML = `
     <div class="bottom-nav">
@@ -24,70 +23,83 @@ export function bottomNavigationBar() {
         />
       </div>
     </div>
-    <div class="overlay" id="overlay"></div>
-    <div class="bottom-drawer" id="bottom-drawer">
-      <div class="drawer-content">
-        <span class="close-btn" id="close-btn">
-          <i class="material-icons">arrow_drop_down</i>
-        </span>
-        <div class="profiles">
-          <img
-            src=""
-            style="
-              height: 30px;
-              width: 30px;
-              border-radius: 50%;
-              background-color: black;
-            "
-          />
-          <span>John Doe Baby 1</span>
-        </div>
-        <div class="profiles">
-          <img
-            src=""
-            style="
-              height: 30px;
-              width: 30px;
-              border-radius: 50%;
-              background-color: black;
-            "
-          />
-          <span>Daniel Lee Baby 2</span>
-        </div>
-        <div class="profiles">
-          <img
-            src=""
-            style="
-              height: 30px;
-              width: 30px;
-              border-radius: 50%;
-              background-color: black;
-            "
-          />
-          <span>Ah Paw Baby 3</span>
-        </div>
-        <div class="add-account-btn" id="add-account-btn">
-          <i class="material-icons">add_circle_outline</i>
-          <span>Add Baby Account</span>
-        </div>
-      </div>
-    </div>
   `;
 
   document.body.insertAdjacentHTML('beforeend', bottomNavHTML);
 
-  // Add event listeners for drawer functionality
-  const overlay = document.getElementById('overlay');
-  const bottomDrawer = document.getElementById('bottom-drawer');
-  const closeBtn = document.getElementById('close-btn');
+  // Check if the current page is not home.html
+  if (window.location.pathname !== '/screens/home.html') {
+    const drawerHTML = `
+      <div class="overlay" id="overlay"></div>
+      <div class="bottom-drawer" id="bottom-drawer">
+        <div class="drawer-content">
+          <span class="close-btn" id="close-btn">
+            <i class="material-icons">arrow_drop_down</i>
+          </span>
+          <div class="profiles">
+            <img
+              src=""
+              style="
+                height: 30px;
+                width: 30px;
+                border-radius: 50%;
+                background-color: black;
+              "
+            />
+            <span>John Doe Baby 1</span>
+          </div>
+          <div class="profiles">
+            <img
+              src=""
+              style="
+                height: 30px;
+                width: 30px;
+                border-radius: 50%;
+                background-color: black;
+              "
+            />
+            <span>Daniel Lee Baby 2</span>
+          </div>
+          <div class="profiles">
+            <img
+              src=""
+              style="
+                height: 30px;
+                width: 30px;
+                border-radius: 50%;
+                background-color: black;
+              "
+            />
+            <span>Ah Paw Baby 3</span>
+          </div>
+          <div class="add-account-btn" id="add-account-btn">
+            <i class="material-icons">add_circle_outline</i>
+            <span>Add Baby Account</span>
+          </div>
+        </div>
+      </div>
+    `;
 
-  closeBtn.addEventListener('click', () => {
-    bottomDrawer.classList.remove('open');
-    overlay.classList.remove('show');
-  });
+    document.body.insertAdjacentHTML('beforeend', drawerHTML);
 
-  document.querySelector('.nav-item#nav-profile').addEventListener('click', () => {
-    bottomDrawer.classList.add('open');
-    overlay.classList.add('show');
-  });
+    // Add event listeners for drawer functionality
+    const overlay = document.getElementById('overlay');
+    const bottomDrawer = document.getElementById('bottom-drawer');
+    const closeBtn = document.getElementById('close-btn');
+
+    closeBtn.addEventListener('click', () => {
+      bottomDrawer.classList.remove('active');
+      overlay.classList.remove('active');
+    });
+
+    document.querySelector('.nav-item#nav-profile').addEventListener('click', () => {
+      bottomDrawer.classList.add('active');
+      overlay.classList.add('active');
+    });
+
+    overlay.addEventListener('click', () => {
+      bottomDrawer.classList.remove('active');
+      overlay.classList.remove('active');
+    });
+  }
 }
