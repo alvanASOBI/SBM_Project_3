@@ -194,39 +194,26 @@
       src="https://www.gstatic.com/firebasejs/10.12.2/firebase-storage.js"
     ></script>
 
-    <!-- Custom JS -->
-    <script type="module">
-      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-      import {
-        getFirestore,
-        collection,
-        addDoc,
-        serverTimestamp,
-      } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
-      import {
-        getAuth,
-        onAuthStateChanged,
-      } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
-      import {
-        getStorage,
-        ref,
-        uploadBytes,
-        getDownloadURL,
-      } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-storage.js";
-      import { bottomNavigationBar } from "../common/bottom_navigation_bar.js";
-      const firebaseConfig = {
-        apiKey: "AIzaSyDhPUkqiqku9P2vzCGvZmWzdo0nDzAKTR0",
-        authDomain: "babysync-pwa.firebaseapp.com",
-        projectId: "babysync-pwa",
-        storageBucket: "babysync-pwa.appspot.com",
-        messagingSenderId: "526444280562",
-        appId: "1:526444280562:web:2e1de1423b222427b76e6b",
-      };
+  <!-- Custom JS -->
+  <script type="module">
+    import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js';
+    import { getFirestore, collection, addDoc, serverTimestamp } from 'https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js';
+    import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+    import { getStorage, ref, uploadBytes, getDownloadURL } from 'https://www.gstatic.com/firebasejs/10.12.2/firebase-storage.js';
 
-      const app = initializeApp(firebaseConfig);
-      const db = getFirestore(app);
-      const auth = getAuth(app);
-      const storage = getStorage(app);
+    const firebaseConfig = {
+      apiKey: "AIzaSyDhPUkqiqku9P2vzCGvZmWzdo0nDzAKTR0",
+      authDomain: "babysync-pwa.firebaseapp.com",
+      projectId: "babysync-pwa",
+      storageBucket: "babysync-pwa.appspot.com",
+      messagingSenderId: "526444280562",
+      appId: "1:526444280562:web:2e1de1423b222427b76e6b",
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+    const auth = getAuth(app);
+    const storage = getStorage(app);
 
       async function addEvent() {
         const eventName = document.getElementById("event-name").value;
@@ -238,11 +225,11 @@
         const eventTimeTo = document.getElementById("event-time-to").value;
         const eventPhoto = document.getElementById("event-photo").files[0];
 
-        const user = auth.currentUser;
-        if (!user) {
-          alert("Please sign in to add an event.");
-          return;
-        }
+      const user = auth.currentUser;
+      if (!user) {
+        alert('Please sign in to add an event.');
+        return;
+      }
 
         const userId = user.uid;
 
@@ -276,25 +263,25 @@
             console.log("Photo uploaded and URL added to the event.");
           }
 
-          document.getElementById("event-name").value = "";
-          document.getElementById("event-weight").value = "";
-          document.getElementById("event-height").value = "";
-          document.getElementById("event-food").value = "";
-          document.getElementById("event-diaper").value = "";
-          document.getElementById("event-time-from").value = "";
-          document.getElementById("event-time-to").value = "";
-          document.getElementById("event-photo").value = "";
-        } catch (error) {
-          console.error("Error adding document: ", error);
-          alert("Failed to add event. Please try again.");
-        }
+        document.getElementById('event-name').value = '';
+        document.getElementById('event-weight').value = '';
+        document.getElementById('event-height').value = '';
+        document.getElementById('event-food').value = '';
+        document.getElementById('event-diaper').value = '';
+        document.getElementById('event-time-from').value = '';
+        document.getElementById('event-time-to').value = '';
+        document.getElementById('event-photo').value = '';
+      } catch (error) {
+        console.error('Error adding document: ', error);
+        alert('Failed to add event. Please try again.');
       }
+    }
 
-      // Export the addEvent function to make it accessible
-      window.addEvent = addEvent;
+    // Export the addEvent function to make it accessible
+    window.addEvent = addEvent;
+  </script>
 
-      bottomNavigationBar();
-    </script>
+
 
     <script src="../assets/js/db.js" type="module"></script>
     <script src="../assets/js/nav.js"></script>
