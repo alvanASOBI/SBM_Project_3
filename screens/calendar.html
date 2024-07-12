@@ -262,7 +262,7 @@
         try {
           const docRef = await addDoc(collection(db, "babyEvents"), event);
           console.log("Document written with ID: ", docRef.id);
-          alert("Event added successfully!");
+          // alert("Event added successfully!");
 
           if (eventPhoto) {
             const photoRef = ref(
