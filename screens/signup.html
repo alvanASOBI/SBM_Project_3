@@ -1,94 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="0000ff" />
-    <title>Sign Up</title>
-    <link rel="manifest" href="/manifest.json" />
-    <link rel="stylesheet" href="../assets/css/styles.css" />
-  </head>
-  <body>
-    <header>
-      <img src="../assets/icons/app_icon.png" alt="Logo/Banner" id="logo" />
-    </header>
-    <div class="container">
-      <main>
-        <form id="registerForm">
-          <h3>Register</h3>
-          <label>
-            <span>Username</span>
-            <input
-              type="text"
-              id="username"
-              name="username"
-              placeholder="Enter a username"
-              required
-            />
-          </label>
-          <label>
-            <span>Email</span>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              placeholder="Enter your email"
-              required
-            />
-          </label>
-          <label>
-            <span>Password</span>
-            <div class="passwd-wrap">
-              <input
-                type="password"
-                id="password"
-                name="password"
-                placeholder="Enter your password"
-                required
-              />
-              <button type="button" id="show-passwd">
-                <img
-                  src="../assets/images/eye_open.svg"
-                  class="toggle-password"
-                  onclick="togglePassword()"
-                />
-              </button>
-            </div>
-          </label>
-          <button class="button" type="submit">Sign Up</button>
-          <p id="go-to-signin">
-            Already have an account?
-            <a href="../screens/signin.html">Sign In</a>
-          </p>
-        </form>
-      </main>
-    </div>
 
-    <!-- Import Firebase SDKs -->
-    <script type="module">
-      import {
-        db,
-        auth,
-        createUserWithEmailAndPassword,
-        collection,
-        doc,
-        setDoc,
-      } from "../src/components/firebase_configuration.js";
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="0000ff" />
+  <title>Sign Up</title>
+  <link rel="manifest" href="/manifest.json" />
+  <link rel="stylesheet" href="../assets/css/styles.css" />
+</head>
 
-      window.db = db;
-      window.auth = auth;
-      window.createUserWithEmailAndPassword = createUserWithEmailAndPassword;
-      window.collection = collection;
-      window.doc = doc;
-      window.setDoc = setDoc;
-    </script>
+<body>
+  <header>
+    <img src="../assets/icons/app_icon.png" alt="Logo/Banner" id="logo" />
+  </header>
+  <div class="container">
+    <main>
+      <form id="registerForm">
+        <h3>Register</h3>
+        <label>
+          <span>Username</span>
+          <input type="text" id="username" name="username" placeholder="Enter a username" required />
+        </label>
+        <label>
+          <span>Email</span>
+          <input type="email" id="email" name="email" placeholder="Enter your email" required />
+        </label>
+        <label>
+          <span>Password</span>
+          <div class="passwd-wrap">
+            <input type="password" id="password" name="password" placeholder="Enter your password" required />
+            <button type="button" id="show-passwd">
+              <img src="../assets/images/eye_open.svg" class="toggle-password" onclick="togglePassword()" />
+            </button>
+          </div>
+        </label>
+        <button class="button" type="submit">Sign Up</button>
+        <p id="go-to-signin">
+          Already have an account?
+          <a href="../screens/SignIn.html">Sign In</a>
+        </p>
+      </form>
+    </main>
+  </div>
 
-    <script src="../assets/js/app.js"></script>
-    <script src="../assets/js/db.js" type="module"></script>
-    <script
-      src="../assets/validation/signup_validation.js"
-      type="module"
-    ></script>
-    <script src="../assets/js/password_script.js"></script>
-  </body>
+  <!-- Import Firebase SDKs -->
+  <script type="module">
+    import {
+      db,
+      auth,
+      createUserWithEmailAndPassword,
+      collection,
+      doc,
+      setDoc,
+    } from "../src/components/firebase_configuration.js";
+
+    window.db = db;
+    window.auth = auth;
+    window.createUserWithEmailAndPassword = createUserWithEmailAndPassword;
+    window.collection = collection;
+    window.doc = doc;
+    window.setDoc = setDoc;
+  </script>
+
+  <script src="../assets/js/app.js"></script>
+  <script src="../assets/js/db.js" type="module"></script>
+  <script src="../assets/validation/signup_validation.js" type="module"></script>
+  <script src="../assets/js/password_script.js"></script>
+</body>
+
 </html>
