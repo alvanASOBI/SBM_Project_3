@@ -1,153 +1,134 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Settings</title>
-    <link rel="stylesheet" href="../assets/css/settings.css" />
-    <link rel="stylesheet" href="../assets/css/global.css" />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/icon?family=Material+Icons"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css"
-    />
-    <link rel="manifest" href="/manifest.json" />
-    <meta name="theme-color" content="#007bff" />
-  </head>
-  <body>
-    <div class="container">
-      <form id="settingsForm">
-        <div class="profile">
-          <img src="profile_picture.jpg" alt="Profile Picture" />
-          <h5>[ Name ]<b> Points: 60</b></h5>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Settings</title>
+  <link rel="stylesheet" href="../assets/css/settings.css" />
+  <link rel="stylesheet" href="../assets/css/global.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css" />
+  <link rel="manifest" href="/manifest.json" />
+  <meta name="theme-color" content="#007bff" />
+</head>
+
+<body>
+  <div class="container">
+    <form id="settingsForm">
+      <div class="profile">
+        <img src="profile_picture.jpg" alt="Profile Picture" />
+        <h5>[ Name ]<b> Points: 60</b></h5>
+      </div>
+
+      <label>
+        <input type="email" id="email" name="email" placeholder="Email:" required readonly />
+      </label>
+
+      <label>
+        <div class="passwd-wrap">
+          <input type="password" id="password" name="password" placeholder="New Password:" />
+          <button type="button" id="show-passwd">
+            <img src="../assets/images/eye_open.svg" class="toggle-password" onclick="togglePassword()" />
+          </button>
         </div>
-
+      </label>
+      <div class="toggle-switch">
         <label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            placeholder="Email:"
-            required
-            readonly
-          />
+          Notifications
+          <input type="checkbox" id="notifications" />
+          <span class="lever"></span>
         </label>
-        
-        <label>
-          <div class="passwd-wrap">
-            <input
-              type="password"
-              id="password"
-              name="password"
-              placeholder="New Password:"
-            />
-            <button type="button" id="show-passwd">
-              <img
-                src="../assets/images/eye_open.svg"
-                class="toggle-password"
-                onclick="togglePassword()"
-              />
-            </button>
-          </div>
-        </label>
-        <div class="toggle-switch">
-          <label>
-            Notifications
-            <input type="checkbox" id="notifications" />
-            <span class="lever"></span>
-          </label>
-        </div>
-        <button type="button" class="button" onclick="editDetails()">
-          Edit Details
-        </button>
-        <button type="button" class="button" onclick="logout()">Logout</button>
-        <p id="go-to-customer-service">
-          Need help? <a href="">Customer service</a>
-        </p>
-      </form>
-    </div>
+      </div>
+      <button type="button" class="button" onclick="editDetails()">
+        Edit Details
+      </button>
+      <button type="button" class="button" onclick="logout()">Logout</button>
+      <p id="go-to-customer-service">
+        Need help? <a href="../screens/forum.html">Customer service</a>
+      </p>
+    </form>
+  </div>
 
-    <script type="module">
-      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-      import {
-        getAuth,
-        onAuthStateChanged,
-        updatePassword
-      } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
-      import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
-      import { bottomNavigationBar } from "../common/bottom_navigation_bar.js";
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+    import {
+      getAuth,
+      onAuthStateChanged,
+      updatePassword
+    } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+    import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+    import { bottomNavigationBar } from "../common/bottom_navigation_bar.js";
 
-      const firebaseConfig = {
-        apiKey: "AIzaSyDhPUkqiqku9P2vzCGvZmWzdo0nDzAKTR0",
-        authDomain: "babysync-pwa.firebaseapp.com",
-        projectId: "babysync-pwa",
-        storageBucket: "babysync-pwa.appspot.com",
-        messagingSenderId: "526444280562",
-        appId: "1:526444280562:web:2e1de1423b222427b76e6b",
-      };
+    const firebaseConfig = {
+      apiKey: "AIzaSyDhPUkqiqku9P2vzCGvZmWzdo0nDzAKTR0",
+      authDomain: "babysync-pwa.firebaseapp.com",
+      projectId: "babysync-pwa",
+      storageBucket: "babysync-pwa.appspot.com",
+      messagingSenderId: "526444280562",
+      appId: "1:526444280562:web:2e1de1423b222427b76e6b",
+    };
 
-      const app = initializeApp(firebaseConfig);
-      const db = getFirestore(app);
-      const auth = getAuth(app);
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+    const auth = getAuth(app);
 
-      onAuthStateChanged(auth, async (user) => {
-        if (user) {
-          const userDocRef = doc(db, "users", user.uid);
-          const userDoc = await getDoc(userDocRef);
+    onAuthStateChanged(auth, async (user) => {
+      if (user) {
+        const userDocRef = doc(db, "users", user.uid);
+        const userDoc = await getDoc(userDocRef);
 
-          if (userDoc.exists()) {
-            const userData = userDoc.data();
-            const email = userData.email;
-            document.getElementById('email').value = email;
+        if (userDoc.exists()) {
+          const userData = userDoc.data();
+          const email = userData.email;
+          document.getElementById('email').value = email;
+        } else {
+          console.log("No such document!");
+        }
+      } else {
+        console.log("No user is signed in.");
+      }
+    });
+
+    window.editDetails = async () => {
+      const user = auth.currentUser; //ref fr current user 
+      const newPassword = document.getElementById('password').value;
+
+      if (user) {
+        try {
+          if (newPassword) {
+            await updatePassword(user, newPassword);
+            alert('Password updated successfully');
           } else {
-            console.log("No such document!");
+            alert('No new password provided');
           }
-        } else {
-          console.log("No user is signed in.");
+        } catch (error) {
+          console.error('Error updating password:', error);
+          alert('Error updating password');
         }
+      } else {
+        alert('No user is signed in');
+      }
+    };
+
+    window.logout = () => {
+      auth.signOut().then(() => {
+        alert('User signed out');
+        window.location.href = 'signin.html';
+      }).catch((error) => {
+        console.error('Sign out error:', error);
       });
+    };
 
-      window.editDetails = async () => {
-        const user = auth.currentUser; //ref fr current user 
-        const newPassword = document.getElementById('password').value;
+    bottomNavigationBar();
+  </script>
 
-        if (user) {
-          try {
-            if (newPassword) {
-              await updatePassword(user, newPassword);
-              alert('Password updated successfully');
-            } else {
-              alert('No new password provided');
-            }
-          } catch (error) {
-            console.error('Error updating password:', error);
-            alert('Error updating password');
-          }
-        } else {
-          alert('No user is signed in');
-        }
-      };
+  <script src="../assets/js/db.js"></script>
+  <script src="../assets/js/settings.js"></script>
+  <script src="../assets/js/password_script.js"></script>
+  <script src="../assets/validation/settings_validation.js"></script>
+  <script src="../assets/js/nav.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
 
-      window.logout = () => {
-        auth.signOut().then(() => {
-          alert('User signed out');
-          window.location.href = 'signin.html';
-        }).catch((error) => {
-          console.error('Sign out error:', error);
-        });
-      };
-
-      bottomNavigationBar();
-    </script>
-
-    <script src="../assets/js/db.js"></script>
-    <script src="../assets/js/settings.js"></script>
-    <script src="../assets/js/password_script.js"></script>
-    <script src="../assets/validation/settings_validation.js"></script>
-    <script src="../assets/js/nav.js"></script>
-    <script src="assets/js/app.js"></script>
-  </body>
 </html>
