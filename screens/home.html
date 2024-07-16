@@ -1,123 +1,138 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Home</title>
-    <link rel="stylesheet" href="../assets/css/home.css" />
-    <link rel="stylesheet" href="../assets/css/global.css" />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/icon?family=Material+Icons"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css"
-    />
-    <link rel="manifest" href="/manifest.json" />
-    <meta name="theme-color" content="#00bfff" />
-  </head>
-  <body>
-    <div class="app">
-      <header>
-        <img class="logo" src="../assets/icons/app_icon.png" alt="logo" />
-      </header>
-      <main>
-        <section class="banner-container">
-          <img
-            class="banner"
-            src="../assets/images/BabyBanner1.jpg"
-            alt="banner"
-          />
-          <img
-            class="banner"
-            src="../assets/images/BabyBanner2.jpg"
-            alt="banner2"
-          />
-          <img
-            class="banner"
-            src="../assets/images/BabyBanner3.jpg"
-            alt="banner3"
-          />
-        </section>
-        <section class="content-boxes">
-          <div class="box">
-            <a href="../screens/addforum.html">
-              <div class="box-content" id="customer-service">
-                <img
-                  src="../assets/images/customerservice.png"
-                  class="icon-size"
-                />
-              </div>
-            </a>
-          </div>
-          <div class="box">
-            <a href="../screens/calendar.html">
-              <div class="box-content" id="calendar">
-                <i class="material-icons">perm_contact_calendar</i>
-              </div>
-            </a>
-          </div>
-          <div class="box">
-            <a href="../screens/forum.html">
-              <div class="box-content" id="community-forum">
-                <img src="../assets/images/users.png" class="icon-size" />
-              </div>
-            </a>
-          </div>
-          <div class="box">
-            <a href="../screens/settings.html">
-              <div class="box-content" id="settings">
-                <i class="material-icons">settings</i>
-              </div>
-            </a>
-          </div>
-          <div class="box">
-            <a href="https://shopee.sg">
-              <div class="box-content" id="shopping">
-                <i class="material-icons">shopping_basket</i>
-              </div>
-            </a>
-          </div>
-        </section>
-        <section class="baby-profiles-container" id="babyProfilesContainer">
-          <!-- Baby profiles will be dynamically added here -->
-        </section>
-      </main>
-    </div>
-    <!-- Import Firebase SDKs and Bottom Nav -->
-    <script type="module">
-      import { bottomNavigationBar } from "../common/bottom_navigation_bar.js";
-      import { homeBabyProfileCard } from "../src/components/home/home_baby_profile_card.js";
-      import { homeAddBabyProfileCardButton } from "../src/components/home/home_add_baby_profile_button.js";
-      import {
-        db,
-        auth,
-        collection,
-        doc,
-        setDoc,
-      } from "../src/components/firebase_configuration.js";
 
-      const babyProfile = {
-        icon: "child_care",
-        name: "Baby 1",
-        age: "15 months",
-        height: "50.8cm",
-      };
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Home</title>
+  <link rel="stylesheet" href="../assets/css/home.css" />
+  <link rel="stylesheet" href="../assets/css/global.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css" />
+  <link rel="manifest" href="/manifest.json" />
+  <meta name="theme-color" content="#00bfff" />
+  <style>
+    .banner-container {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+    }
 
-      homeBabyProfileCard(babyProfile);
-      homeAddBabyProfileCardButton();
-      bottomNavigationBar();
+    .banner {
+      position: absolute;
+      width: 100%;
+      height: auto;
+      opacity: 0;
+      transition: opacity 1s;
+    }
 
-      window.db = db;
-      window.auth = auth;
-      window.collection = collection;
-      window.doc = doc;
-      window.setDoc = setDoc;
-    </script>
+    .banner.active {
+      opacity: 1;
+    }
+  </style>
+</head>
 
-    <script src="../assets/js/nav.js"></script>
-    <script src="../assets/js/home.js"></script>
-    <script src="../assets/js/app.js"></script>
-  </body>
+<body>
+  <div class="app">
+    <header>
+      <img class="logo" src="../assets/icons/app_icon.png" alt="logo" />
+    </header>
+    <main>
+      <section class="banner-container">
+        <img class="banner active" src="../assets/images/BabyBanner1.jpg" alt="banner" />
+        <img class="banner" src="../assets/images/BabyBanner2.jpg" alt="banner2" />
+        <img class="banner" src="../assets/images/BabyBanner3.jpg" alt="banner3" />
+      </section>
+      <section class="content-boxes">
+        <div class="box">
+          <a href="../screens/addforum.html">
+            <div class="box-content" id="customer-service">
+              <img src="../assets/images/customerservice.png" class="icon-size" />
+            </div>
+          </a>
+        </div>
+        <div class="box">
+          <a href="../screens/calendar.html">
+            <div class="box-content" id="calendar">
+              <i class="material-icons">perm_contact_calendar</i>
+            </div>
+          </a>
+        </div>
+        <div class="box">
+          <a href="../screens/forum.html">
+            <div class="box-content" id="community-forum">
+              <img src="../assets/images/users.png" class="icon-size" />
+            </div>
+          </a>
+        </div>
+        <div class="box">
+          <a href="../screens/settings.html">
+            <div class="box-content" id="settings">
+              <i class="material-icons">settings</i>
+            </div>
+          </a>
+        </div>
+        <div class="box">
+          <a href="https://shopee.sg">
+            <div class="box-content" id="shopping">
+              <i class="material-icons">shopping_basket</i>
+            </div>
+          </a>
+        </div>
+      </section>
+      <section class="baby-profiles-container" id="babyProfilesContainer">
+        <!-- Baby profiles will be dynamically added here -->
+      </section>
+    </main>
+  </div>
+  <!-- Import Firebase SDKs and Bottom Nav -->
+  <script type="module">
+    import { bottomNavigationBar } from "../common/bottom_navigation_bar.js";
+    import { homeBabyProfileCard } from "../src/components/home/home_baby_profile_card.js";
+    import { homeAddBabyProfileCardButton } from "../src/components/home/home_add_baby_profile_button.js";
+    import {
+      db,
+      auth,
+      collection,
+      doc,
+      setDoc,
+    } from "../src/components/firebase_configuration.js";
+
+    const babyProfile = {
+      icon: "child_care",
+      name: "Baby 1",
+      age: "15 months",
+      height: "50.8cm",
+    };
+
+    homeBabyProfileCard(babyProfile);
+    homeAddBabyProfileCardButton();
+    bottomNavigationBar();
+
+    window.db = db;
+    window.auth = auth;
+    window.collection = collection;
+    window.doc = doc;
+    window.setDoc = setDoc;
+  </script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      let index = 0;
+      const banners = document.querySelectorAll(".banner");
+      const totalBanners = banners.length;
+
+      function showNextBanner() {
+        banners[index].classList.remove("active");
+        index = (index + 1) % totalBanners;
+        banners[index].classList.add("active");
+      }
+
+      setInterval(showNextBanner, 2500); // Change image every 3 seconds
+    });
+  </script>
+  <script src="../assets/js/nav.js"></script>
+  <script src="../assets/js/home.js"></script>
+  <script src="../assets/js/app.js"></script>
+</body>
+
 </html>
