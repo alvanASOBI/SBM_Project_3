@@ -71,30 +71,78 @@
     import { bottomNavigationBar } from "../common/bottom_navigation_bar.js";
     import { homeBabyProfileCard } from "../src/components/home/home_baby_profile_card.js";
     import { homeAddBabyProfileCardButton } from "../src/components/home/home_add_baby_profile_button.js";
-    import {
-      db,
-      auth,
-      collection,
-      doc,
-      setDoc,
-    } from "../src/components/firebase_configuration.js";
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+    import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+    import { getFirestore, collection, query, where, getDocs } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
-    const babyProfile = {
-      icon: "child_care",
-      name: "Baby 1",
-      age: "15 months",
-      height: "50.8cm",
+    const firebaseConfig = {
+      apiKey: "AIzaSyDhPUkqiqku9P2vzCGvZmWzdo0nDzAKTR0",
+      authDomain: "babysync-pwa.firebaseapp.com",
+      projectId: "babysync-pwa",
+      storageBucket: "babysync-pwa.appspot.com",
+      messagingSenderId: "526444280562",
+      appId: "1:526444280562:web:2e1de1423b222427b76e6b",
     };
 
-    homeBabyProfileCard(babyProfile);
-    homeAddBabyProfileCardButton();
-    bottomNavigationBar();
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+    const auth = getAuth(app);
 
-    window.db = db;
-    window.auth = auth;
-    window.collection = collection;
-    window.doc = doc;
-    window.setDoc = setDoc;
+    // Function to fetch and display baby profiles
+    async function displayBabyProfiles() {
+      const babyProfilesContainer = document.getElementById('babyProfilesContainer');
+
+      try {
+        onAuthStateChanged(auth, async (user) => {
+          if (user) {
+            // Fetch baby profiles from Firestore based on userId
+            const q = query(collection(db, 'babyProfile'), where('userId', '==', user.uid));
+            const querySnapshot = await getDocs(q);
+
+            // Clear previous content
+            babyProfilesContainer.innerHTML = '';
+
+            // Iterate through the documents
+            querySnapshot.forEach((doc) => {
+              const babyProfile = doc.data();
+
+              // Create HTML elements to display each baby profile
+              const profileDiv = document.createElement('div');
+              profileDiv.classList.add('baby-profile');
+
+              // Example structure, adjust as per your actual data fields
+              profileDiv.innerHTML = `
+                <div class="baby-container">
+                  <div class="baby-info">
+                    <i class="material-icons baby-icon">child_care</i>
+                    <div class="baby-details">
+                      <span class="baby-name">Name: ${babyProfile.name}</span>
+                      <span class="baby-age">Age: ${babyProfile.age}</span>
+                      <span class="baby-height">Height: ${babyProfile.height} cm</span>
+                    </div>
+                  </div>
+                </div>
+              `;
+
+              // Append the profile div to the container
+              babyProfilesContainer.appendChild(profileDiv);
+            });
+          } else {
+            console.log('No user is signed in');
+          }
+        });
+      } catch (error) {
+        console.error('Error fetching baby profiles: ', error);
+      }
+    }
+
+    // Call the function to display baby profiles when the page loads
+    document.addEventListener('DOMContentLoaded', () => {
+      displayBabyProfiles();
+    });
+
+    bottomNavigationBar();
+    homeAddBabyProfileCardButton();
   </script>
   <script>
     setInterval(showNextBanner, 4000);
