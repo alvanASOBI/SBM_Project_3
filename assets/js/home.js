@@ -10,28 +10,6 @@
 
 // setInterval(showNextBanner, 4000);
 
-let currentBanner = 0;
-const banners = document.querySelectorAll('.banner');
-const totalBanners = banners.length;
-
-function showNextBanner() {
-    banners.forEach((banner, index) => {
-        banner.style.transform = `translateX(-${currentBanner * 100}%)`;
-    });
-
-    currentBanner = (currentBanner + 1) % totalBanners;
-
-    banners.forEach((banner, index) => {
-        banner.style.transform = `translateX(-${currentBanner * 100}%)`;
-    });
-}
-
-banners.forEach((banner, index) => {
-    banner.style.transform = `translateX(-${index * 100}%)`;
-});
-
-setInterval(showNextBanner, 4000);
-
 // Import necessary Firestore functionalities if not already imported
 import { db, collection, getDocs } from "../src/components/firebase_configuration.js";
 
@@ -58,11 +36,11 @@ async function displayBabyProfiles() {
       profileDiv.innerHTML = `
         <div class="baby-container">
           <div class="baby-info">
-            <i class="material-icons baby-icon">${babyProfile.icon}</i>
+            <i class="material-icons baby-icon">child_care</i>
             <div class="baby-details">
-              <span class="baby-name">${babyProfile.name}</span>
-              <span class="baby-age">${babyProfile.age}</span>
-              <span class="baby-height">${babyProfile.height}</span>
+              <span class="baby-name">Name: ${babyProfile.Name}</span>
+              <span class="baby-age">Age: ${babyProfile.Age} months</span>
+              <span class="baby-height">Height: ${babyProfile.height} cm</span>
             </div>
           </div>
         </div>
@@ -80,5 +58,6 @@ async function displayBabyProfiles() {
 document.addEventListener('DOMContentLoaded', () => {
   displayBabyProfiles();
 });
+
 
 
