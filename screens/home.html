@@ -11,25 +11,6 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css" />
   <link rel="manifest" href="/manifest.json" />
   <meta name="theme-color" content="#00bfff" />
-  <style>
-    .banner-container {
-      position: relative;
-      width: 100%;
-      overflow: hidden;
-    }
-
-    .banner {
-      position: absolute;
-      width: 100%;
-      height: auto;
-      opacity: 0;
-      transition: opacity 1s;
-    }
-
-    .banner.active {
-      opacity: 1;
-    }
-  </style>
 </head>
 
 <body>
@@ -116,19 +97,29 @@
     window.setDoc = setDoc;
   </script>
   <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      let index = 0;
-      const banners = document.querySelectorAll(".banner");
-      const totalBanners = banners.length;
+    setInterval(showNextBanner, 4000);
 
-      function showNextBanner() {
-        banners[index].classList.remove("active");
-        index = (index + 1) % totalBanners;
-        banners[index].classList.add("active");
-      }
+    let currentBanner = 0;
+    const banners = document.querySelectorAll('.banner');
+    const totalBanners = banners.length;
 
-      setInterval(showNextBanner, 2500); // Change image every 3 seconds
+    function showNextBanner() {
+        banners.forEach((banner, index) => {
+            banner.style.transform = `translateX(-${currentBanner * 100}%)`;
+        });
+
+        currentBanner = (currentBanner + 1) % totalBanners;
+
+        banners.forEach((banner, index) => {
+            banner.style.transform = `translateX(-${currentBanner * 100}%)`;
+        });
+    }
+
+    banners.forEach((banner, index) => {
+        banner.style.transform = `translateX(-${index * 100}%)`;
     });
+
+    setInterval(showNextBanner, 4000);
   </script>
   <script src="../assets/js/nav.js"></script>
   <script src="../assets/js/home.js"></script>
