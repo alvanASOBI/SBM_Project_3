@@ -19,8 +19,8 @@ const assets = [
     'assets/css/consult.css',
     'assets/css/forum.css',
     'assets/css/global.css',
-    'assets/css/nannybooking.css',
     'assets/css/home.css',
+    'assets/css/nannybooking.css',
     'assets/css/settings.css',
     'assets/css/styles.css',
     // ------ All the js cached ------
@@ -30,10 +30,11 @@ const assets = [
     'assets/js/app.js',
     'assets/js/bookingdetail.js',
     'assets/js/calendar.js',
+    'assets/js/db.js',
     'assets/js/forum.js',
+    'assets/js/home.js',
     'assets/js/nannybooking.js',
     'assets/js/nav.js',
-    'assets/js/home.js',
     'assets/js/password_script.js',
     'assets/js/settings.js',
     // ------ All the js validation cached ------
@@ -42,6 +43,8 @@ const assets = [
     'assets/validation/settings_validation.js',
     'assets/validation/signin_validation.js',
     'assets/validation/signup_validation.js',
+    // ------ All the js common cached ------
+    'common/bottom_navigation_bar.js',
     // ------ All the icons cached ------
     'assets/icons/app_icon_x48.png',
     'assets/icons/app_icon_x72.png',
@@ -49,6 +52,7 @@ const assets = [
     'assets/icons/app_icon_x144.png',
     'assets/icons/app_icon_x192.png',
     'assets/icons/app_icon_x512.png',
+    'assets/icons/app_icon.png',
     // ------ All the png, jpg, jpeg, svg cached ------
     'assets/images/BabyBanner1.jpg',
     'assets/images/BabyBanner2.jpg',
@@ -57,21 +61,27 @@ const assets = [
     'assets/images/customerservice.png',
     'assets/images/eye_closed.svg',
     'assets/images/eye_open.svg',
-    'assets/images/healthy.png',
     'assets/images/like.png',
+    'assets/images/users.png',
     // ------ All the screen html cached ------
     'screens/addaccount.html',
     'screens/addforum.html',
     'screens/allbookings.html',
     'screens/bookingdetail.html',
     'screens/calendar.html',
+    'screens/fallback.html',
     'screens/forum.html',
-    'screens/nannybooking.html',
     'screens/home.html',
+    'screens/nannybooking.html',
     'screens/settings.html',
     'screens/signin.html',
     'screens/signup.html',
-    'screens/fallback.html',
+    // ------ All the components cached ------
+    'src/main.js',
+    'src/components/firebase_configuration.js',
+    // ------ All the components for home cached ------
+    'src/components/home/home_add_baby_profile_button.js',
+    'src/components/home/home_baby_profile_card.js',
     // ------ All the links for Firebase ------
     'https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js',
     'https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js',
