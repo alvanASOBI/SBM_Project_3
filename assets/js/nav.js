@@ -139,20 +139,20 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 });
 
-// Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "firebase/app";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
 
-// Your web app's Firebase configuration
-const firebaseConfig = {
-  apiKey: "AIzaSyDhPUkqiqku9P2vzCGvZmWzdo0nDzAKTR0",
-  authDomain: "babysync-pwa.firebaseapp.com",
-  projectId: "babysync-pwa",
-  storageBucket: "babysync-pwa.appspot.com",
-  messagingSenderId: "526444280562",
-  appId: "1:526444280562:web:2e1de1423b222427b76e6b"
-};
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+    apiKey: "AIzaSyDhPUkqiqku9P2vzCGvZmWzdo0nDzAKTR0",
+    authDomain: "babysync-pwa.firebaseapp.com",
+    projectId: "babysync-pwa",
+    storageBucket: "babysync-pwa.appspot.com",
+    messagingSenderId: "526444280562",
+    appId: "1:526444280562:web:2e1de1423b222427b76e6b"
+    };
 
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
