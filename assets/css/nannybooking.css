@@ -11,6 +11,9 @@
         padding-bottom: 80px;
       }
 
+      .viewbook{
+        text-align: center;
+      }
       .search-container {
         display: flex;
         align-items: center;
