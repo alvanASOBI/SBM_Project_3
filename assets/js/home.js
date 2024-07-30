@@ -1,4 +1,4 @@
-import { db, collection, getDocs } from "../src/components/firebase_configuration.js";
+// import { db, collection, getDocs } from "../src/components/firebase_configuration.js";
 
 // Function to fetch and display baby profiles
 async function displayBabyProfiles() {
