@@ -1,16 +1,30 @@
-const staticCacheName = 'site-static-v3';
-const dynamicCacheName = 'site-dynamic-v2';
-const assets = [
-    '/',
-    '/index.html',
-    // ------ All the materialize css cached ------
+const staticCacheName = 'site-static-v4';
+const dynamicCacheName = 'site-dynamic-v4';
+
+const staticAssets = [
+    '/', // Root path
+    '/index.html', // Main HTML file
+    '/screens/fallback.html', // Fallback for offline
+    // CSS Frameworks
     '/assets/css/materialize.css',
-    '/assets/js/materialize.js',
-    'https://fonts.googleapis.com/icon?family=Material+Icons',
-    'https://fonts.gstatic.com/s/materialicons/v142/flUhRq6tzZclQEJ-Vdg-IuiaDsNcIhQ8tQ.woff2',
     'https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css',
     'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css',
-    // ------ All the css cached ------
+    // JavaScript Frameworks
+    '/assets/js/materialize.js',
+    // External Fonts and Icons
+    'https://fonts.googleapis.com/icon?family=Material+Icons',
+    'https://fonts.gstatic.com/s/materialicons/v142/flUhRq6tzZclQEJ-Vdg-IuiaDsNcIhQ8tQ.woff2',
+    // App Icons
+    'assets/icons/app_icon_x48.png',
+    'assets/icons/app_icon_x72.png',
+    'assets/icons/app_icon_x96.png',
+    'assets/icons/app_icon_x144.png',
+    'assets/icons/app_icon_x192.png',
+    'assets/icons/app_icon_x512.png'
+];
+
+const dynamicAssets = [
+    // CSS files for specific functionality
     'assets/css/addaccount.css',
     'assets/css/addforum.css',
     'assets/css/allbookings.css',
@@ -23,7 +37,7 @@ const assets = [
     'assets/css/nannybooking.css',
     'assets/css/settings.css',
     'assets/css/styles.css',
-    // ------ All the js cached ------
+    // JavaScript files for specific functionality
     'assets/js/addaccount.js',
     'assets/js/addforum.js',
     'assets/js/allbookings.js',
@@ -37,23 +51,15 @@ const assets = [
     'assets/js/nav.js',
     'assets/js/password_script.js',
     'assets/js/settings.js',
-    // ------ All the js validation cached ------
+    // JS validation files
     'assets/validation/addaccount_validation.js',
     'assets/validation/bookingdetail_validation.js',
     'assets/validation/settings_validation.js',
     'assets/validation/signin_validation.js',
     'assets/validation/signup_validation.js',
-    // ------ All the js common cached ------
+    // Common JS files
     'common/bottom_navigation_bar.js',
-    // ------ All the icons cached ------
-    'assets/icons/app_icon_x48.png',
-    'assets/icons/app_icon_x72.png',
-    'assets/icons/app_icon_x96.png',
-    'assets/icons/app_icon_x144.png',
-    'assets/icons/app_icon_x192.png',
-    'assets/icons/app_icon_x512.png',
-    'assets/icons/app_icon.png',
-    // ------ All the png, jpg, jpeg, svg cached ------
+    // Images and icons
     'assets/images/BabyBanner1.jpg',
     'assets/images/BabyBanner2.jpg',
     'assets/images/BabyBanner3.jpg',
@@ -63,30 +69,28 @@ const assets = [
     'assets/images/eye_open.svg',
     'assets/images/like.png',
     'assets/images/users.png',
-    // ------ All the screen html cached ------
+    // HTML pages for dynamic screens
     'screens/addaccount.html',
     'screens/addforum.html',
     'screens/allbookings.html',
     'screens/bookingdetail.html',
     'screens/calendar.html',
-    'screens/fallback.html',
     'screens/forum.html',
     'screens/home.html',
     'screens/nannybooking.html',
     'screens/settings.html',
     'screens/signin.html',
     'screens/signup.html',
-    // ------ All the components cached ------
+    // App-specific JS components
     'src/main.js',
-    'src/components/firebase_configuration.js',
-    // ------ All the components for home cached ------
     'src/components/home/home_add_baby_profile_button.js',
     'src/components/home/home_baby_profile_card.js',
-    // ------ All the links for Firebase ------
+    // Firebase
     'https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js',
     'https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js',
-    'https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js',
+    'https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js'
 ];
+
 
 // Limit the size of the dynamic cache
 const limitCacheSize = (name, size) => {
@@ -103,8 +107,8 @@ const limitCacheSize = (name, size) => {
 self.addEventListener('install', evt => {
     evt.waitUntil(
         caches.open(staticCacheName).then(cache => {
-            console.log('caching shell assets');
-            return cache.addAll(assets);
+            console.log('Caching static assets');
+            return cache.addAll(staticAssets);
         })
     );
 });
@@ -114,8 +118,7 @@ self.addEventListener('activate', evt => {
     evt.waitUntil(
         caches.keys().then(keys => {
             return Promise.all(
-                keys
-                    .filter(key => key !== staticCacheName && key !== dynamicCacheName)
+                keys.filter(key => key !== staticCacheName && key !== dynamicCacheName)
                     .map(key => caches.delete(key))
             );
         })
@@ -134,30 +137,9 @@ self.addEventListener('fetch', evt => {
                 });
             });
         }).catch(() => {
-            if (evt.request.url.indexOf('.html') > -1)
-                return caches.match('/screens/fallback.html')
+            if (evt.request.url.indexOf('.html') > -1) {
+                return caches.match('/screens/fallback.html');
+            }
         })
     );
 });
-
-// Background Sync
-// self.addEventListener('sync', evt => {
-//     if (evt.tag === 'sync-new-posts') {
-//         evt.waitUntil(
-//             // Sync logic here
-//         );
-//     }
-// });
-
-// Push Notifications
-// self.addEventListener('push', evt => {
-//     const data = evt.data.json();
-//     const options = {
-//         body: data.body,
-//         icon: 'icons/app_icon_x144.png',
-//         badge: 'icons/app_icon_x144.png'
-//     };
-//     evt.waitUntil(
-//         self.registration.showNotification(data.title, options)
-//     );
-// });
