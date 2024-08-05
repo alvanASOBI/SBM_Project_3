@@ -79,7 +79,7 @@ const dynamicAssets = [
     'screens/home.html',
     'screens/nannybooking.html',
     'screens/settings.html',
-    'screens/signin.html',
+    'screens/SignIn.html',
     'screens/signup.html',
     // App-specific JS components
     'src/main.js',
