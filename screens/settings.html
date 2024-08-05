@@ -114,7 +114,7 @@
     window.logout = () => {
       auth.signOut().then(() => {
         alert('User signed out');
-        window.location.href = 'signin.html';
+        window.location.href = 'SignIn.html';
       }).catch((error) => {
         console.error('Sign out error:', error);
       });
