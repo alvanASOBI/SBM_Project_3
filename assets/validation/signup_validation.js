@@ -45,7 +45,7 @@ async function registerUser(username, email, password) {
 
         console.log("User data saved to Firestore");
         alert("Registration successful! Redirecting to sign-in page...");
-        window.location.href = "../screens/signin.html";
+        window.location.href = "../screens/Signin.html";
     } catch (error) {
         console.error("Error during registration:", error);
         alert("Error: " + error.message);
